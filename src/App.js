@@ -4,14 +4,15 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    NavLink
 } from 'react-router-dom';
+import  { Hallo, Lebenslauf, Technologien, Referenzen, AndereInteressen }  from './pages';
 
 import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
     state = {
-        
+
     }
 
     render(){
@@ -20,18 +21,30 @@ class App extends React.Component {
         <Router>
             <div>
                 <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Hallo!</Link>
-                        </li>
-                        <li>
-                            <Link to="/lebenslauf">Lebenslauf</Link>
-                        </li>
-                        <li>
-                            <Link to="referenzen">Referenzen</Link>
-                        </li>
-                    </ul>
+                    
+                            <NavLink to="/hallo" activeClassName="activeLink">Hallo!</NavLink>
+                            <NavLink to="/lebenslauf" activeClassName="activeLink">Lebenslauf</NavLink>
+                            <NavLink to="/technologien" activeClassName="activeLink">Technologien</NavLink>
+                            <NavLink to="referenzen" activeClassName="activeLink">Referenzen</NavLink>
+                            <NavLink to="andere-interessen" activeClassName="activeLink">Andere Interessen</NavLink>
                 </nav>
+                <Switch>
+                    <Route path="/lebenslauf">
+                        <Lebenslauf/>
+                    </Route>
+                    <Route path="/technologien">
+                        <Technologien/>
+                    </Route>
+                    <Route path="/referenzen">
+                        <Referenzen/>
+                    </Route>
+                    <Route path="/andere-interessen">
+                        <AndereInteressen/>
+                    </Route>
+                    <Route path="/hallo">
+                        <Hallo/>
+                    </Route>
+                </Switch>
             </div>
         </Router>
         )
