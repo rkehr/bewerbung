@@ -1,21 +1,39 @@
-import React from 'react'
-import {hot} from 'react-hot-loader'
+import React from 'react';
+import ReactDom from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
+
+import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
-    state =  {
-        count: 0,
+    state = {
+        
     }
+
     render(){
         const {count} = this.state
         return(
-        <div>
-            <h1>Hello Whaaaaaat???!!</h1>
-            <h2 className={count > 10 ? 'warning' : null}>
-                Count: {count}
-            </h2>
-        <button onClick={() => this.setState(state => ({count: state.count + 1}))} > + </button>
-        <button onClick={() => this.setState(state => ({count: state.count - 1}))} > - </button>
-        </div>
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Hallo!</Link>
+                        </li>
+                        <li>
+                            <Link to="/lebenslauf">Lebenslauf</Link>
+                        </li>
+                        <li>
+                            <Link to="referenzen">Referenzen</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </Router>
         )
     }
 }

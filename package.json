@@ -1,8 +1,12 @@
 {
-  "name": "mern_poc",
+  "name": "robin_kehr_bewerbungsseite",
   "version": "0.0.1",
   "description": "A Proof of Concept for a complete rewrite of the https://cleaner.earth/ platform using the MERN stack",
   "main": "index.js",
+  "repository": {
+    "url": "https://github.com/rkehr/bewerbung",
+    "type": "git"
+  },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --open --config webpack.config.dev.js ",
@@ -11,15 +15,7 @@
   },
   "author": "Robin Kehr ich@robinkehr.de",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rkehr/cleaner.earth-poc.git"
-  },
   "keywords": [],
-  "bugs": {
-    "url": "https://github.com/rkehr/cleaner.earth-poc/issues"
-  },
-  "homepage": "https://github.com/rkehr/cleaner.earth-poc#readme",
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
@@ -29,6 +25,8 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
     "html-webpack-plugin": "^4.4.1",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",
@@ -40,6 +38,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hot-loader": "^4.12.21"
+    "react-hot-loader": "^4.12.21",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   }
 }
