@@ -1,10 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Page } from '../components';
 
 const Lebenslauf = () => {
-    return <h1>Lebenslauf <FontAwesomeIcon icon="coffee"/></h1>
-
-    
+    return (
+        <Page>
+            <h1>Lebenslauf</h1>
+        </Page>
+    )
 }
 
 export default Lebenslauf;

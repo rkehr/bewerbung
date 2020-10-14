@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,8 +6,11 @@ import {
     NavLink
 } from 'react-router-dom';
 import  { Hallo, Lebenslauf, Technologien, Referenzen, AndereInteressen }  from './pages';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { hot } from 'react-hot-loader';
+
+library.add(faCoffee)
 
 class App extends React.Component {
     state = {
@@ -22,11 +24,11 @@ class App extends React.Component {
             <div>
                 <nav>
                     
-                            <NavLink to="/hallo" activeClassName="activeLink">Hallo!</NavLink>
-                            <NavLink to="/lebenslauf" activeClassName="activeLink">Lebenslauf</NavLink>
-                            <NavLink to="/technologien" activeClassName="activeLink">Technologien</NavLink>
-                            <NavLink to="referenzen" activeClassName="activeLink">Referenzen</NavLink>
-                            <NavLink to="andere-interessen" activeClassName="activeLink">Andere Interessen</NavLink>
+                            <NavLink to="/hallo" activeClassName="activeLink">🙋<br/> Hallo</NavLink>
+                            <NavLink to="/lebenslauf" activeClassName="activeLink">📰<br/>Lebenslauf</NavLink>
+                            <NavLink to="/technologien" activeClassName="activeLink">🎛<br/>Technologien</NavLink>
+                            <NavLink to="referenzen" activeClassName="activeLink">🔖<br/>Referenzen</NavLink>
+                            <NavLink to="andere-interessen" activeClassName="activeLink">📷<br/>Andere Interessen</NavLink>
                 </nav>
                 <Switch>
                     <Route path="/lebenslauf">
