@@ -6,7 +6,7 @@ const Technologien = () => {
         <Page>
             <h1>Technologien</h1>
             <h2>Front End</h2>
-            <SkillLevel name="HTML5" percentage="80"/>
+            <SkillLevel name="HTML5" percentage="100"/>
             <SkillLevel name="CSS3" percentage="75"/>
             <SkillLevel name="JavaScript" percentage="60"/>
             <SkillLevel name="ReactJs" percentage="35"/>

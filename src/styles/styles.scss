@@ -3,7 +3,18 @@ body{
     background-color: #262622;
     color: #eeb;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: semplicitapro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
     box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: parkside,cursive;
+    font-weight: 200;
+    font-style: normal;
+}
+h1{
+    font-weight: 400;
 }
 .warning{
     color: tomato;

@@ -1,0 +1,14 @@
+$skillMeterHeight: .6rem;
+
+.skillMeterBorder{
+    width: 100%;
+    height: $skillMeterHeight;
+    border: #998 1px solid;
+    border-radius: $skillMeterHeight/2;
+    & .skillMeterFill{
+        background: #b66;
+        width: 50%;
+        height: $skillMeterHeight;
+        border-radius: $skillMeterHeight / 2;
+    }
+}
