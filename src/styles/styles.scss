@@ -3,6 +3,7 @@
 @use 'skillMeter.scss';
 
 body{
+    position: relative;
     margin: 0;
     background-color: #262622;
     color: #eeb;
@@ -11,6 +12,7 @@ body{
     font-weight: 300;
     font-style: normal;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: parkside,cursive;
@@ -26,13 +28,13 @@ h1{
 }
 nav {
     position: fixed;
+    z-index:1000;
     bottom: 0;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     & a{
-        z-index: 1000;
         flex-grow: 1;
         text-decoration: none;
         text-align: center;
@@ -62,3 +64,14 @@ nav {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1.5rem;
 }
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ body *::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body * {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  } 

@@ -1,9 +1,13 @@
-import React from 'react'
-import ReactDOM from '@hot-loader/react-dom'
-import App from './App'
-import './styles/styles.scss'
+import React from 'react';
+import ReactDOM from '@hot-loader/react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
+import App from './App';
+import './styles/styles.scss';
 
 ReactDOM.render(
-    <App/>,
+    <Router>
+        <App/>
+    </Router>
+    ,
     document.getElementById('app')
 );
