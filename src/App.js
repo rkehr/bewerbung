@@ -6,6 +6,7 @@ import {
     NavLink
 } from 'react-router-dom';
 import  { Hallo, Lebenslauf, Technologien, Referenzen, AndereInteressen }  from './pages';
+import { SkillLevelData } from './data'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { hot } from 'react-hot-loader';
@@ -35,7 +36,7 @@ class App extends React.Component {
                         <Lebenslauf/>
                     </Route>
                     <Route path="/technologien">
-                        <Technologien/>
+                        <Technologien skillLevelData={ SkillLevelData }/>
                     </Route>
                     <Route path="/referenzen">
                         <Referenzen/>

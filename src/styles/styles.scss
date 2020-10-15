@@ -1,3 +1,7 @@
+@use 'page.scss';
+@use 'skillMeterGroup.scss';
+@use 'skillMeter.scss';
+
 body{
     margin: 0;
     background-color: #262622;
@@ -14,6 +18,7 @@ h1,h2,h3,h4,h5,h6{
     font-style: normal;
 }
 h1{
+    font-size: 3rem;
     font-weight: 400;
 }
 .warning{
@@ -27,6 +32,7 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-evenly;
     & a{
+        z-index: 1000;
         flex-grow: 1;
         text-decoration: none;
         text-align: center;
@@ -41,7 +47,7 @@ nav {
             border-top-width: .025rem;
         }
         &.activeLink{
-            background-color: inherit;
+            background-color: #262622;
             border-top: none;
         }
         &:visited{
@@ -49,4 +55,10 @@ nav {
             }
         }
 
+}
+
+.gridContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
 }

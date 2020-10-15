@@ -1,10 +1,9 @@
 import React from 'react';
-import '../styles/skillMeter.scss'
 
-const SkillLevel = ( { name, percentage } ) => {
+const SkillMeter = ( { name, percentage } ) => {
     return (
         <div>
-            <span> { name } ~{ percentage }% </span>
+            <span> { name }</span>
             <div className="skillMeterBorder">
                 <div className="skillMeterFill" style={{width: percentage+"%"}}>
 
@@ -14,4 +13,4 @@ const SkillLevel = ( { name, percentage } ) => {
     )
 };
 
-export default SkillLevel;
+export default SkillMeter;

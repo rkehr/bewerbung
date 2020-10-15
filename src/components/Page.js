@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/page.scss'
 
 const Page = (props) => {
     return (

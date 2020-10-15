@@ -1,0 +1,17 @@
+.skillMeterGroup{
+    border: #998 1px solid;
+    border-radius: 2rem;
+    padding: 2rem;
+    & h2{
+        position: relative;
+        transform: translateY( -.2rem);
+        z-index: 1;
+        float: left;
+        clear: left;
+        font-size: 1.7rem;
+        margin: 0;
+        margin-top: -3rem;
+        padding: 0 .5rem;
+        background: #262622;
+    }
+}

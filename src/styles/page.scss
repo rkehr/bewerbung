@@ -1,7 +1,8 @@
 .page{
     margin-left: auto;
     margin-right:auto;
-    width: clamp(30ch, 40%, 80ch);
+    width: clamp(30ch, 60%, 80ch);
+    padding-bottom: 7rem;
     & h1{
         text-align: center;
     }

@@ -1,7 +1,9 @@
 import Page from './Page';
-import SkillLevel from './SkillLevel'
+import SkillMeter from './SkillMeter';
+import SkillMeterGroup from './SkillMeterGroup';
 
 export {
     Page,
-    SkillLevel
+    SkillMeter,
+    SkillMeterGroup
 }
