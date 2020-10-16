@@ -1,3 +1,7 @@
 import { SkillLevelData } from './SkillLevelData';
+import { TimeLineData } from './TimeLineData';
 
-export { SkillLevelData }
+export { 
+    SkillLevelData,
+    TimeLineData
+}

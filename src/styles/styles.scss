@@ -1,6 +1,8 @@
+@use 'containers.scss';
 @use 'page.scss';
 @use 'skillMeterGroup.scss';
 @use 'skillMeter.scss';
+@use 'calenderMonth.scss';
 
 body{
     position: relative;
@@ -38,8 +40,9 @@ nav {
         flex-grow: 1;
         text-decoration: none;
         text-align: center;
-        background-color: #181818;
+        background-color: #191919;
         border-top: .05rem solid orange;
+        border-bottom: 0 solid orange;
         color: inherit;
         padding: 1rem;
 
@@ -47,10 +50,12 @@ nav {
         &:hover{
             background-color: #1d1d1d;
             border-top-width: .025rem;
+            border-top-width: .025rem;
         }
         &.activeLink{
             background-color: #262622;
-            border-top: none;
+            border-top-width: 0;
+            border-bottom-width: .05rem;
         }
         &:visited{
             color: inherit;
@@ -63,6 +68,9 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1.5rem;
+}
+.columns-3{
+    grid-template-columns: repeat(3, 1fr);
 }
 
  /* Hide scrollbar for Chrome, Safari and Opera */

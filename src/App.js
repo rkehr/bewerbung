@@ -15,7 +15,7 @@ import  {
     Technologien,
     Referenzen,
     AndereInteressen }  from './pages';
-import { SkillLevelData } from './data'
+import { SkillLevelData, TimeLineData } from './data'
 
 
 
@@ -31,9 +31,8 @@ const App = () => {
         </nav>
         <AnimatePresence>
             <Switch location={location} key={location.key}>
-                {console.log(location)}
                 <Route path="/lebenslauf">
-                    <Lebenslauf/>
+                    <Lebenslauf timeLineData={ TimeLineData }/>
                 </Route>
                 <Route path="/technologien">
                     <Technologien skillLevelData={ SkillLevelData }/>

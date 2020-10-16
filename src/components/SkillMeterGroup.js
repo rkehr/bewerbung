@@ -3,7 +3,7 @@ import { SkillMeter } from '.';
 
 const SkillMeterGroup = ( { groupName, skillLevels, children} ) => {
     return (
-        <div className="skillMeterGroup">
+        <div className="borderedContainer">
             <h2>{groupName}</h2>
             {children}
             {
