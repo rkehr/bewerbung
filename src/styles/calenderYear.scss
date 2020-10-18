@@ -1,24 +1,24 @@
-.calenderYear{
-
-    $calenderMonthRadius: .2rem;
-    .calenderMonth{
-        min-height: 1rem;
-        border: #eeb 1px solid;
-        margin: .2rem;
-        div{
-            opacity: .6;
-        }
-        &:first-child, &:first-child > *:first-child{
-            border-top-left-radius: $calenderMonthRadius;
-            border-top-right-radius: $calenderMonthRadius;
-        }
-        &:last-child, &:last-child > *:last-child{
-            border-bottom-left-radius: $calenderMonthRadius;
-            border-bottom-right-radius: $calenderMonthRadius;
-        }
-        & > p{
-            
-            font-size: .5rem;
-        }
+.calenderYear {
+  $calenderMonthRadius: 0.2rem;
+  .calenderMonth {
+    min-height: 1rem;
+    border: #eeb 1px solid;
+    margin: 0.2rem;
+    div {
+      opacity: 0.6;
     }
+    &:first-child,
+    &:first-child > *:first-child {
+      border-top-left-radius: $calenderMonthRadius;
+      border-top-right-radius: $calenderMonthRadius;
+    }
+    &:last-child,
+    &:last-child > *:last-child {
+      border-bottom-left-radius: $calenderMonthRadius;
+      border-bottom-right-radius: $calenderMonthRadius;
+    }
+    & > p {
+      font-size: 0.5rem;
+    }
+  }
 }

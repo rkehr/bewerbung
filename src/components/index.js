@@ -6,10 +6,10 @@ import SkillMeter from './SkillMeter';
 import SkillMeterGroup from './SkillMeterGroup';
 
 export {
-    Calender,
-    CalenderMonth,
-    CalenderYear,
-    Page,
-    SkillMeter,
-    SkillMeterGroup
-}
+  Calender,
+  CalenderMonth,
+  CalenderYear,
+  Page,
+  SkillMeter,
+  SkillMeterGroup,
+};

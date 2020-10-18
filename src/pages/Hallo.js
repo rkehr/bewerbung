@@ -1,13 +1,13 @@
 import React from 'react';
-import { Page } from '../components'
+import { Page } from '../components';
 
 const Hallo = () => {
-    return (
+  return (
     <Page>
-        <h1> Hallo!!</h1>
-        <p> Ich bin ein Text </p>
+      <h1> Hallo!!</h1>
+      <p> Ich bin ein Text </p>
     </Page>
-    );
-}
+  );
+};
 
 export default Hallo;

@@ -5,108 +5,113 @@
 @use 'calenderMonth.scss';
 @use 'calenderYear.scss';
 
-body{
-    position: relative;
-    margin: 0;
-    background-color: #262622;
-    color: #eeb;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-family: semplicitapro, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    box-sizing: border-box;
-    overflow-x: hidden;
+body {
+  position: relative;
+  margin: 0;
+  background-color: #262622;
+  color: #eeb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: semplicitapro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
-h1,h2,h3,h4,h5,h6{
-    font-family: parkside,cursive;
-    font-weight: 200;
-    font-style: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: parkside, cursive;
+  font-weight: 200;
+  font-style: normal;
 }
-h1{
-    font-size: 3rem;
-    font-weight: 400;
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
 }
-.warning{
-    color: tomato;
+.warning {
+  color: tomato;
 }
 nav {
-    position: fixed;
-    z-index:1000;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    a{
-        position: relative;
-        flex-grow: 1;
-        text-decoration: none;
-        text-align: center;
-        background-color: #191919;
-        //border-top: .05rem solid orange;
-        //border-bottom: 0 solid orange;
-        color: inherit;
-        padding: 1rem;
-        transition: background-color .1s ease-in-out, border-top .15s ease-in-out;
-        span{
-            position: absolute;
-            z-index: 1001;
-        }
-        &::before{
-            content: '';
-            width: 100%;
-            position: absolute;
-            top: 0%;
-            bottom: 98%;
-            opacity:1;
-            left: 0;
-            right: 0;
-            background:orange;
-            transition: top .3s ease-in-out, bottom .3s ease-in-out, opacity .4s ease-in-out;
-        }
-        &:hover::before{
-            top:0%;
-            bottom:0%;
-            opacity: .2;
-        }
-        &.activeLink::before{
-            top: 98%;
-            bottom:0%;
-            opacity:1
-        }
-        &:hover{
-            background-color: #1d1d1d;
-            border-top-width: .025rem;
-            border-top-width: .025rem;
-        }
-        &.activeLink{
-            background-color: #262622;
-            border-top-width: 0;
-            border-bottom-width: .05rem;
-        }
-        &:visited{
-            color: inherit;
-            }
-        }
-
-}
-
-.gridContainer{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1.5rem;
-}
-.columns-3{
-    grid-template-columns: repeat(3, 1fr);
-}
-
- /* Hide scrollbar for Chrome, Safari and Opera */
- body *::-webkit-scrollbar {
-    display: none;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  a {
+    position: relative;
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    background-color: #191919;
+    //border-top: .05rem solid orange;
+    //border-bottom: 0 solid orange;
+    color: inherit;
+    padding: 1rem;
+    transition: background-color 0.1s ease-in-out, border-top 0.15s ease-in-out;
+    span {
+      position: absolute;
+      z-index: 1001;
+    }
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0%;
+      bottom: 98%;
+      opacity: 1;
+      left: 0;
+      right: 0;
+      background: orange;
+      transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out,
+        opacity 0.4s ease-in-out;
+    }
+    &:hover::before {
+      top: 0%;
+      bottom: 0%;
+      opacity: 0.2;
+    }
+    &.activeLink::before {
+      top: 98%;
+      bottom: 0%;
+      opacity: 1;
+    }
+    &:hover {
+      background-color: #1d1d1d;
+      border-top-width: 0.025rem;
+      border-top-width: 0.025rem;
+    }
+    &.activeLink {
+      background-color: #262622;
+      border-top-width: 0;
+      border-bottom-width: 0.05rem;
+    }
+    &:visited {
+      color: inherit;
+    }
   }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  body * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  } 
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+.columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body *::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body * {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
