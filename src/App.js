@@ -23,7 +23,7 @@ const App = () => {
     const location = useLocation();
     return(<>
         <nav>
-                    <NavLink to="/hallo" activeClassName="activeLink">🙋<br/> Hallo</NavLink>
+                    <NavLink to="/hallo" activeClassName="activeLink"><span>🙋<br/> Hallo</span></NavLink>
                     <NavLink to="/lebenslauf" activeClassName="activeLink">📰<br/>Lebenslauf</NavLink>
                     <NavLink to="/technologien" activeClassName="activeLink">🎛<br/>Technologien</NavLink>
                     <NavLink to="referenzen" activeClassName="activeLink">🔖<br/>Referenzen</NavLink>

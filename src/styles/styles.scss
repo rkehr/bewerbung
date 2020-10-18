@@ -3,6 +3,7 @@
 @use 'skillMeterGroup.scss';
 @use 'skillMeter.scss';
 @use 'calenderMonth.scss';
+@use 'calenderYear.scss';
 
 body{
     position: relative;
@@ -36,17 +37,43 @@ nav {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    & a{
+    a{
+        position: relative;
         flex-grow: 1;
         text-decoration: none;
         text-align: center;
         background-color: #191919;
-        border-top: .05rem solid orange;
-        border-bottom: 0 solid orange;
+        //border-top: .05rem solid orange;
+        //border-bottom: 0 solid orange;
         color: inherit;
         padding: 1rem;
-
         transition: background-color .1s ease-in-out, border-top .15s ease-in-out;
+        span{
+            position: absolute;
+            z-index: 1001;
+        }
+        &::before{
+            content: '';
+            width: 100%;
+            position: absolute;
+            top: 0%;
+            bottom: 98%;
+            opacity:1;
+            left: 0;
+            right: 0;
+            background:orange;
+            transition: top .3s ease-in-out, bottom .3s ease-in-out, opacity .4s ease-in-out;
+        }
+        &:hover::before{
+            top:0%;
+            bottom:0%;
+            opacity: .2;
+        }
+        &.activeLink::before{
+            top: 98%;
+            bottom:0%;
+            opacity:1
+        }
         &:hover{
             background-color: #1d1d1d;
             border-top-width: .025rem;

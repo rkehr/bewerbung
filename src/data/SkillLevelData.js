@@ -17,7 +17,9 @@ const SkillLevelData = [
             {name:"HTML5", percentage: 90},
             {name:"CSS3", percentage: 75},
             {name:"Sass/ Scss", percentage:41},
-            {name:"ReactJs", percentage: 55}
+            {name:"ReactJs", percentage: 55},
+            {name:"jQuery", percentage: 65},
+            {name:"Bootstrap", percentage: 45}
         ]
     },
     {

@@ -4,6 +4,8 @@ $skillMeterHeight: .6rem;
     width: 100%;
     height: $skillMeterHeight;
     border: #998 1px solid;
+    border-top-width: 0;
+    border-bottom-width: 0;
     border-radius: $skillMeterHeight/2;
     & .skillMeterFill{
         background: orange;

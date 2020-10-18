@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename : 'app.cleaner.earth.js'
+        filename : 'bewerbung.js'
     },
     module:{
         rules: [
