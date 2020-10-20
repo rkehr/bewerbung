@@ -1,21 +1,15 @@
 .calenderYear {
   $calenderMonthRadius: 0.2rem;
   .calenderMonth {
-    min-height: 1rem;
+    height: 1rem;
     border: #eeb 1px solid;
+    border-width: 0 1px;
+    border-radius: .75rem;
+    background: #191919;
     margin: 0.2rem;
+    overflow: hidden;
     div {
-      opacity: 0.6;
-    }
-    &:first-child,
-    &:first-child > *:first-child {
-      border-top-left-radius: $calenderMonthRadius;
-      border-top-right-radius: $calenderMonthRadius;
-    }
-    &:last-child,
-    &:last-child > *:last-child {
-      border-bottom-left-radius: $calenderMonthRadius;
-      border-bottom-right-radius: $calenderMonthRadius;
+      opacity: 0.8;
     }
     & > p {
       font-size: 0.5rem;

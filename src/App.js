@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from '@hot-loader/react-dom';
+import React, { useState } from 'react';
 import { Switch, Route, NavLink, useLocation } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
+import create from 'zustand';
 
 import {
   Hallo,
@@ -11,7 +11,8 @@ import {
   Referenzen,
   AndereInteressen,
 } from './pages';
-import { SkillLevelData, TimeLineData } from './data';
+import { SkillLevelData, TimeLineData, themes } from './data';
+
 
 const App = () => {
   const location = useLocation();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ThemeContext } from '../data';
 
 const Page = ({ children }) => {
   const pageVariants = {

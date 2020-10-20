@@ -22,27 +22,23 @@ const CalenderMonth = ({ date, days, label, timeLineData }) => {
     .filter(({ interval }) => {
       return Boolean(interval);
     });
-  const calenderOccupations = occupations.map(({ color }, index, orig) => {
-    const height = `${100 / orig.length}%`;
-    return (
-      <div
-        style={{
-          background: color,
-          width: '100%',
-          height: height,
-        }}
-        key={index}
-      ></div>
-    );
-  });
 
   console.log(occupations);
   return (
-    <div
-      className='calenderMonth'
-      style={{ width: `${monthWidth}%`, height: `.5rem` }}
-    >
-      {calenderOccupations}
+    <div className='calenderMonth' style={{ width: `${monthWidth}%` }}>
+      {occupations.map(({ color }, index, orig) => {
+        const height = `${100 / orig.length}%`;
+        return (
+          <div
+            style={{
+              background: color,
+              width: '100%',
+              height: height,
+            }}
+            key={index}
+          ></div>
+        );
+      })}
     </div>
   );
 };

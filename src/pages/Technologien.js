@@ -2,17 +2,7 @@ import React from 'react';
 import { Page, SkillMeterGroup } from '../components';
 
 const Technologien = ({ skillLevelData }) => {
-  const skillMeterGroups = skillLevelData.map(
-    ({ groupName, skillLevels }, index) => {
-      return (
-        <SkillMeterGroup
-          key={index.toString()}
-          groupName={groupName}
-          skillLevels={skillLevels}
-        ></SkillMeterGroup>
-      );
-    }
-  );
+
 
   return (
     <Page>
@@ -35,7 +25,16 @@ const Technologien = ({ skillLevelData }) => {
             Programmiersprachen und Programmen auftauchen anwenden zu können
           </p>
         </SkillMeterGroup>
-        {skillMeterGroups}
+
+        {skillLevelData.map(({ groupName, skillLevels }, index) => {
+          return (
+            <SkillMeterGroup
+              key={index.toString()}
+              groupName={groupName}
+              skillLevels={skillLevels}
+            ></SkillMeterGroup>
+          );
+        })}
       </div>
     </Page>
   );

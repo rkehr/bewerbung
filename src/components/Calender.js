@@ -11,7 +11,6 @@ const Calender = ({ timeLineData }) => {
   }, timeLineData[0].interval);
   const relevantYears = eachYearOfInterval(totalInterval).reverse();
   const calenderYears = relevantYears.map((year, index) => {
-    const yearLabel = format(year, 'y');
     return <CalenderYear date={year} timeLineData={timeLineData} key={index} />;
   });
   return <div className='calender'>{calenderYears}</div>;
