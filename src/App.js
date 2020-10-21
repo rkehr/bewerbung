@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route, NavLink, useLocation } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
-import create from 'zustand';
 
 import {
   Hallo,
@@ -11,8 +10,6 @@ import {
   Referenzen,
   AndereInteressen,
 } from './pages';
-import { SkillLevelData, TimeLineData, themes } from './data';
-
 
 const App = () => {
   const location = useLocation();
@@ -20,10 +17,8 @@ const App = () => {
     <>
       <nav>
         <NavLink to='/hallo' activeClassName='activeLink'>
-          <span>
-            🙋
-            <br /> Hallo
-          </span>
+          🙋
+          <br /> Hallo
         </NavLink>
         <NavLink to='/lebenslauf' activeClassName='activeLink'>
           📰
@@ -49,10 +44,10 @@ const App = () => {
       <AnimatePresence>
         <Switch location={location} key={location.key}>
           <Route path='/lebenslauf'>
-            <Lebenslauf timeLineData={TimeLineData} />
+            <Lebenslauf/>
           </Route>
           <Route path='/technologien'>
-            <Technologien skillLevelData={SkillLevelData} />
+            <Technologien/>
           </Route>
           <Route path='/referenzen'>
             <Referenzen />

@@ -1,4 +1,4 @@
-const SkillLevelData = [
+const skillLevels = [
   {
     groupName: 'Programmiersprachen',
     description: '',
@@ -74,4 +74,4 @@ const SkillLevelData = [
   },
 ];
 
-export { SkillLevelData };
+export { skillLevels };

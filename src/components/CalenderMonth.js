@@ -1,8 +1,13 @@
 import { endOfMonth, startOfMonth } from 'date-fns';
 import React from 'react';
 import { intervalIntersection } from '../functions/';
+import { useGlobalStore } from '../state';
 
 const CalenderMonth = ({ date, days, label, timeLineData }) => {
+  const occupationTimeLine = useGlobalStore(
+    (state) => state.occupationTimeLine
+  );
+
   const monthInterval = {
     start: startOfMonth(date),
     end: endOfMonth(date),
@@ -11,7 +16,7 @@ const CalenderMonth = ({ date, days, label, timeLineData }) => {
   const dayWidth = 100 / 31;
   const monthWidth = dayWidth * days;
 
-  const occupations = timeLineData
+  const occupations = occupationTimeLine
     .map(({ name, interval, color }) => {
       return {
         name: name,
@@ -23,7 +28,6 @@ const CalenderMonth = ({ date, days, label, timeLineData }) => {
       return Boolean(interval);
     });
 
-  console.log(occupations);
   return (
     <div className='calenderMonth' style={{ width: `${monthWidth}%` }}>
       {occupations.map(({ color }, index, orig) => {

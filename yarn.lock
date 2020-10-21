@@ -3171,6 +3171,11 @@ iferr@^0.1.5:
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
 
+immer@^7.0.12:
+  version "7.0.12"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.12.tgz#c8dfc736f5a91918ec7079184ee843b7f6cde5b4"
+  integrity sha512-02lRKOh8+uAPrf1qkMs1/NVorybZLc0B4ZxscIiqt85uVf1t3sEWrqjXb6y4Nj9HNibbTZEi8ovntW0lNLywlA==
+
 import-local@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/import-local/-/import-local-2.0.0.tgz#55070be38a5993cf18ef6db7e961f5bee5c5a09d"

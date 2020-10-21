@@ -14,4 +14,13 @@ const intervalIntersection = (intervals) => {
   }
 };
 
-export { intervalIntersection };
+const intervalUnion = (intervals) => {
+  return intervals.reduce((totalInterval, interval) => {
+    return {
+      start: min([totalInterval.start, interval.start]),
+      end: max([totalInterval.end, interval.end]),
+    };
+  }, intervals[0]);
+};
+
+export { intervalIntersection, intervalUnion };

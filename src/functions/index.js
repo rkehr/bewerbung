@@ -1,3 +1,4 @@
-import { intervalIntersection } from './dateFunctions';
+import { intervalIntersection, intervalUnion } from './dateFunctions';
+import { reverse } from './arrayFunctions';
 
-export { intervalIntersection };
+export { intervalIntersection, intervalUnion, reverse };

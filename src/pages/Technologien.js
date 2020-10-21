@@ -1,9 +1,9 @@
 import React from 'react';
 import { Page, SkillMeterGroup } from '../components';
+import { useGlobalStore } from '../state';
 
-const Technologien = ({ skillLevelData }) => {
-
-
+const Technologien = () => {
+  const skillLevels = useGlobalStore((state) => state.skillLevels);
   return (
     <Page>
       <h1>Technologien</h1>
@@ -26,7 +26,7 @@ const Technologien = ({ skillLevelData }) => {
           </p>
         </SkillMeterGroup>
 
-        {skillLevelData.map(({ groupName, skillLevels }, index) => {
+        {skillLevels.map(({ groupName, skillLevels }, index) => {
           return (
             <SkillMeterGroup
               key={index.toString()}

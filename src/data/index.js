@@ -1,6 +1,6 @@
 import { fromUnixTime } from 'date-fns';
-import { SkillLevelData } from './SkillLevelData';
-import { TimeLineData } from './TimeLineData';
-import { themes, ThemeContext } from './Themes';
+import { skillLevels } from './skillLevels';
+import { occupationTimeLine } from './occupationTimeLine';
+import { themes } from './themes';
 
-export { SkillLevelData, TimeLineData, themes, ThemeContext };
+export { skillLevels, occupationTimeLine, themes };

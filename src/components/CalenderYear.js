@@ -8,7 +8,7 @@ import {
 } from 'date-fns';
 import { CalenderMonth } from './';
 
-const CalenderYear = ({ date, timeLineData }) => {
+const CalenderYear = ({ date }) => {
   const yearInterval = {
     start: startOfYear(date),
     end: endOfYear(date),
@@ -23,13 +23,7 @@ const CalenderYear = ({ date, timeLineData }) => {
           const days = getDaysInMonth(date);
           const label = format(date, 'MMMM');
           return (
-            <CalenderMonth
-              date={date}
-              days={days}
-              label={label}
-              timeLineData={timeLineData}
-              key={index}
-            />
+            <CalenderMonth date={date} days={days} label={label} key={index} />
           );
         })}
       </div>
