@@ -1,4 +1,4 @@
-import { intervalIntersection, intervalUnion } from './dateFunctions';
+import { intervalIntersection, intervalUnion, getMonthsInYear } from './dateFunctions';
 import { reverse } from './arrayFunctions';
 
-export { intervalIntersection, intervalUnion, reverse };
+export { intervalIntersection, intervalUnion, getMonthsInYear, reverse };

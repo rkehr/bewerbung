@@ -56,7 +56,6 @@ const App = () => {
       </nav>
       <AnimatePresence>
         <Switch location={location} key={location.key}>
-          {console.log(location)}
           <Route path='/lebenslauf'>
             <Lebenslauf />
           </Route>

@@ -7,19 +7,20 @@
     transform: translate(-0.5rem -0.5rem);
   }
   & h2 {
-    position: relative;
-    //transform: translateY( -.2rem);
-    z-index: 1;
-    float: left;
-    clear: left;
-    font-size: 1.7rem;
-    margin: 0;
-    margin-top: -3rem;
-    padding: 0 0.5rem;
-    background: #262622;
+
   }
 }
-.borderedContainerSideHeader > h2 {
+.floatingHeader > h2{
+  position: relative;
+  z-index: 1;
+  float: left;
+  clear: left;
+  font-size: 1.7rem;
+  margin: 0;
+  margin-top: -3rem;
+  padding: 0 0.5rem;
+  background: #262622;
+}
+.sideHeader > h2 {
   transform: rotate(-90deg) translate(-3.8rem, -2.7rem);
-  background: none;
 }

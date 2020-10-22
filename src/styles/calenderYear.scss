@@ -12,12 +12,17 @@
     & > p {
       font-size: 0.5rem;
     }
-    .calenderMonthLabel{
+    .calenderMonthLabel {
       position: absolute;
-      left: .5rem;
-      margin-top:auto;
+      left: 0.5rem;
+      margin-top: auto;
       margin-bottom: auto;
       font-size: 0.5rem;
+    }
+    .calenderMonthOccupation {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 100%;
     }
   }
 }

@@ -1,4 +1,11 @@
-import { min, max, isBefore } from 'date-fns';
+import {
+  min,
+  max,
+  isBefore,
+  eachMonthOfInterval,
+  startOfYear,
+  endOfYear,
+} from 'date-fns';
 
 const intervalIntersection = (intervals) => {
   const intersection = intervals.reduce((intersection, val) => {
@@ -23,4 +30,12 @@ const intervalUnion = (intervals) => {
   }, intervals[0]);
 };
 
-export { intervalIntersection, intervalUnion };
+const getMonthsInYear = (date) => {
+  const yearInterval = {
+    start: startOfYear(date),
+    end: endOfYear(date),
+  };
+  return eachMonthOfInterval(yearInterval);
+};
+
+export { intervalIntersection, intervalUnion, getMonthsInYear };

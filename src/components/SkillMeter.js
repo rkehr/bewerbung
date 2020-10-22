@@ -5,6 +5,7 @@ import useInView from 'react-cool-inview';
 const SkillMeter = ({ name, percentage }) => {
   const { ref, inView, scrollDirection, entry, observe, unobserve } = useInView(
     {
+      unobserveOnEnter: true,
       onEnter: () => {
         controls.start('visible');
       },

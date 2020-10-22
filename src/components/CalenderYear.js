@@ -1,34 +1,27 @@
 import React from 'react';
-import {
-  eachMonthOfInterval,
-  endOfYear,
-  format,
-  getDaysInMonth,
-  startOfYear,
-} from 'date-fns';
+import { format, getDaysInMonth } from 'date-fns';
 import { CalenderMonth } from './';
+import { getMonthsInYear } from '../functions';
 
 const CalenderYear = ({ date }) => {
-  const yearInterval = {
-    start: startOfYear(date),
-    end: endOfYear(date),
-  };
-  let relevantMonths = eachMonthOfInterval(yearInterval).reverse();
+  let relevantMonths = getMonthsInYear(date).reverse();
 
   return (
     <div className='borderedContainer borderedContainerSideHeader calenderYear'>
       <h2>{format(date, 'y')}</h2>
       <div>
         {relevantMonths.map((date, index) => {
-          const days = getDaysInMonth(date);
-          const label = format(date, 'MMMM');
+          const numberOfDays = getDaysInMonth(date);
           return (
-            <CalenderMonth date={date} days={days} label={label} key={index} />
+            <CalenderMonth
+              date={date}
+              days={numberOfDays}
+              key={index}
+            />
           );
         })}
       </div>
     </div>
   );
 };
-
 export default CalenderYear;

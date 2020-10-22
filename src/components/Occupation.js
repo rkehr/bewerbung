@@ -16,7 +16,7 @@ function Occupation({ occupation, index }) {
   } = occupation;
   return (
     <div
-      className='occupation'
+      className='occupationDisplay'
       onClick={() => {
         toggleFocus(index);
       }}
@@ -25,14 +25,14 @@ function Occupation({ occupation, index }) {
       }}
     >
       <div
-        className='occupationBackground'
+        className='occupationDisplayBackground'
         style={{
           background: color,
           opacity: isInFocus ? 0.5 : 0.15,
         }}
       ></div>
       <div
-        className='occupationContent'
+        className='occupationDisplayContent'
       >
         <h2>{name}</h2>
         <p>@{organisation}</p>

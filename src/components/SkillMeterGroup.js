@@ -3,7 +3,7 @@ import { SkillMeter } from '.';
 
 const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
   return (
-    <div className='borderedContainer'>
+    <div className='borderedContainer floatingHeader'>
       <h2>{groupName}</h2>
       {children}
       {skillLevels.map(({ name, percentage }, index) => {
