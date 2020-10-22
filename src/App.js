@@ -15,7 +15,7 @@ import { useGlobalStore } from './state';
 
 const App = () => {
   const location = useLocation();
-  const theme = useGlobalStore((state) => state.theme);
+  const theme = useGlobalStore(state => state.theme);
   return (
     <>
       <ThemeSwitch></ThemeSwitch>
@@ -28,30 +28,22 @@ const App = () => {
         <NavLink to='/lebenslauf' activeClassName='activeLink'>
           📰
           <br />
-          <span className='navText'>
-            Lebenslauf
-          </span>
+          <span className='navText'>Lebenslauf</span>
         </NavLink>
         <NavLink to='/technologien' activeClassName='activeLink'>
           🎛
           <br />
-          <span className='navText'>
-            Technologien
-          </span>
+          <span className='navText'>Technologien</span>
         </NavLink>
         <NavLink to='referenzen' activeClassName='activeLink'>
           🔖
           <br />
-          <span className='navText'>
-            Referenzen
-          </span>
+          <span className='navText'>Referenzen</span>
         </NavLink>
         <NavLink to='andere-interessen' activeClassName='activeLink'>
           📷
           <br />
-          <span className='navText'>
-            Andere Interessen
-          </span>
+          <span className='navText'>Andere Interessen</span>
         </NavLink>
       </nav>
       <AnimatePresence>
