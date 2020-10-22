@@ -1,0 +1,20 @@
+.occupation {
+  padding-left: 1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin: 0.25rem;
+  position: relative;
+  .occupationBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .occupationContent {
+    position: relative;
+    top: 0;
+    left: 0;
+    zindex: 1000;
+  }
+}

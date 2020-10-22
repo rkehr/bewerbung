@@ -10,44 +10,58 @@ import {
   Referenzen,
   AndereInteressen,
 } from './pages';
+import { ThemeSwitch } from './components';
+import { useGlobalStore } from './state';
 
 const App = () => {
   const location = useLocation();
+  const theme = useGlobalStore((state) => state.theme);
   return (
     <>
+      <ThemeSwitch></ThemeSwitch>
       <nav>
-        <NavLink to='/hallo' activeClassName='activeLink'>
+        <NavLink to='/hello' activeClassName='activeLink'>
           🙋
-          <br /> Hallo
+          <br />
+          <span className='navText'>Hallo</span>
         </NavLink>
         <NavLink to='/lebenslauf' activeClassName='activeLink'>
           📰
           <br />
-          Lebenslauf
+          <span className='navText'>
+            Lebenslauf
+          </span>
         </NavLink>
         <NavLink to='/technologien' activeClassName='activeLink'>
           🎛
           <br />
-          Technologien
+          <span className='navText'>
+            Technologien
+          </span>
         </NavLink>
         <NavLink to='referenzen' activeClassName='activeLink'>
           🔖
           <br />
-          Referenzen
+          <span className='navText'>
+            Referenzen
+          </span>
         </NavLink>
         <NavLink to='andere-interessen' activeClassName='activeLink'>
           📷
           <br />
-          Andere Interessen
+          <span className='navText'>
+            Andere Interessen
+          </span>
         </NavLink>
       </nav>
       <AnimatePresence>
         <Switch location={location} key={location.key}>
+          {console.log(location)}
           <Route path='/lebenslauf'>
-            <Lebenslauf/>
+            <Lebenslauf />
           </Route>
           <Route path='/technologien'>
-            <Technologien/>
+            <Technologien />
           </Route>
           <Route path='/referenzen'>
             <Referenzen />
@@ -55,7 +69,7 @@ const App = () => {
           <Route path='/andere-interessen'>
             <AndereInteressen />
           </Route>
-          <Route path='/'>
+          <Route path='/hello'>
             <Hallo />
           </Route>
         </Switch>

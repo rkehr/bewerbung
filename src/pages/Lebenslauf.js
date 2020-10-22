@@ -23,10 +23,23 @@ const Lebenslauf = ({}) => {
             return <CalenderYear date={year} key={index} />;
           })}
         </Calender>
-        <div>{ reverse(occupationTimeLine.map( (occupation, index)=> {
-            return (<Occupation occupation={occupation} index={index} key={index}></Occupation>)
-          }))}
-          </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-around',
+          }}
+        >
+          {occupationTimeLine.map((occupation, index) => {
+            return (
+              <Occupation
+                occupation={occupation}
+                index={index}
+                key={index}
+              ></Occupation>
+            );
+          })}
+        </div>
       </div>
     </Page>
   );

@@ -1,14 +1,22 @@
 .calenderYear {
   $calenderMonthRadius: 0.2rem;
   .calenderMonth {
+    position: relative;
     height: 1rem;
     border: #eeb 1px solid;
     border-width: 0 1px;
-    border-radius: .75rem;
+    border-radius: 0.75rem;
     background: #191919;
     margin: 0.2rem;
     overflow: hidden;
     & > p {
+      font-size: 0.5rem;
+    }
+    .calenderMonthLabel{
+      position: absolute;
+      left: .5rem;
+      margin-top:auto;
+      margin-bottom: auto;
       font-size: 0.5rem;
     }
   }

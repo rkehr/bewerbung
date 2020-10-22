@@ -1,59 +1,66 @@
+@import 'devices.scss';
 nav {
-    position: fixed;
-    z-index: 1000;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    a {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  a {
+    position: relative;
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    background-color: #191919;
+    color: inherit;
+    padding: 1rem;
+    transition: background-color 0.1s ease-in-out, border-top 0.15s ease-in-out;
+    span {
       position: relative;
-      flex-grow: 1;
-      text-decoration: none;
-      text-align: center;
-      background-color: #191919;
-      color: inherit;
-      padding: 1rem;
-      transition: background-color 0.1s ease-in-out, border-top 0.15s ease-in-out;
-      span {
-        position: absolute;
-        z-index: 1001;
-      }
-      &::before {
-        content: '';
-        width: 100%;
-        position: absolute;
-        top: 0%;
-        bottom: 98%;
-        opacity: 1;
-        left: 0;
-        right: 0;
-        background: orange;
-        transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out,
-          opacity 0.4s ease-in-out;
-      }
-      &:hover::before {
-        top: 0%;
-        bottom: 0%;
-        opacity: 0.2;
-      }
-      &.activeLink::before {
-        top: 98%;
-        bottom: 0%;
-        opacity: 1;
-      }
-      &:hover {
-        background-color: #1d1d1d;
-        border-top-width: 0.025rem;
-        border-top-width: 0.025rem;
-      }
-      &.activeLink {
-        background-color: #262622;
-        border-top-width: 0;
-        border-bottom-width: 0.05rem;
-      }
-      &:visited {
-        color: inherit;
+      z-index: 1001;
+    }
+    .navText {
+      display: none;
+      @include for-tablet-landscape-up {
+        display: block;
       }
     }
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0%;
+      bottom: 98%;
+      opacity: 1;
+      left: 0;
+      right: 0;
+      background: orange;
+      transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out,
+        opacity 0.4s ease-in-out;
+    }
+    &:hover::before {
+      top: 0%;
+      bottom: 0%;
+      opacity: 0.2;
+    }
+    &.activeLink::before {
+      top: 98%;
+      bottom: 0%;
+      opacity: 1;
+    }
+    &:hover {
+      background-color: #1d1d1d;
+      border-top-width: 0.025rem;
+      border-top-width: 0.025rem;
+    }
+    &.activeLink {
+      background-color: #262622;
+      border-top-width: 0;
+      border-bottom-width: 0.05rem;
+    }
+    &:visited {
+      color: inherit;
+    }
   }
+}
