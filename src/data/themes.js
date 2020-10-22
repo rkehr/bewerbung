@@ -13,4 +13,4 @@ const themes = {
   },
 };
 
-export { themes }
+export { themes };

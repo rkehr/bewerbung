@@ -3,15 +3,14 @@ import { Page, SkillMeterGroup } from '../components';
 import { useGlobalStore } from '../state';
 
 const Technologien = () => {
-  const skillLevels = useGlobalStore((state) => state.skillLevels);
+  const skillLevels = useGlobalStore(state => state.skillLevels);
   return (
     <Page>
       <h1>Technologien</h1>
       <div className='gridContainer'>
         <SkillMeterGroup
           groupName='Jack of all trades, master of some...'
-          skillLevels={[]}
-        >
+          skillLevels={[]}>
           <p>
             Ich lerne leidenschaftlich gerne neue Dinge!
             <br />
@@ -31,8 +30,7 @@ const Technologien = () => {
             <SkillMeterGroup
               key={index.toString()}
               groupName={groupName}
-              skillLevels={skillLevels}
-            ></SkillMeterGroup>
+              skillLevels={skillLevels}></SkillMeterGroup>
           );
         })}
       </div>

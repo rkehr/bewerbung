@@ -2,7 +2,7 @@ import React from 'react';
 import { useGlobalStore } from '../state';
 
 function ThemeSwitch() {
-  const toggleTheme = useGlobalStore((state) => state.toggleTheme);
+  const toggleTheme = useGlobalStore(state => state.toggleTheme);
   return (
     <div
       onClick={() => {
@@ -15,8 +15,7 @@ function ThemeSwitch() {
         position: 'fixed',
         top: 0,
         right: 0,
-      }}
-    >
+      }}>
       Theme
     </div>
   );

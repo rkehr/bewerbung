@@ -12,13 +12,7 @@ const CalenderYear = ({ date }) => {
       <div>
         {relevantMonths.map((date, index) => {
           const numberOfDays = getDaysInMonth(date);
-          return (
-            <CalenderMonth
-              date={date}
-              days={numberOfDays}
-              key={index}
-            />
-          );
+          return <CalenderMonth date={date} days={numberOfDays} key={index} />;
         })}
       </div>
     </div>

@@ -12,8 +12,8 @@ const CalenderMonth = ({ date, days }) => {
     end: endOfMonth(date),
   };
 
-  const occupations = useGlobalStore((state) => state.occupationTimeLine).map(
-    (occupation) => ({
+  const occupations = useGlobalStore(state => state.occupationTimeLine).map(
+    occupation => ({
       ...occupation,
       intervalOverlap: intervalIntersection([
         occupation.interval,
@@ -84,8 +84,7 @@ const CalenderMonth = ({ date, days }) => {
               initial={'notInFocus'}
               animate={controls}
               variants={animationStates}
-              transition={transition}
-            >
+              transition={transition}>
               {isLastMonth && isInFocus ? name : ''}
             </motion.div>
           );

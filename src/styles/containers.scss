@@ -7,10 +7,9 @@
     transform: translate(-0.5rem -0.5rem);
   }
   & h2 {
-
   }
 }
-.floatingHeader > h2{
+.floatingHeader > h2 {
   position: relative;
   z-index: 1;
   float: left;

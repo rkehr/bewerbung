@@ -20,7 +20,7 @@ const SkillMeter = ({ name, percentage }) => {
     duration: 2,
   };
   const variants = {
-    visible: (w) => ({
+    visible: w => ({
       width: w + '%',
     }),
     hidden: { width: '0%' },
@@ -36,8 +36,7 @@ const SkillMeter = ({ name, percentage }) => {
           custom={percentage}
           initial='hidden'
           animate={controls}
-          variants={variants}
-        ></motion.div>
+          variants={variants}></motion.div>
       </div>
     </div>
   );

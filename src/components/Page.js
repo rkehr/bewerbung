@@ -28,8 +28,7 @@ const Page = ({ children }) => {
       animate='in'
       exit='outLeft'
       variants={pageVariants}
-      transition={pageTransition}
-    >
+      transition={pageTransition}>
       {children}
     </motion.section>
   );

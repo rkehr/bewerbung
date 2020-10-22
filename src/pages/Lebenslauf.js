@@ -5,12 +5,10 @@ import { useGlobalStore } from '../state';
 import { intervalUnion, reverse } from '../functions';
 
 const Lebenslauf = ({}) => {
-  const occupationTimeLine = useGlobalStore(
-    (state) => state.occupationTimeLine
-  );
+  const occupationTimeLine = useGlobalStore(state => state.occupationTimeLine);
 
   const occupationInterval = intervalUnion(
-    occupationTimeLine.map((occupation) => occupation.interval)
+    occupationTimeLine.map(occupation => occupation.interval)
   );
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();
@@ -28,15 +26,13 @@ const Lebenslauf = ({}) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-around',
-          }}
-        >
+          }}>
           {occupationTimeLine.map((occupation, index) => {
             return (
               <Occupation
                 occupation={occupation}
                 index={index}
-                key={index}
-              ></Occupation>
+                key={index}></Occupation>
             );
           })}
         </div>
