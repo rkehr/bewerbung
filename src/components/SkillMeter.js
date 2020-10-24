@@ -1,19 +1,23 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import useInView from 'react-cool-inview';
+import { useGlobalStore } from '../state';
 
 const SkillMeter = ({ name, percentage }) => {
-  const { ref, inView, scrollDirection, entry, observe, unobserve } = useInView(
-    {
-      unobserveOnEnter: true,
-      onEnter: () => {
-        controls.start('visible');
-      },
-      onLeave: () => {
-        controls.start('hidden');
-      },
-    }
-  );
+  const {
+    borderColorPrimary,
+    backgroundColorAccent,
+    colorPrimary,
+  } = useGlobalStore(state => state.theme);
+  const { ref } = useInView({
+    unobserveOnEnter: true,
+    onEnter: () => {
+      controls.start('visible');
+    },
+    onLeave: () => {
+      controls.start('hidden');
+    },
+  });
   const controls = useAnimation();
   const soft = {
     ease: 'easeInOut',
@@ -28,9 +32,10 @@ const SkillMeter = ({ name, percentage }) => {
 
   return (
     <div ref={ref}>
-      <span> {name}</span>
-      <div className='skillMeterBorder'>
+      <span style={colorPrimary}> {name}</span>
+      <div className='skillMeterBorder' style={borderColorPrimary}>
         <motion.div
+          style={backgroundColorAccent}
           className='skillMeterFill'
           transition={soft}
           custom={percentage}

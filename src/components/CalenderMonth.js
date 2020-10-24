@@ -5,12 +5,19 @@ import { motion, useAnimation } from 'framer-motion';
 import useInView from 'react-cool-inview';
 import { intervalIntersection } from '../functions/';
 import { useGlobalStore } from '../state';
+import { themes } from '../data';
 
 const CalenderMonth = ({ date, days }) => {
   const monthInterval = {
     start: startOfMonth(date),
     end: endOfMonth(date),
   };
+
+  const {
+    colorPrimary,
+    borderColorPrimary,
+    backgroundColorBackground,
+  } = useGlobalStore(state => state.theme);
 
   const occupations = useGlobalStore(state => state.occupationTimeLine).map(
     occupation => ({
@@ -52,9 +59,17 @@ const CalenderMonth = ({ date, days }) => {
   };
 
   return (
-    <div className='calenderMonth' style={{ width: monthWidth }}>
+    <div
+      className='calenderMonth'
+      style={{
+        width: monthWidth,
+        ...borderColorPrimary,
+        ...backgroundColorBackground,
+      }}>
       <div className='calenderMonthLabel'>
-        {format(date, 'MMMM', { locale: de })}
+        <span style={{ color: themes[0].primary }}>
+          {format(date, 'MMMM', { locale: de })}
+        </span>
       </div>
       {occupationsThisMonth.map(
         (
@@ -85,7 +100,9 @@ const CalenderMonth = ({ date, days }) => {
               animate={controls}
               variants={animationStates}
               transition={transition}>
-              {isLastMonth && isInFocus ? name : ''}
+              <span style={colorPrimary}>
+                {isLastMonth && isInFocus ? name : ''}
+              </span>
             </motion.div>
           );
         }

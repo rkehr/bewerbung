@@ -1,11 +1,20 @@
 import React from 'react';
 import { SkillMeter } from '.';
+import { useGlobalStore } from '../state';
+import BorderedContainer from './BorderedContainer';
 
 const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
+  const {
+    borderColorPrimary,
+    colorPrimary,
+    backgroundColorBackground,
+  } = useGlobalStore(state => state.theme);
   return (
-    <div className='borderedContainer floatingHeader'>
-      <h2>{groupName}</h2>
-      {children}
+    <BorderedContainer className='floatingHeader' style={borderColorPrimary}>
+      <h2 style={{ ...backgroundColorBackground, ...colorPrimary }}>
+        {groupName}
+      </h2>
+      <div style={colorPrimary}>{children}</div>
       {skillLevels.map(({ name, percentage }, index) => {
         return (
           <SkillMeter
@@ -15,7 +24,7 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
           />
         );
       })}
-    </div>
+    </BorderedContainer>
   );
 };
 

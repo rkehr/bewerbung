@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useGlobalStore } from '../state';
 
 const Page = ({ children }) => {
   const pageVariants = {

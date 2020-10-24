@@ -12,9 +12,10 @@ const Lebenslauf = ({}) => {
   );
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();
+  const { colorPrimary } = useGlobalStore(state => state.theme);
   return (
     <Page>
-      <h1>Lebenslauf</h1>
+      <h1 style={colorPrimary}>Lebenslauf</h1>
       <div className='gridContainer'>
         <Calender>
           {relevantYears.map((year, index) => {

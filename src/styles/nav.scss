@@ -12,7 +12,7 @@ nav {
     flex-grow: 1;
     text-decoration: none;
     text-align: center;
-    background-color: #191919;
+    //background-color: #191919;
     color: inherit;
     padding: 1rem;
     transition: background-color 0.1s ease-in-out, border-top 0.15s ease-in-out;
@@ -26,7 +26,7 @@ nav {
         display: block;
       }
     }
-    &::before {
+    & .before {
       content: '';
       width: 100%;
       position: absolute;
@@ -39,12 +39,12 @@ nav {
       transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out,
         opacity 0.4s ease-in-out;
     }
-    &:hover::before {
+    &:hover .before {
       top: 0%;
       bottom: 0%;
       opacity: 0.2;
     }
-    &.activeLink::before {
+    &.activeLink .before {
       top: 98%;
       bottom: 0%;
       opacity: 1;

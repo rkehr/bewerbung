@@ -1,5 +1,6 @@
 .borderedContainer {
-  border: #998 1px solid;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 1rem;
   padding: 2rem;
   transition: transform 0.2s ease-in-out;
@@ -20,6 +21,8 @@
   padding: 0 0.5rem;
   background: #262622;
 }
-.sideHeader > h2 {
-  transform: rotate(-90deg) translate(-3.8rem, -2.7rem);
+.sideHeader {
+  text-align: left;
+  position: absolute;
+  transform: rotate(-90deg) translate(-0rem, -2.2rem);
 }

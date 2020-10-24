@@ -10,6 +10,7 @@ function Occupation({ occupation, index }) {
     toggleFocus: state.toggleFocus,
     isInFocus: state.occupationTimeLine[index].isInFocus,
   }));
+  const { colorPrimary } = useGlobalStore(state => state.theme);
   const { name, organisation, interval, color } = occupation;
   const occupationStart = format(interval.start, 'd. MMMM y', { locale: de });
   const occupationEnd = isToday(interval.end)
@@ -24,7 +25,15 @@ function Occupation({ occupation, index }) {
       }}
       style={{
         borderLeft: `.3rem solid ${color}`,
+        ...colorPrimary,
       }}>
+      <div
+        className='occupationDisplayBackground'
+        style={{
+          background: color,
+          opacity: isInFocus ? 0.5 : 0.15,
+        }}
+      />
       <div className='occupationDisplayContent'>
         <h2>{name}</h2>
         <p>@{organisation}</p>
@@ -34,13 +43,6 @@ function Occupation({ occupation, index }) {
           {occupationEnd}
         </p>
       </div>
-      <div
-        className='occupationDisplayBackground'
-        style={{
-          background: color,
-          opacity: isInFocus ? 0.5 : 0.15,
-        }}
-      />
     </div>
   );
 }

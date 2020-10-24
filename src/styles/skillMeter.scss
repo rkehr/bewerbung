@@ -3,13 +3,12 @@ $skillMeterHeight: 0.6rem;
 .skillMeterBorder {
   width: 100%;
   height: $skillMeterHeight;
-  border: #998 1px solid;
+  border-width: 1px;
+  border-style: solid;
   border-top-width: 0;
   border-bottom-width: 0;
   border-radius: $skillMeterHeight/2;
   & .skillMeterFill {
-    background: orange;
-    width: 50%;
     height: $skillMeterHeight;
     border-radius: $skillMeterHeight / 2;
   }

@@ -1,4 +1,18 @@
-import { intervalIntersection, intervalUnion, getMonthsInYear } from './dateFunctions';
-import { reverse } from './arrayFunctions';
+import {
+  intervalIntersection,
+  intervalUnion,
+  getMonthsInYear,
+} from './dateFunctions';
+import { reverse, reduceObjectArray } from './arrayFunctions';
+import { populateStyles } from './styleFunctions';
+import { capitalize } from './stringFunctions';
 
-export { intervalIntersection, intervalUnion, getMonthsInYear, reverse };
+export {
+  capitalize,
+  intervalIntersection,
+  intervalUnion,
+  getMonthsInYear,
+  reverse,
+  reduceObjectArray,
+  populateStyles,
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
 
@@ -10,41 +10,42 @@ import {
   Referenzen,
   AndereInteressen,
 } from './pages';
-import { ThemeSwitch } from './components';
+import { ThemeSwitch, NavElement } from './components';
 import { useGlobalStore } from './state';
 
 const App = () => {
   const location = useLocation();
   const theme = useGlobalStore(state => state.theme);
   return (
-    <>
-      <ThemeSwitch></ThemeSwitch>
+    <div className='app'>
+      <div className='bg' style={theme.backgroundColorBackground} />
+      <ThemeSwitch />
       <nav>
-        <NavLink to='/hello' activeClassName='activeLink'>
+        <NavElement to='/hello'>
           🙋
           <br />
           <span className='navText'>Hallo</span>
-        </NavLink>
-        <NavLink to='/lebenslauf' activeClassName='activeLink'>
+        </NavElement>
+        <NavElement to='/lebenslauf'>
           📰
           <br />
           <span className='navText'>Lebenslauf</span>
-        </NavLink>
-        <NavLink to='/technologien' activeClassName='activeLink'>
+        </NavElement>
+        <NavElement to='/technologien'>
           🎛
           <br />
           <span className='navText'>Technologien</span>
-        </NavLink>
-        <NavLink to='referenzen' activeClassName='activeLink'>
+        </NavElement>
+        <NavElement to='/referenzen'>
           🔖
           <br />
           <span className='navText'>Referenzen</span>
-        </NavLink>
-        <NavLink to='andere-interessen' activeClassName='activeLink'>
+        </NavElement>
+        <NavElement to='/andere-interessen'>
           📷
           <br />
           <span className='navText'>Andere Interessen</span>
-        </NavLink>
+        </NavElement>
       </nav>
       <AnimatePresence>
         <Switch location={location} key={location.key}>
@@ -65,7 +66,7 @@ const App = () => {
           </Route>
         </Switch>
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 

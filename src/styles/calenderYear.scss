@@ -3,10 +3,10 @@
   .calenderMonth {
     position: relative;
     height: 1rem;
-    border: #eeb 1px solid;
+    border-width: 1px;
+    border-style: solid;
     border-width: 0 1px;
     border-radius: 0.75rem;
-    background: #191919;
     margin: 0.2rem;
     overflow: hidden;
     & > p {

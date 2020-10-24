@@ -1,20 +1,36 @@
 import create from 'zustand';
-import { skillLevels, occupationTimeLine, themes } from '../data';
 import produce from 'immer';
+
+import { skillLevels, occupationTimeLine, themes } from '../data';
+import { populateStyles } from '../functions';
 
 const immer = config => (set, get) => config(fn => set(produce(fn), get));
 
+const initialThemeIndex = localStorage.getItem('themeIndex') || 0;
 const useGlobalStore = create(set => ({
-  theme: themes.dark,
+  theme: {
+    ...themes[initialThemeIndex],
+    ...populateStyles(themes[initialThemeIndex]),
+  },
+  themeIndex: initialThemeIndex,
   language: 'de',
   skillLevels: skillLevels,
   occupationTimeLine: occupationTimeLine.map(occupation => {
     return { ...occupation, isInFocus: false };
   }),
-  toggleTheme: () =>
-    set(state => ({
-      theme: state.theme === themes.dark ? themes.light : themes.dark,
-    })),
+  cycleTheme: () =>
+    set(state => {
+      const nextThemeIndex = (state.themeIndex + 1) % themes.length;
+      localStorage.setItem('themeIndex', nextThemeIndex);
+      const theme = themes[nextThemeIndex];
+      return {
+        theme: {
+          ...theme,
+          ...populateStyles(theme),
+        },
+        themeIndex: nextThemeIndex,
+      };
+    }),
   toggleFocus: indexToSet =>
     set(state => ({
       occupationTimeLine: state.occupationTimeLine.map((occupation, index) => {
@@ -24,5 +40,4 @@ const useGlobalStore = create(set => ({
       }),
     })),
 }));
-
 export { useGlobalStore };
