@@ -3,6 +3,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
 
+import { pages } from './data';
 import {
   Hallo,
   Lebenslauf,
@@ -12,44 +13,40 @@ import {
 } from './pages';
 import { ThemeSwitch, NavElement } from './components';
 import { useGlobalStore } from './state';
+import { cloneElement } from 'react';
 
 const App = () => {
   const location = useLocation();
   const theme = useGlobalStore(state => state.theme);
+  const pageElements = [
+    Hallo,
+    Lebenslauf,
+    Technologien,
+    Referenzen,
+    AndereInteressen,
+  ];
   return (
     <div className='app'>
       <div className='bg' style={theme.backgroundColorBackground} />
       <ThemeSwitch />
       <nav>
-        <NavElement to='/hello'>
-          🙋
-          <br />
-          <span className='navText'>Hallo</span>
-        </NavElement>
-        <NavElement to='/lebenslauf'>
-          📰
-          <br />
-          <span className='navText'>Lebenslauf</span>
-        </NavElement>
-        <NavElement to='/technologien'>
-          🎛
-          <br />
-          <span className='navText'>Technologien</span>
-        </NavElement>
-        <NavElement to='/referenzen'>
-          🔖
-          <br />
-          <span className='navText'>Referenzen</span>
-        </NavElement>
-        <NavElement to='/andere-interessen'>
-          📷
-          <br />
-          <span className='navText'>Andere Interessen</span>
-        </NavElement>
+        {pages.map((page, index) => {
+          return <NavElement page={page} key={index} />;
+        })}
       </nav>
       <AnimatePresence>
         <Switch location={location} key={location.key}>
-          <Route path='/lebenslauf'>
+          {pages.map((currentPage, index) => {
+            return (
+              <Route path={currentPage.to} key={index}>
+                {React.createElement(pageElements[currentPage.position], {
+                  page: currentPage,
+                  testProp: 1,
+                })}
+              </Route>
+            );
+          })}
+          {/*<Route path='/lebenslauf'>
             <Lebenslauf />
           </Route>
           <Route path='/technologien'>
@@ -63,7 +60,7 @@ const App = () => {
           </Route>
           <Route path='/hello'>
             <Hallo />
-          </Route>
+        </Route>*/}
         </Switch>
       </AnimatePresence>
     </div>

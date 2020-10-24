@@ -4,7 +4,7 @@ import { Page, Calender, CalenderYear, Occupation } from '../components';
 import { useGlobalStore } from '../state';
 import { intervalUnion, reverse } from '../functions';
 
-const Lebenslauf = ({}) => {
+const Lebenslauf = ({ page }) => {
   const occupationTimeLine = useGlobalStore(state => state.occupationTimeLine);
 
   const occupationInterval = intervalUnion(
@@ -12,10 +12,8 @@ const Lebenslauf = ({}) => {
   );
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();
-  const { colorPrimary } = useGlobalStore(state => state.theme);
   return (
-    <Page>
-      <h1 style={colorPrimary}>Lebenslauf</h1>
+    <Page page={page}>
       <div className='gridContainer'>
         <Calender>
           {relevantYears.map((year, index) => {

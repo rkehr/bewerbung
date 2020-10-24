@@ -2,12 +2,10 @@ import React from 'react';
 import { Page, SkillMeterGroup } from '../components';
 import { useGlobalStore } from '../state';
 
-const Technologien = () => {
-  const { colorPrimary } = useGlobalStore(state => state.theme);
+const Technologien = ({ page }) => {
   const skillLevels = useGlobalStore(state => state.skillLevels);
   return (
-    <Page>
-      <h1 style={colorPrimary}>Technologien</h1>
+    <Page page={page}>
       <div className='gridContainer'>
         <SkillMeterGroup
           groupName='Jack of all trades, master of some...'

@@ -1,6 +1,6 @@
-import { fromUnixTime } from 'date-fns';
+import { pages } from './pageData';
 import { skillLevels } from './skillLevels';
 import { occupationTimeLine } from './occupationTimeLine';
 import { themes } from './themes';
 
-export { skillLevels, occupationTimeLine, themes };
+export { pages, skillLevels, occupationTimeLine, themes };

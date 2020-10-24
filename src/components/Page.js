@@ -2,7 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useGlobalStore } from '../state';
 
-const Page = ({ children }) => {
+const Page = ({ page, children }) => {
+  const { colorPrimary, colorAccent, borderColorAccent } = useGlobalStore(
+    state => ({
+      colorAccent: state.theme.colorAccent,
+      colorPrimary: state.theme.colorPrimary,
+      borderColorAccent: state.theme.borderColorAccent,
+    })
+  );
   const pageVariants = {
     in: {
       opacity: 1,
@@ -29,7 +36,9 @@ const Page = ({ children }) => {
       animate='in'
       exit='outLeft'
       variants={pageVariants}
-      transition={pageTransition}>
+      transition={pageTransition}
+      style={colorPrimary}>
+      <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
       {children}
     </motion.section>
   );

@@ -2,13 +2,8 @@ import React from 'react';
 import { Page } from '../components';
 import { useGlobalStore } from '../state';
 
-const Referenzen = () => {
-  const { colorPrimary } = useGlobalStore(state => state.theme);
-  return (
-    <Page>
-      <h1 style={colorPrimary}> Referenzen </h1>
-    </Page>
-  );
+const Referenzen = ({ page }) => {
+  return <Page page={page}></Page>;
 };
 
 export default Referenzen;
