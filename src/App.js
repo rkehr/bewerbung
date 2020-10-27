@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
 
@@ -28,7 +28,6 @@ const App = () => {
   return (
     <div className='app'>
       <div className='bg' style={theme.backgroundColorBackground} />
-      <ThemeSwitch />
       <nav>
         {pages.map((page, index) => {
           return <NavElement page={page} key={index} />;
@@ -46,23 +45,10 @@ const App = () => {
               </Route>
             );
           })}
-          {/*<Route path='/lebenslauf'>
-            <Lebenslauf />
-          </Route>
-          <Route path='/technologien'>
-            <Technologien />
-          </Route>
-          <Route path='/referenzen'>
-            <Referenzen />
-          </Route>
-          <Route path='/andere-interessen'>
-            <AndereInteressen />
-          </Route>
-          <Route path='/hello'>
-            <Hallo />
-        </Route>*/}
+          <Redirect to='/moin' />
         </Switch>
       </AnimatePresence>
+      <ThemeSwitch />
     </div>
   );
 };

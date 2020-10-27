@@ -5,7 +5,7 @@ import { useGlobalStore } from '../state';
 const Technologien = ({ page }) => {
   const skillLevels = useGlobalStore(state => state.skillLevels);
   return (
-    <Page page={page}>
+    <Page page={page} header={true}>
       <div className='gridContainer'>
         <SkillMeterGroup
           groupName='Jack of all trades, master of some...'

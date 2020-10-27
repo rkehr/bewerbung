@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useGlobalStore } from '../state';
 
@@ -10,11 +10,14 @@ function NavElement({ page }) {
     colorPrimary,
   } = useGlobalStore(state => state.theme);
   const setTheme = useGlobalStore(state => state.setTheme);
-
-  const background =
-    location.pathname == to
-      ? backgroundColorBackground
-      : backgroundColorBackgroundDark;
+  const [background, setBackground] = useState(backgroundColorBackgroundDark);
+  useEffect(() => {
+    setBackground(
+      location.pathname == to
+        ? backgroundColorBackground
+        : backgroundColorBackgroundDark
+    );
+  }, [location, backgroundColorBackground]);
 
   return (
     <NavLink

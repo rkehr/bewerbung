@@ -6,20 +6,29 @@ function ThemeSwitch() {
     setTheme: state.setTheme,
     localAccent: state.localAccent,
   }));
-  const { colorBackgroundDark, backgroundColorAccent, name } = useGlobalStore(
-    state => state.theme
-  );
+  const {
+    colorBackgroundDark,
+    backgroundColorAccent,
+    accent,
+    name,
+  } = useGlobalStore(state => state.theme);
   return (
-    <div
-      onClick={() => setTheme(i => i + 1, localAccent)}
-      style={{
-        padding: '0.5rem',
-        position: 'fixed',
-        top: 0,
-        right: '1rem',
-        ...backgroundColorAccent,
-      }}>
-      <h3 style={{ margin: 0, ...colorBackgroundDark }}>{name} Theme</h3>
+    <div>
+      <div
+        onClick={() => setTheme(i => i + 1, localAccent)}
+        style={backgroundColorAccent}
+        className='themeSwitch'>
+        <p style={{ margin: 0, ...colorBackgroundDark }}>{name}</p>
+      </div>
+      <div
+        className='ribbon'
+        style={{
+          borderTopColor: accent,
+          borderLeftColor: accent,
+          borderRightColor: accent,
+          borderBottomColor: 'rgba(0,0,0,0)',
+        }}
+      />
     </div>
   );
 }

@@ -27,16 +27,15 @@ const skillLevels = [
     description: '',
     skillLevels: [
       { name: 'Wordpress', percentage: 73 },
-      { name: 'NodeJs', percentage: 42 },
+      { name: 'NodeJs/yarn', percentage: 42 },
       { name: 'Express', percentage: 65 },
       { name: 'Apollo/GraphQL', percentage: 30 },
-      { name: 'WebPack/Babel', percentage: 25 },
       { name: 'MySQL', percentage: 40 },
       { name: 'MongoDB', percentage: 45 },
     ],
   },
   {
-    groupName: 'System Administration',
+    groupName: 'SysAdmin',
     description: '',
     skillLevels: [
       { name: 'GNU/Linux (CentOS8)', percentage: 54 },
@@ -49,6 +48,7 @@ const skillLevels = [
     skillLevels: [
       { name: 'Scrum', percentage: 30 },
       { name: 'Git', percentage: 45 },
+      { name: 'WebPack/Babel', percentage: 25 },
     ],
   },
   {

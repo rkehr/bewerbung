@@ -1,20 +1,38 @@
 .occupationDisplay {
-  padding-left: 1rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  text-align: center;
   margin: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
+  width: 15rem;
+  min-height: 15rem;
+  height: auto;
+  cursor: pointer;
   .occupationDisplayBackground {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+    border-radius: 7.5rem;
+    border-style: solid;
+    border-width: 0 0 0.1rem 0;
   }
   .occupationDisplayContent {
     position: relative;
     top: 0;
     left: 0;
     z-index: 1000;
+    border-radius: 50%;
+  }
+  .occupationDescription {
+    text-align: left;
+    p {
+      padding: 1rem;
+    }
+    &.isInFocus p {
+      padding: 1rem;
+      padding-bottom: 3rem;
+    }
   }
 }

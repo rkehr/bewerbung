@@ -15,7 +15,7 @@ const CalenderMonth = ({ date, days }) => {
 
   const {
     colorPrimary,
-    borderColorPrimary,
+    borderColorAccent,
     backgroundColorBackground,
   } = useGlobalStore(state => state.theme);
 
@@ -29,9 +29,11 @@ const CalenderMonth = ({ date, days }) => {
       isLastMonth: isSameMonth(occupation.interval.end, date),
     })
   );
+
   const occupationsThisMonth = occupations.filter(({ intervalOverlap }) => {
     return Boolean(intervalOverlap);
   });
+
   const isOccupationFocused = occupations.reduce((acc, occupation) => {
     return acc || occupation.isInFocus;
   }, false);
@@ -63,7 +65,7 @@ const CalenderMonth = ({ date, days }) => {
       className='calenderMonth'
       style={{
         width: monthWidth,
-        ...borderColorPrimary,
+        ...borderColorAccent,
         ...backgroundColorBackground,
       }}>
       <div className='calenderMonthLabel'>

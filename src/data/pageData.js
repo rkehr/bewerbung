@@ -1,10 +1,10 @@
 const pages = [
   {
     emoji: '🙋',
-    name: 'Hallo',
+    name: 'Moin!',
     accentColor: '#FFA947',
     position: 0,
-    to: '/hallo',
+    to: '/moin',
   },
   {
     emoji: '📰',

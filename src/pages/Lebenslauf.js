@@ -13,7 +13,7 @@ const Lebenslauf = ({ page }) => {
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();
   return (
-    <Page page={page}>
+    <Page page={page} header={true}>
       <div className='gridContainer'>
         <Calender>
           {relevantYears.map((year, index) => {

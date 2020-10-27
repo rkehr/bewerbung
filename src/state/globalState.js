@@ -19,6 +19,7 @@ const useGlobalStore = create(set => ({
   occupationTimeLine: occupationTimeLine.map(occupation => {
     return { ...occupation, isInFocus: false };
   }),
+  previousPageIndex: 0,
   setTheme: (themeIndexManipulator, localAccentColor) =>
     set(state => {
       const nextThemeIndex =
@@ -45,5 +46,15 @@ const useGlobalStore = create(set => ({
         return { ...occupation };
       }),
     })),
+  setPreviousPageIndex: index =>
+    set(state => {
+      if (state.previousPageIndex != index) {
+        return {
+          previousPageIndex: index,
+        };
+      } else {
+        return;
+      }
+    }),
 }));
 export { useGlobalStore };

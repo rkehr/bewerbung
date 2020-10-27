@@ -3,6 +3,13 @@ import React from 'react';
 const themes = [
   {
     name: 'Dark',
+    background: '#081622',
+    backgroundDark: '#020612',
+    primary: '#EEB',
+    accent: 'orange',
+  },
+  {
+    name: 'Coffee',
     background: '#262622',
     backgroundDark: '#191919',
     primary: '#EEB',
@@ -12,7 +19,7 @@ const themes = [
     name: 'Light',
     background: '#EED',
     backgroundDark: '#E9E9A9',
-    primary: '#262622',
+    primary: '#764622',
     accent: 'tomato',
   },
   {
@@ -21,13 +28,6 @@ const themes = [
     backgroundDark: '#CCC',
     primary: '#000',
     accent: '#F00',
-  },
-  {
-    name: 'Oceanic',
-    background: '#047',
-    backgroundDark: '#025',
-    primary: '#7EF',
-    accent: '#4C6',
   },
 ];
 
