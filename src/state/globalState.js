@@ -1,10 +1,10 @@
 import create from 'zustand';
-import produce from 'immer';
+// import produce from 'immer';
 
-import { skillLevels, occupationTimeLine, themes, pages } from '../data';
+import { skillLevels, occupationTimeLine, themes } from '../data';
 import { populateStyles } from '../functions';
 
-const immer = config => (set, get) => config(fn => set(produce(fn), get));
+//const immer = config => (set, get) => config(fn => set(produce(fn), get));
 
 const initialThemeIndex = localStorage.getItem('themeIndex') || 0;
 const useGlobalStore = create(set => ({

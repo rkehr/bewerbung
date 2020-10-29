@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Page, SkillMeterGroup } from '../components';
 import { useGlobalStore } from '../state';
 
@@ -35,6 +36,10 @@ const Technologien = ({ page }) => {
       </div>
     </Page>
   );
+};
+
+Technologien.propTypes = {
+  page: PropTypes.object,
 };
 
 export default Technologien;

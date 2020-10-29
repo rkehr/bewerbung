@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useGlobalStore } from '../state';
 
@@ -8,8 +9,8 @@ function NavElement({ page }) {
     backgroundColorBackgroundDark,
     backgroundColorBackground,
     colorPrimary,
-  } = useGlobalStore(state => state.theme);
-  const setTheme = useGlobalStore(state => state.setTheme);
+    setTheme,
+  } = useGlobalStore(state => ({ ...state.theme, setTheme: state.setTheme }));
   const [background, setBackground] = useState(backgroundColorBackgroundDark);
   useEffect(() => {
     setBackground(
@@ -34,5 +35,9 @@ function NavElement({ page }) {
     </NavLink>
   );
 }
+
+NavElement.propTypes = {
+  page: PropTypes.object,
+};
 
 export default NavElement;

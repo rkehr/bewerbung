@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import useInView from 'react-cool-inview';
 import { useGlobalStore } from '../state';
@@ -45,6 +46,11 @@ const SkillMeter = ({ name, percentage }) => {
       </div>
     </div>
   );
+};
+
+SkillMeter.propTypes = {
+  name: PropTypes.string,
+  percentage: PropTypes.number,
 };
 
 export default SkillMeter;

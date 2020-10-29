@@ -1,6 +1,6 @@
 const skillLevels = [
   {
-    groupName: 'Programmiersprachen',
+    groupName: 'Sprachen',
     description: '',
     skillLevels: [
       { name: 'JavaScript/ ES6', percentage: 78 },

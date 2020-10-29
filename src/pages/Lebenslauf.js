@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { eachYearOfInterval } from 'date-fns';
 import { Page, Calender, CalenderYear, Occupation } from '../components';
 import { useGlobalStore } from '../state';
-import { intervalUnion, reverse } from '../functions';
+import { intervalUnion } from '../functions';
 
 const Lebenslauf = ({ page }) => {
   const occupationTimeLine = useGlobalStore(state => state.occupationTimeLine);
@@ -38,6 +39,10 @@ const Lebenslauf = ({ page }) => {
       </div>
     </Page>
   );
+};
+
+Lebenslauf.propTypes = {
+  page: PropTypes.object,
 };
 
 export default Lebenslauf;

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { useGlobalStore } from '../state';
+import { usePresence } from 'framer-motion';
 
 const Page = ({ page, header, children }) => {
   const {
@@ -18,6 +20,7 @@ const Page = ({ page, header, children }) => {
   }));
 
   const [pageLeftToRight, setPageLeftToRight] = useState(false);
+  const [isPresent] = usePresence();
 
   useEffect(() => {
     if (previousPageIndex != page.position) {
@@ -27,7 +30,10 @@ const Page = ({ page, header, children }) => {
       console.log(previousPageIndex > page.position);
       setPreviousPageIndex(page.position);
     }
-  }, [previousPageIndex]);
+    return () => {
+      console.log('unmounting: ' + page.position + ' - ' + page.name);
+    };
+  }, [isPresent]);
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -54,9 +60,9 @@ const Page = ({ page, header, children }) => {
   return (
     <motion.section
       className='page'
-      initial={pageLeftToRight ? 'outLeft' : 'outRight'}
+      initial={pageLeftToRight ? 'outRight' : 'outLeft'}
       animate='in'
-      exit={pageLeftToRight ? 'outRight' : 'outLeft'}
+      exit={pageLeftToRight ? 'outLeft' : 'outRight'}
       variants={pageVariants}
       transition={pageTransition}
       style={colorPrimary}>
@@ -66,6 +72,12 @@ const Page = ({ page, header, children }) => {
       {children}
     </motion.section>
   );
+};
+
+Page.propTypes = {
+  page: PropTypes.object,
+  header: PropTypes.boolean,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default Page;

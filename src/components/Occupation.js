@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { format, isToday } from 'date-fns';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
@@ -10,11 +11,9 @@ function Occupation({ occupation, index }) {
     toggleFocus: state.toggleFocus,
     isInFocus: state.occupationTimeLine[index].isInFocus,
   }));
-  const {
-    colorPrimary,
-    borderColorAccent,
-    backgroundColorBackgroundDark,
-  } = useGlobalStore(state => state.theme);
+  const { colorPrimary, borderColorAccent } = useGlobalStore(
+    state => state.theme
+  );
   const { name, organisation, interval, color, description } = occupation;
   const occupationStart = format(interval.start, 'd. MMMM y', { locale: de });
   const occupationEnd = isToday(interval.end)
@@ -71,5 +70,10 @@ function Occupation({ occupation, index }) {
     </AnimateSharedLayout>
   );
 }
+
+Occupation.propTypes = {
+  occupation: PropTypes.object,
+  index: PropTypes.number,
+};
 
 export default Occupation;

@@ -15,7 +15,9 @@ function ThemeSwitch() {
   return (
     <div>
       <div
-        onClick={() => setTheme(i => i + 1, localAccent)}
+        onClick={() => {
+          setTheme(i => i + 1, localAccent);
+        }}
         style={backgroundColorAccent}
         className='themeSwitch'>
         <p style={{ margin: 0, ...colorBackgroundDark }}>{name}</p>

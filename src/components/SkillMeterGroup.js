@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SkillMeter } from '.';
 import { useGlobalStore } from '../state';
 import BorderedContainer from './BorderedContainer';
@@ -26,6 +27,12 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
       })}
     </BorderedContainer>
   );
+};
+
+SkillMeterGroup.propTypes = {
+  groupName: PropTypes.string,
+  skillLevels: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default SkillMeterGroup;

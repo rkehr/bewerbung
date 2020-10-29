@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useGlobalStore } from '../state';
 
 function BorderedContainer({ children, className }) {
@@ -11,5 +12,10 @@ function BorderedContainer({ children, className }) {
     </div>
   );
 }
+
+BorderedContainer.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.element),
+};
 
 export default BorderedContainer;

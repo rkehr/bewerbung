@@ -1,8 +1,8 @@
 import { endOfMonth, isSameMonth, startOfMonth, format } from 'date-fns';
 import { de } from 'date-fns/locale';
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
-import useInView from 'react-cool-inview';
 import { intervalIntersection } from '../functions/';
 import { useGlobalStore } from '../state';
 import { themes } from '../data';
@@ -74,10 +74,7 @@ const CalenderMonth = ({ date, days }) => {
         </span>
       </div>
       {occupationsThisMonth.map(
-        (
-          { name, organisation, textColor, color, isInFocus, isLastMonth },
-          index
-        ) => {
+        ({ name, textColor, color, isInFocus, isLastMonth }, index) => {
           // TODO: Move creation of controls up to Calender
           const controls = useAnimation();
           useEffect(() => {
@@ -111,6 +108,11 @@ const CalenderMonth = ({ date, days }) => {
       )}
     </div>
   );
+};
+
+CalenderMonth.propTypes = {
+  date: PropTypes.instanceOf(Date),
+  days: PropTypes.number,
 };
 
 export default CalenderMonth;

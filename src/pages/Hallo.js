@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Page } from '../components';
 import { useGlobalStore } from '../state/globalState';
 const moinImage = '../../assets/img/BewerbungsfotoBG_sm.png';
@@ -53,13 +54,7 @@ const Hallo = ({ page }) => {
         <li>Back End neuling</li>
         <li>Kaffeeenthusiast</li>
       </ul>
-      <h1
-        onClick={() => {
-          setIsVisible(!isVisible);
-        }}
-        style={colorAccent}>
-        {page.name}
-      </h1>
+      <h1 style={colorAccent}>{page.name}</h1>
       <p>
         Ich habe Eure Anzeige auf Indeed gefunden und glaube, dass wir sehr
         glücklich miteinander werden könnten! Ich liebe Design und vorallem
@@ -69,9 +64,9 @@ const Hallo = ({ page }) => {
       <p>
         ich habe dank meines verlängerten Studiums inzwischen auch schon ein
         paar erfahrungen in der Programmierung sowohl innerhalb der Uni als auch
-        in der 'echten' Welt sammeln dürfen, sowohl was Design und Fotografie,
-        als auch beim Bau von Webseiten für persönliche Projekte und eine
-        Autowerkstatt.
+        in der &apos;echten&apos; Welt sammeln dürfen, sowohl was Design und
+        Fotografie, als auch beim Bau von Webseiten für persönliche Projekte und
+        eine Autowerkstatt.
       </p>
       <p style={{ borderColor: accent }}>
         An dieser Stelle würde ich Euch natürlich fragen wie es Euch so geht und
@@ -80,6 +75,10 @@ const Hallo = ({ page }) => {
       </p>
     </Page>
   );
+};
+
+Hallo.propTypes = {
+  page: PropTypes.object,
 };
 
 export default Hallo;

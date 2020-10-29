@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { format, getDaysInMonth } from 'date-fns';
 import { CalenderMonth, BorderedContainer } from './';
 import { getMonthsInYear } from '../functions';
 import { useGlobalStore } from '../state';
-import { AnimatePresence } from 'framer-motion';
 
 const CalenderYear = ({ date }) => {
   const relevantMonths = getMonthsInYear(date).reverse();
@@ -22,5 +22,9 @@ const CalenderYear = ({ date }) => {
       </div>
     </BorderedContainer>
   );
+};
+
+CalenderYear.propTypes = {
+  date: PropTypes.instanceOf(Date),
 };
 export default CalenderYear;

@@ -13,7 +13,6 @@ import {
 } from './pages';
 import { ThemeSwitch, NavElement } from './components';
 import { useGlobalStore } from './state';
-import { cloneElement } from 'react';
 
 const App = () => {
   const location = useLocation();
@@ -33,6 +32,7 @@ const App = () => {
           return <NavElement page={page} key={index} />;
         })}
       </nav>
+
       <AnimatePresence>
         <Switch location={location} key={location.key}>
           {pages.map((currentPage, index) => {
@@ -48,6 +48,7 @@ const App = () => {
           <Redirect to='/moin' />
         </Switch>
       </AnimatePresence>
+
       <ThemeSwitch />
     </div>
   );
