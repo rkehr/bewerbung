@@ -1,16 +1,8 @@
 @use 'nav.scss';
-@use 'cv.scss';
-@use 'technologies.scss';
-@use 'occupation.scss';
 @use 'containers.scss';
-@use 'page.scss';
-@use 'skillMeterGroup.scss';
-@use 'skillMeter.scss';
-@use 'calenderMonth.scss';
-@use 'calenderYear.scss';
-@use 'themeSwitch.scss';
 @use 'pages';
-@use 'gradientBorderImage.scss';
+@use 'components';
+
 @import 'devices.scss';
 
 html::-webkit-scrollbar {

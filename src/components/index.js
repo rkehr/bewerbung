@@ -3,6 +3,7 @@ import Calender from './Calender';
 import CalenderMonth from './CalenderMonth';
 import CalenderYear from './CalenderYear';
 import ImageFrame from './ImageFrame';
+import ImageSection from './ImageSection';
 import NavElement from './NavElement';
 import Occupation from './Occupation';
 import Page from './Page';
@@ -16,6 +17,7 @@ export {
   CalenderMonth,
   CalenderYear,
   ImageFrame,
+  ImageSection,
   NavElement,
   Occupation,
   Page,
