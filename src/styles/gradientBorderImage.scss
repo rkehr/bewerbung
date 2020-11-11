@@ -1,0 +1,36 @@
+.gradientBorderImageWrapper {
+  height: 20rem;
+  width: 15rem;
+  padding-top: 5rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  .gradientBorderImageFrame {
+    position: absolute;
+    text-align: center;
+    width: 15rem;
+    height: 15rem;
+    padding: 0.25rem;
+    background: linear-gradient(to left, #c42c00, #eb9f00);
+    border-radius: 50%;
+    .gradientBorderImageBackground {
+      width: 14.5rem;
+      height: 14.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      border-radius: 50%;
+    }
+  }
+  .gradientBorderImage {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    border-radius: 50%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    height: 10rem;
+  }
+}

@@ -38,7 +38,7 @@ function Occupation({ occupation, index }) {
           className={conditionalClass('occupationDisplayBackground')}
           style={{
             background: color,
-            opacity: isInFocus ? 0.5 : 0.15,
+            opacity: isInFocus ? 1 : 0.3,
             ...borderColorAccent,
           }}
         />

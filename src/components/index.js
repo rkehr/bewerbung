@@ -2,6 +2,7 @@ import BorderedContainer from './BorderedContainer';
 import Calender from './Calender';
 import CalenderMonth from './CalenderMonth';
 import CalenderYear from './CalenderYear';
+import ImageFrame from './ImageFrame';
 import NavElement from './NavElement';
 import Occupation from './Occupation';
 import Page from './Page';
@@ -14,6 +15,7 @@ export {
   Calender,
   CalenderMonth,
   CalenderYear,
+  ImageFrame,
   NavElement,
   Occupation,
   Page,

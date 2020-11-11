@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useGlobalStore } from '../state';
 
-function BorderedContainer({ children, className }) {
+function BorderedContainer({ children, className, backgroundImage }) {
   const theme = useGlobalStore(state => state.theme);
+  const hasBackgroundImage = Boolean(backgroundImage);
   return (
     <div
-      className={`borderedContainer ${className}`}
+      className={`borderedContainer 
+        ${className} 
+        ${hasBackgroundImage ? 'backgroundImage' : ''}`}
       style={theme.borderColorPrimary}>
       {children}
     </div>
@@ -14,8 +17,9 @@ function BorderedContainer({ children, className }) {
 }
 
 BorderedContainer.propTypes = {
+  backgroundImage: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.array,
 };
 
 export default BorderedContainer;

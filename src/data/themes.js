@@ -16,7 +16,7 @@ const themes = [
   {
     name: 'Light',
     background: '#EED',
-    backgroundDark: '#E9E9A9',
+    backgroundDark: '#F9D999',
     primary: '#764622',
     accent: 'tomato',
   },

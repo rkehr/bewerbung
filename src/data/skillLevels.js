@@ -4,6 +4,7 @@ const skillLevels = [
     description: '',
     skillLevels: [
       { name: 'JavaScript/ ES6', percentage: 78 },
+      { name: 'TypeScript', percentage: 37 },
       { name: 'Java', percentage: 65 },
       { name: 'PHP 7.X', percentage: 43 },
       { name: 'Python', percentage: 29 },
@@ -40,7 +41,7 @@ const skillLevels = [
     skillLevels: [
       { name: 'GNU/Linux (CentOS8)', percentage: 54 },
       { name: 'NGINX', percentage: 63 },
-      { name: 'Docker + Docker Compose', percentage: 11 },
+      { name: 'Docker + Docker Compose', percentage: -11 },
     ],
   },
   {

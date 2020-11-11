@@ -24,15 +24,10 @@ const Page = ({ page, header, children }) => {
 
   useEffect(() => {
     if (previousPageIndex != page.position) {
-      console.log(previousPageIndex);
-      console.log(page.position);
       setPageLeftToRight(previousPageIndex > page.position);
-      console.log(previousPageIndex > page.position);
       setPreviousPageIndex(page.position);
     }
-    return () => {
-      console.log('unmounting: ' + page.position + ' - ' + page.name);
-    };
+    return () => {};
   }, [isPresent]);
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -59,7 +54,7 @@ const Page = ({ page, header, children }) => {
   };
   return (
     <motion.section
-      className='page'
+      className={'page ' + page.class}
       initial={pageLeftToRight ? 'outRight' : 'outLeft'}
       animate='in'
       exit={pageLeftToRight ? 'outLeft' : 'outRight'}
@@ -76,8 +71,8 @@ const Page = ({ page, header, children }) => {
 
 Page.propTypes = {
   page: PropTypes.object,
-  header: PropTypes.boolean,
-  children: PropTypes.arrayOf(PropTypes.element),
+  header: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default Page;

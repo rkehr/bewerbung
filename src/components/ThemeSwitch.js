@@ -13,13 +13,20 @@ function ThemeSwitch() {
     name,
   } = useGlobalStore(state => state.theme);
   return (
-    <div>
-      <div
-        onClick={() => {
+    <div
+      className='themeSwitchContainer'
+      onClick={() => {
+        setTheme(i => i + 1, localAccent);
+      }}
+      onKeyPress={e => {
+        if (e.key == 'Enter') {
           setTheme(i => i + 1, localAccent);
-        }}
-        style={backgroundColorAccent}
-        className='themeSwitch'>
+        }
+      }}
+      role='option'
+      aria-selected={name}
+      tabIndex='0'>
+      <div style={backgroundColorAccent} className='themeSwitch'>
         <p style={{ margin: 0, ...colorBackgroundDark }}>{name}</p>
       </div>
       <div

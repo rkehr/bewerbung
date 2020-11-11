@@ -18,15 +18,10 @@ const Lebenslauf = ({ page }) => {
       <div className='gridContainer'>
         <Calender>
           {relevantYears.map((year, index) => {
-            return <CalenderYear date={year} key={index} />;
+            return <CalenderYear date={year} key={index} index={index} />;
           })}
         </Calender>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-          }}>
+        <div className='occupationDisplays' style={{}}>
           {occupationTimeLine.map((occupation, index) => {
             return (
               <Occupation

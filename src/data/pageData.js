@@ -5,6 +5,7 @@ const pages = [
     accentColor: '#FFA947',
     position: 0,
     to: '/moin',
+    class: 'moin',
   },
   {
     emoji: '📰',
@@ -12,6 +13,7 @@ const pages = [
     accentColor: '#FF9245',
     position: 1,
     to: '/lebenslauf',
+    class: 'lebenslauf',
   },
   {
     emoji: '🎛',
@@ -19,6 +21,7 @@ const pages = [
     accentColor: '#FF763D',
     position: 2,
     to: '/technologien',
+    class: 'technologien',
   },
   {
     emoji: '🔖',
@@ -26,13 +29,15 @@ const pages = [
     accentColor: '#FF613D',
     position: 3,
     to: '/referenzen',
+    class: 'referenzen',
   },
   {
     emoji: '📷',
-    name: 'Andere Interessen',
+    name: 'Interessen',
     accentColor: '#FF4538',
     position: 4,
-    to: '/andere-interessen',
+    to: '/interessen',
+    class: 'interessen',
   },
 ];
 

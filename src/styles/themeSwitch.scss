@@ -1,3 +1,13 @@
+.themeSwitchContainer {
+  position: fixed;
+  top: 0;
+  right: 1rem;
+  width: 4rem;
+  height: 5rem;
+  &:focus {
+    border: 1px dotted blue;
+  }
+}
 .themeSwitch {
   box-sizing: border-box;
   text-align: center;

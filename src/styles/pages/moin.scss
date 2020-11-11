@@ -1,0 +1,47 @@
+@import '../devices.scss';
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+
+  li {
+    list-style: none;
+    padding: 0.3rem 0.3rem;
+    position: relative;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      position: absolute;
+      top: calc(50% - 0.25rem);
+      left: -0.5rem;
+      background: linear-gradient(45deg, #c42c00, #eb9f00);
+      border-radius: 50%;
+    }
+  }
+}
+
+.page.moin {
+  & .gridContainer {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: 1fr;
+    @include for-tablet-portrait-up {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    .p1 {
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 2;
+    }
+    .p2 {
+      grid-column: 4 / span 2;
+      grid-row: 2 / span 2;
+    }
+    .p3 {
+      grid-column: 6 / span 2;
+      grid-row: 3 / span 2;
+    }
+  }
+}

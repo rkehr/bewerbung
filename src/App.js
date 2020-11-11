@@ -5,11 +5,11 @@ import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
 import {
-  Hallo,
+  Moin,
   Lebenslauf,
   Technologien,
   Referenzen,
-  AndereInteressen,
+  Interessen,
 } from './pages';
 import { ThemeSwitch, NavElement } from './components';
 import { useGlobalStore } from './state';
@@ -17,13 +17,7 @@ import { useGlobalStore } from './state';
 const App = () => {
   const location = useLocation();
   const theme = useGlobalStore(state => state.theme);
-  const pageElements = [
-    Hallo,
-    Lebenslauf,
-    Technologien,
-    Referenzen,
-    AndereInteressen,
-  ];
+  const pageElements = [Moin, Lebenslauf, Technologien, Referenzen, Interessen];
   return (
     <div className='app'>
       <div className='bg' style={theme.backgroundColorBackground} />

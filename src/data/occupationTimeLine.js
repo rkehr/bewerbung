@@ -32,7 +32,7 @@ const occupationTimeLine = [
       start: new Date('2017-7-1'),
       end: new Date('2018-10-31'),
     },
-    color: '#067',
+    color: '#087',
     textColor: '#EEB',
   },
   {

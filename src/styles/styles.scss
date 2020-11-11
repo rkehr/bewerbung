@@ -9,7 +9,8 @@
 @use 'calenderMonth.scss';
 @use 'calenderYear.scss';
 @use 'themeSwitch.scss';
-@use 'pages/pages.scss';
+@use 'pages';
+@use 'gradientBorderImage.scss';
 @import 'devices.scss';
 
 html::-webkit-scrollbar {
@@ -60,18 +61,4 @@ h2 {
 * {
   transition: color 0.7s ease-in-out, background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out;
-}
-.gridContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  @include for-tablet-portrait-up {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @include for-big-desktop-up {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  grid-gap: 1.5rem;
-}
-.columns-3 {
-  grid-template-columns: repeat(3, 1fr);
 }
