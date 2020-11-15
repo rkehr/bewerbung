@@ -1,12 +1,13 @@
 @import 'devices.scss';
 nav {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
-  bottom: 0;
+  top: calc(100vh - 5rem);
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  height: 5rem;
   a {
     position: relative;
     flex-grow: 1;

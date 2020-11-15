@@ -8,6 +8,9 @@
 html::-webkit-scrollbar {
   display: none;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 * {
   box-sizing: border-box;
   scrollbar-width: none;

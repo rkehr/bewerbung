@@ -16,16 +16,11 @@ import { useGlobalStore } from './state';
 
 const App = () => {
   const location = useLocation();
-  const theme = useGlobalStore(state => state.theme);
+  const theme = useGlobalStore((state) => state.theme);
   const pageElements = [Moin, Lebenslauf, Technologien, Referenzen, Interessen];
   return (
     <div className='app'>
       <div className='bg' style={theme.backgroundColorBackground} />
-      <nav>
-        {pages.map((page, index) => {
-          return <NavElement page={page} key={index} />;
-        })}
-      </nav>
 
       <AnimatePresence>
         <Switch location={location} key={location.key}>
@@ -42,6 +37,11 @@ const App = () => {
           <Redirect to='/moin' />
         </Switch>
       </AnimatePresence>
+      <nav>
+        {pages.map((page, index) => {
+          return <NavElement page={page} key={index} />;
+        })}
+      </nav>
 
       <ThemeSwitch />
     </div>

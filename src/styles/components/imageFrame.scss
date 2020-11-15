@@ -1,5 +1,9 @@
-.imageFrame{
-    img{
-    max-width: 100%;
-    max-height: 100%;}
+.imageFrame {
+  img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 10%;
+  }
 }

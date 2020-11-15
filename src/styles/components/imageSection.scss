@@ -1,9 +1,20 @@
 .imageSection {
   display: flex;
   justify-content: space-between;
+  height: 100%;
   > * {
     flex-grow: 1;
-    width: 50%;
+    width: 30%;
+  }
+  .imageFrame {
+    width: 70%;
+    height: 100%;
+  }
+  .imageSectionContent {
+    padding: 1rem;
+    h2 {
+      text-align: center;
+    }
   }
 }
 .imageSection.imageLeft > .imageFrame {

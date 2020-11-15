@@ -17,6 +17,7 @@ function ImageSection({ image, imagePosition, children }) {
 ImageSection.propTypes = {
   image: PropTypes.object,
   imagePosition: PropTypes.oneOf(['left', 'right']),
+  children: PropTypes.any,
 };
 
 export default ImageSection;

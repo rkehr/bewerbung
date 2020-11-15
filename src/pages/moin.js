@@ -6,20 +6,26 @@ import { images } from '../data';
 import GradientBorderImage from '../components/GradientBorderImage';
 
 const Moin = ({ page }) => {
-  const { colorAccent, borderColorAccent } = useGlobalStore(state => {
+  const { colorAccent, borderColorAccent } = useGlobalStore((state) => {
     return state.theme;
   });
   return (
     <Page page={page} header={false}>
-      <GradientBorderImage image={images.moinImage} />
-      <ul style={borderColorAccent}>
-        <li>Student</li>
-        <li>Front End Entwickler</li>
-        <li>UX Designfreund</li>
-        <li>Wordpressrehabilitand</li>
-        <li>Back End neuling</li>
-        <li>Kaffeeenthusiast</li>
-      </ul>
+      <div className='moinTopSection'>
+        <GradientBorderImage image={images.moinImage} />
+        <ul style={borderColorAccent}>
+          <li>Student</li>
+          <li>Front End Entwickler</li>
+          <li>UX Designfreund</li>
+          <li>Wordpressrehabilitand</li>
+        </ul>
+        <ul>
+          <li>Back End neuling</li>
+          <li>Kaffeeenthusiast</li>
+          <li>Hobbyfotograf</li>
+          <li>Pflanzenmensch</li>
+        </ul>
+      </div>
       <h1 className='clampWidth' style={colorAccent}>
         {page.name}
       </h1>
