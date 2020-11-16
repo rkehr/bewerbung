@@ -11,7 +11,7 @@ const Page = ({ page, header, children }) => {
     colorPrimary,
     colorAccent,
     borderColorAccent,
-  } = useGlobalStore(state => ({
+  } = useGlobalStore((state) => ({
     setPreviousPageIndex: state.setPreviousPageIndex,
     previousPageIndex: state.previousPageIndex,
     colorAccent: state.theme.colorAccent,
@@ -20,7 +20,11 @@ const Page = ({ page, header, children }) => {
   }));
 
   const [pageLeftToRight, setPageLeftToRight] = useState(false);
-  const [isPresent] = usePresence();
+  const [isPresent, safeToRemove] = usePresence();
+
+  useEffect(() => {
+    !isPresent && setTimeout(safeToRemove, 1000);
+  }, [isPresent]);
 
   useEffect(() => {
     if (previousPageIndex != page.position) {
