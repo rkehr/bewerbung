@@ -10,6 +10,10 @@ const Interessen = ({ page }) => {
         <ImageSection image={images.PhotographyCat} imagePosition='right'>
           <h2>Fotografie</h2>
         </ImageSection>
+        <ImageSection image={images.PhotographyFood}></ImageSection>
+        <ImageSection
+          image={images.PhotographyWorkshop}
+          imagePosition='right'></ImageSection>
         <ImageSection image={images.latteArtSnail}>
           <h2>Kaffee</h2>
           <p>
