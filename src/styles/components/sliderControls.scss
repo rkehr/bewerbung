@@ -1,0 +1,46 @@
+.sliderControls {
+  z-index: 10;
+  position: absolute;
+  left: 1rem;
+  top: 40%;
+  .forwardArrow,
+  .backArrow {
+    display: block;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.5;
+    &:hover {
+      cursor: pointer;
+    }
+    div {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.4rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 3px solid red;
+      border-width: 3px 0 0 3px;
+      transform: rotate(45deg);
+    }
+  }
+  .backArrow {
+    div {
+      top: 0.2rem;
+      left: 0.4rem;
+      transform: rotate(225deg);
+    }
+  }
+  .slideDot {
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    opacity: 0.3;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

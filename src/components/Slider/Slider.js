@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence, transform } from 'framer-motion';
+import SliderControls from './SliderControls';
 
 const Slider = ({ children }) => {
   const [slide, setSlide] = useState({ nr: 0, up: true });
-  const [showArrows, setShowArrows] = useState(true);
   const [showNavigation, setShowNavigation] = useState(true);
   const childArray = React.Children.toArray(children);
 
@@ -13,6 +13,12 @@ const Slider = ({ children }) => {
     outBottom: {
       opacity: 0,
       transform: 'translate(-5rem, 100vh) rotate(15deg)',
+    },
+    out: (top) => {
+      return {
+        opacity: 0,
+        transform: `translate(5rem,${top ? '-' : ''}100vh) rotate(15deg)`,
+      };
     },
     in: { opacity: 1 },
     init: { opacity: 0 },
@@ -29,34 +35,21 @@ const Slider = ({ children }) => {
 
   return (
     <div className='slider'>
-      {showArrows && (
-        <>
-          <div
-            className='forwardArrow'
-            onClick={() => {
-              changeSlide(1);
-            }}>
-            <div></div>
-          </div>
-          <div
-            className='backArrow'
-            onClick={() => {
-              changeSlide(-1);
-            }}>
-            <div></div>
-          </div>
-        </>
-      )}
-      <div className='SliderNavigation'></div>
+      <SliderControls
+        numberOfSlides={childArray.length}
+        setSlide={setSlide}
+        changeSlide={changeSlide}></SliderControls>
       <div className='sliderContent'>
-        <AnimatePresence>
+        <AnimatePresence custom={Slider.up}>
+          {console.log(slide.up)}
           <motion.div
             className='slide'
             key={slide.nr}
             variants={animationPositions}
+            custom={slide.up}
             initial='init'
             animate='in'
-            exit='outTop'>
+            exit='out'>
             {console.log(slide.nr)}
             {childArray[slide.nr]}
           </motion.div>

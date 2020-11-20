@@ -9,7 +9,7 @@ import Occupation from './Occupation';
 import Page from './Page';
 import SkillMeter from './SkillMeter';
 import SkillMeterGroup from './SkillMeterGroup';
-import Slider from './Slider';
+import Slider from './Slider/';
 import ThemeSwitch from './ThemeSwitch';
 
 export {
