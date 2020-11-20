@@ -5,6 +5,7 @@
   top: 40%;
   .forwardArrow,
   .backArrow {
+    box-sizing: content-box;
     display: block;
     position: relative;
     width: 2rem;
@@ -12,6 +13,7 @@
     border-radius: 50%;
     background: white;
     opacity: 0.5;
+    border: 1.5px solid green;
     &:hover {
       cursor: pointer;
     }
@@ -42,5 +44,10 @@
     opacity: 0.3;
     margin-left: auto;
     margin-right: auto;
+    transition: opacity 0.3s ease-in-out, border 0.3s ease-in-out;
+    border: 1.5px solid green;
+    &.active {
+      opacity: 0.5;
+    }
   }
 }

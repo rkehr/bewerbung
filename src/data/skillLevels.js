@@ -1,6 +1,7 @@
 const skillLevels = [
   {
     groupName: 'Sprachen',
+    category: 'development',
     description: '',
     skillLevels: [
       { name: 'JavaScript/ ES6', percentage: 78 },
@@ -13,6 +14,7 @@ const skillLevels = [
   },
   {
     groupName: 'Front End',
+    category: 'development',
     description: '',
     skillLevels: [
       { name: 'HTML5', percentage: 90 },
@@ -25,6 +27,7 @@ const skillLevels = [
   },
   {
     groupName: 'Back End',
+    category: 'development',
     description: '',
     skillLevels: [
       { name: 'Wordpress', percentage: 73 },
@@ -37,6 +40,7 @@ const skillLevels = [
   },
   {
     groupName: 'SysAdmin',
+    category: 'infrastructure',
     description: '',
     skillLevels: [
       { name: 'GNU/Linux (CentOS8)', percentage: 54 },
@@ -46,6 +50,7 @@ const skillLevels = [
   },
   {
     groupName: 'DevOps',
+    category: 'infrastructure',
     skillLevels: [
       { name: 'Scrum', percentage: 30 },
       { name: 'Git', percentage: 45 },
@@ -54,11 +59,12 @@ const skillLevels = [
   },
   {
     groupName: 'Grafiksoftware',
+    category: 'design',
     description: '',
     skillLevels: [
       { name: 'Photoshop', percentage: 78 },
-      { name: 'GIMP', percentage: 63 },
-      { name: 'Illustrator', percentage: 56 },
+      { name: 'GIMP', percentage: 56 },
+      { name: 'Illustrator', percentage: 63 },
       { name: 'XD', percentage: 34 },
       { name: 'Lightroom', percentage: 72 },
       { name: 'Indesign', percentage: 46 },
@@ -67,6 +73,7 @@ const skillLevels = [
   },
   {
     groupName: 'Andere Software',
+    category: '',
     description: '',
     skillLevels: [
       { name: 'Ableton Live', percentage: 95 },

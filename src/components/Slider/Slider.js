@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion, AnimatePresence, transform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SliderControls from './SliderControls';
 
-const Slider = ({ children }) => {
+const Slider = ({ children, hasNavigation }) => {
   const [slide, setSlide] = useState({ nr: 0, up: true });
-  const [showNavigation, setShowNavigation] = useState(true);
+  const [showNavigation] = useState(
+    hasNavigation == undefined ? true : hasNavigation
+  );
   const childArray = React.Children.toArray(children);
 
   const animationPositions = {
@@ -35,10 +37,13 @@ const Slider = ({ children }) => {
 
   return (
     <div className='slider'>
-      <SliderControls
-        numberOfSlides={childArray.length}
-        setSlide={setSlide}
-        changeSlide={changeSlide}></SliderControls>
+      {showNavigation && (
+        <SliderControls
+          numberOfSlides={childArray.length}
+          activeSlide={slide.nr}
+          setSlide={setSlide}
+          changeSlide={changeSlide}></SliderControls>
+      )}
       <div className='sliderContent'>
         <AnimatePresence custom={Slider.up}>
           {console.log(slide.up)}
@@ -61,6 +66,7 @@ const Slider = ({ children }) => {
 
 Slider.propTypes = {
   children: PropTypes.any,
+  hasNavigation: PropTypes.bool,
 };
 
 export default Slider;
