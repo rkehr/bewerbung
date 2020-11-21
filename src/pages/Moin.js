@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Page } from '../components';
-import { useGlobalStore } from '../state/globalState';
+import { useThemeStore } from '../state';
 import { images } from '../data';
 import GradientBorderImage from '../components/GradientBorderImage';
 
 const Moin = ({ page }) => {
-  const { colorAccent, borderColorAccent } = useGlobalStore((state) => {
-    return state.theme;
+  const { colorAccent, borderColorAccent } = useThemeStore((state) => {
+    return {
+      colorAccent: state.theme.colorAccent,
+      borderColorAccent: state.theme.borderColorAccent,
+    };
   });
+
   return (
     <Page page={page} header={false}>
       <div className='moinTopSection'>
