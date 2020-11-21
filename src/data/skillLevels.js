@@ -1,7 +1,7 @@
 const skillLevels = [
   {
-    groupName: 'Sprachen',
-    category: 'development',
+    groupName: 'Programmiersprachen',
+    category: 'Development',
     description: '',
     skillLevels: [
       { name: 'JavaScript/ ES6', percentage: 78 },
@@ -14,7 +14,7 @@ const skillLevels = [
   },
   {
     groupName: 'Front End',
-    category: 'development',
+    category: 'Development',
     description: '',
     skillLevels: [
       { name: 'HTML5', percentage: 90 },
@@ -27,30 +27,30 @@ const skillLevels = [
   },
   {
     groupName: 'Back End',
-    category: 'development',
+    category: 'Development',
     description: '',
     skillLevels: [
       { name: 'Wordpress', percentage: 73 },
       { name: 'NodeJs/yarn', percentage: 42 },
       { name: 'Express', percentage: 65 },
-      { name: 'Apollo/GraphQL', percentage: 30 },
+      { name: 'GraphQL/Apollo', percentage: 30 },
       { name: 'MySQL', percentage: 40 },
       { name: 'MongoDB', percentage: 45 },
     ],
   },
   {
     groupName: 'SysAdmin',
-    category: 'infrastructure',
+    category: 'Infrastruktur',
     description: '',
     skillLevels: [
       { name: 'GNU/Linux (CentOS8)', percentage: 54 },
       { name: 'NGINX', percentage: 63 },
-      { name: 'Docker + Docker Compose', percentage: -11 },
+      { name: 'Docker + Docker Compose', percentage: 11 },
     ],
   },
   {
     groupName: 'DevOps',
-    category: 'infrastructure',
+    category: 'Infrastruktur',
     skillLevels: [
       { name: 'Scrum', percentage: 30 },
       { name: 'Git', percentage: 45 },
@@ -59,7 +59,7 @@ const skillLevels = [
   },
   {
     groupName: 'Grafiksoftware',
-    category: 'design',
+    category: 'Design',
     description: '',
     skillLevels: [
       { name: 'Photoshop', percentage: 78 },
@@ -72,8 +72,19 @@ const skillLevels = [
     ],
   },
   {
+    groupName: 'Sprachen',
+    category: 'Softskills',
+    description: '',
+    skillLevels: [
+      { name: 'Deutsch', percentage: 100 },
+      { name: 'Englisch', percentage: 90 },
+      { name: 'Schwedisch', percentage: 20 },
+      { name: 'Spanisch', percentage: -15 },
+    ],
+  },
+  {
     groupName: 'Andere Software',
-    category: '',
+    category: 'Andere',
     description: '',
     skillLevels: [
       { name: 'Ableton Live', percentage: 95 },

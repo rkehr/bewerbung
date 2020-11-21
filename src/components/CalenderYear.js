@@ -4,16 +4,17 @@ import { format, getDaysInMonth } from 'date-fns';
 import { motion } from 'framer-motion';
 import { CalenderMonth, BorderedContainer } from './';
 import { getMonthsInYear } from '../functions';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 
 const CalenderYear = ({ date, index }) => {
   const [isVisible, setIsVisble] = useState(false);
   const relevantMonths = getMonthsInYear(date).reverse();
-  const { colorPrimary } = useGlobalStore(state => state.theme);
+
+  const colorPrimary = useThemeStore((state) => state.theme.colorPrimary);
   const transition = { type: 'spring', stiffness: 200 };
 
   const variants = {
-    visible: delay => ({
+    visible: (delay) => ({
       rotateX: 0,
       opacity: 1,
       transition: {
@@ -21,7 +22,7 @@ const CalenderYear = ({ date, index }) => {
         delay: delay * 0.5,
       },
     }),
-    hidden: delay => ({
+    hidden: (delay) => ({
       rotateX: 90,
       opacity: 0,
       transition: {

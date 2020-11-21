@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 
 function GradientBorderImage({ image }) {
-  const { backgroundColorBackground } = useGlobalStore(state => {
-    return state.theme;
-  });
+  const backgroundColorBackground = useThemeStore(
+    (state) => state.theme.backgroundColorBackground
+  );
   const [isVisible, setIsVisible] = useState(false);
   const slowTransition = { ease: 'easeOut', duration: 1 };
   const slowerTransition = { ease: 'easeOut', duration: 1.5 };

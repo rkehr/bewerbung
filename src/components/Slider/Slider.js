@@ -46,7 +46,6 @@ const Slider = ({ children, hasNavigation }) => {
       )}
       <div className='sliderContent'>
         <AnimatePresence custom={Slider.up}>
-          {console.log(slide.up)}
           <motion.div
             className='slide'
             key={slide.nr}
@@ -55,7 +54,6 @@ const Slider = ({ children, hasNavigation }) => {
             initial='init'
             animate='in'
             exit='out'>
-            {console.log(slide.nr)}
             {childArray[slide.nr]}
           </motion.div>
         </AnimatePresence>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useGlobalStore } from '../../state';
+import { useThemeStore } from '../../state';
 
 function SliderControls({
   numberOfSlides,
@@ -12,7 +12,7 @@ function SliderControls({
     backgroundColorPrimary,
     borderColorAccent,
     borderColorBackground,
-  } = useGlobalStore((state) => {
+  } = useThemeStore((state) => {
     return {
       backgroundColorPrimary: state.theme.backgroundColorPrimary,
       borderColorAccent: state.theme.borderColorAccent,

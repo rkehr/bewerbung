@@ -1,26 +1,32 @@
 import React from 'react';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 
 function ThemeSwitch() {
-  const { setTheme, localAccent } = useGlobalStore(state => ({
-    setTheme: state.setTheme,
-    localAccent: state.localAccent,
-  }));
   const {
+    setTheme,
+    localAccent,
     colorBackgroundDark,
     backgroundColorAccent,
     accent,
     name,
-  } = useGlobalStore(state => state.theme);
+  } = useThemeStore((state) => ({
+    setTheme: state.setTheme,
+    localAccent: state.localAccent,
+    colorBackgroundDark: state.theme.colorBackgroundDark,
+    backgroundColorAccent: state.theme.backgroundColorAccent,
+    accent: state.theme.accent,
+    name: state.theme.name,
+  }));
+
   return (
     <div
       className='themeSwitchContainer'
       onClick={() => {
-        setTheme(i => i + 1, localAccent);
+        setTheme((i) => i + 1, localAccent);
       }}
-      onKeyPress={e => {
+      onKeyPress={(e) => {
         if (e.key == 'Enter') {
-          setTheme(i => i + 1, localAccent);
+          setTheme((i) => i + 1, localAccent);
         }
       }}
       role='option'

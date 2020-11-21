@@ -7,6 +7,7 @@ import ImageSection from './ImageSection';
 import NavElement from './NavElement';
 import Occupation from './Occupation';
 import Page from './Page';
+import SkillGroupFilter from './SkillGroupFilter';
 import SkillMeter from './SkillMeter';
 import SkillMeterGroup from './SkillMeterGroup';
 import Slider from './Slider/';
@@ -22,6 +23,7 @@ export {
   NavElement,
   Occupation,
   Page,
+  SkillGroupFilter,
   SkillMeter,
   SkillMeterGroup,
   Slider,

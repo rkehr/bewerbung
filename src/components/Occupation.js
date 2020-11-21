@@ -3,24 +3,29 @@ import PropTypes from 'prop-types';
 import { format, isToday } from 'date-fns';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
-import { useGlobalStore } from '../state';
+import { useDataStore, useThemeStore } from '../state';
 import { de } from 'date-fns/locale';
 
 function Occupation({ occupation, index }) {
-  const { toggleFocus, isInFocus } = useGlobalStore(state => ({
+  const { toggleFocus, isInFocus } = useDataStore((state) => ({
     toggleFocus: state.toggleFocus,
     isInFocus: state.occupationTimeLine[index].isInFocus,
   }));
-  const { colorPrimary, borderColorAccent } = useGlobalStore(
-    state => state.theme
-  );
+
+  const { colorPrimary, borderColorAccent } = useThemeStore((state) => {
+    return {
+      colorPrimary: state.theme.colorPrimary,
+      borderColorAccent: state.theme.borderColorAccent,
+    };
+  });
+
   const { name, organisation, interval, color, description } = occupation;
   const occupationStart = format(interval.start, 'd. MMMM y', { locale: de });
   const occupationEnd = isToday(interval.end)
     ? 'Heute'
     : format(interval.end, 'd. MMMM y', { locale: de });
 
-  const conditionalClass = cssClass => {
+  const conditionalClass = (cssClass) => {
     return `${cssClass} ${isInFocus && 'isInFocus'}`;
   };
   return (

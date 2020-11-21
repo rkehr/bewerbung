@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { eachYearOfInterval } from 'date-fns';
 import { Page, Calender, CalenderYear, Occupation } from '../components';
-import { useGlobalStore } from '../state';
+import { useDataStore } from '../state';
 import { intervalUnion } from '../functions';
 
 const Lebenslauf = ({ page }) => {
-  const occupationTimeLine = useGlobalStore(state => state.occupationTimeLine);
+  const occupationTimeLine = useDataStore((state) => state.occupationTimeLine);
 
   const occupationInterval = intervalUnion(
-    occupationTimeLine.map(occupation => occupation.interval)
+    occupationTimeLine.map((occupation) => occupation.interval)
   );
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();

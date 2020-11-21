@@ -1,3 +1,5 @@
 import { useGlobalStore } from './globalState';
+import useThemeStore from './themeState';
+import useDataStore from './dataState';
 
-export { useGlobalStore };
+export { useGlobalStore, useThemeStore, useDataStore };

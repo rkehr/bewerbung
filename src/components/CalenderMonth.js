@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import { intervalIntersection } from '../functions/';
-import { useGlobalStore } from '../state';
+import { useDataStore, useThemeStore } from '../state';
 import { themes } from '../data';
 
 const CalenderMonth = ({ date, days }) => {
@@ -17,10 +17,16 @@ const CalenderMonth = ({ date, days }) => {
     colorPrimary,
     borderColorAccent,
     backgroundColorBackground,
-  } = useGlobalStore(state => state.theme);
+  } = useThemeStore((state) => {
+    return {
+      colorPrimary: state.theme.colorPrimary,
+      borderColorAccent: state.theme.borderColorAccent,
+      backgroundColorBackground: state.theme.borderColorAccent,
+    };
+  });
 
-  const occupations = useGlobalStore(state => state.occupationTimeLine).map(
-    occupation => ({
+  const occupations = useDataStore((state) => state.occupationTimeLine).map(
+    (occupation) => ({
       ...occupation,
       intervalOverlap: intervalIntersection([
         occupation.interval,

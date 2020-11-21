@@ -4,23 +4,19 @@ import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
-import {
-  Moin,
-  Lebenslauf,
-  Technologien,
-  Referenzen,
-  Interessen,
-} from './pages';
+import { Moin, Lebenslauf, Skills, Referenzen, Interessen } from './pages';
 import { ThemeSwitch, NavElement } from './components';
-import { useGlobalStore } from './state';
+import { useThemeStore } from './state';
 
 const App = () => {
   const location = useLocation();
-  const theme = useGlobalStore((state) => state.theme);
-  const pageElements = [Moin, Lebenslauf, Technologien, Referenzen, Interessen];
+  const backgroundColorBackground = useThemeStore(
+    (state) => state.theme.backgroundColorBackground
+  );
+  const pageElements = [Moin, Lebenslauf, Skills, Referenzen, Interessen];
   return (
     <div className='app'>
-      <div className='bg' style={theme.backgroundColorBackground} />
+      <div className='bg' style={backgroundColorBackground} />
 
       <AnimatePresence>
         <Switch location={location} key={location.key}>

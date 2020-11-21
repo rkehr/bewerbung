@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { useGlobalStore } from '../state';
+import { useGlobalStore, useThemeStore } from '../state';
 import { usePresence } from 'framer-motion';
 
 const Page = ({ page, header, children }) => {
-  const {
-    setPreviousPageIndex,
-    previousPageIndex,
-    colorPrimary,
-    colorAccent,
-    borderColorAccent,
-  } = useGlobalStore((state) => ({
-    setPreviousPageIndex: state.setPreviousPageIndex,
-    previousPageIndex: state.previousPageIndex,
-    colorAccent: state.theme.colorAccent,
-    colorPrimary: state.theme.colorPrimary,
-    borderColorAccent: state.theme.borderColorAccent,
-  }));
+  const { setPreviousPageIndex, previousPageIndex } = useGlobalStore(
+    (state) => ({
+      setPreviousPageIndex: state.setPreviousPageIndex,
+      previousPageIndex: state.previousPageIndex,
+    })
+  );
+
+  const { colorPrimary, colorAccent, borderColorAccent } = useThemeStore(
+    (state) => {
+      return {
+        colorPrimary: state.theme.colorPrimary,
+        colorAccent: state.theme.colorAccent,
+        borderColorAccent: state.theme.borderColorAccent,
+      };
+    }
+  );
 
   const [pageLeftToRight, setPageLeftToRight] = useState(false);
   const [isPresent, safeToRemove] = usePresence();

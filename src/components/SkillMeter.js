@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import useInView from 'react-cool-inview';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 
 const SkillMeter = ({ name, percentage }) => {
   const {
     borderColorPrimary,
     backgroundColorAccent,
     colorPrimary,
-  } = useGlobalStore(state => state.theme);
+  } = useThemeStore((state) => ({
+    borderColorPrimary: state.theme.borderColorPrimary,
+    backgroundColorAccent: state.theme.backgroundColorAccent,
+    colorPrimary: state.theme.colorPrimary,
+  }));
+
   const { ref } = useInView({
     unobserveOnEnter: true,
     onEnter: () => {
@@ -25,8 +30,8 @@ const SkillMeter = ({ name, percentage }) => {
     duration: 2,
   };
   const variants = {
-    visible: w => ({
-      width: w >= 0 ? w + '%' : -w + '%',
+    visible: (w) => ({
+      width: w >= 0 ? `${w}%` : `${w * -1}%`,
     }),
     hidden: { width: '0%' },
   };
@@ -38,7 +43,7 @@ const SkillMeter = ({ name, percentage }) => {
         <motion.div
           style={{
             ...backgroundColorAccent,
-            transform: percentage < 0 ? `translateX(${percentage}%)` : 'none',
+            transform: percentage < 0 ? `translateX(-100%)` : 'none',
           }}
           className='skillMeterFill'
           transition={soft}

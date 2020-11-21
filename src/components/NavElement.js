@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 
 function NavElement({ page }) {
   const { to, name, emoji, accentColor } = page;
+
   const {
     backgroundColorBackgroundDark,
     backgroundColorBackground,
     colorPrimary,
     setTheme,
-  } = useGlobalStore(state => ({ ...state.theme, setTheme: state.setTheme }));
+  } = useThemeStore((state) => {
+    const { theme } = state;
+    return {
+      backgroundColorBackgroundDark: theme.backgroundColorBackgroundDark,
+      backgroundColorBackground: theme.backgroundColorBackground,
+      colorPrimary: theme.colorPrimary,
+      setTheme: state.setTheme,
+    };
+  });
+
   const [background, setBackground] = useState(backgroundColorBackgroundDark);
+
   useEffect(() => {
     setBackground(
       location.pathname == to
@@ -23,7 +34,7 @@ function NavElement({ page }) {
   return (
     <NavLink
       onClick={() => {
-        setTheme(i => i, accentColor);
+        setTheme((i) => i, accentColor);
       }}
       to={to}
       activeClassName='activeLink'

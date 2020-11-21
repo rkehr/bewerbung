@@ -1,7 +1,7 @@
 import Interessen from './Interessen';
-import Moin from './moin';
+import Moin from './Moin';
 import Lebenslauf from './Lebenslauf';
 import Referenzen from './Referenzen';
-import Technologien from './Technologien';
+import Skills from './Skills';
 
-export { Interessen, Moin, Lebenslauf, Referenzen, Technologien };
+export { Interessen, Moin, Lebenslauf, Referenzen, Skills };

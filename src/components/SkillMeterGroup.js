@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SkillMeter } from '.';
-import { useGlobalStore } from '../state';
+import { useThemeStore } from '../state';
 import BorderedContainer from './BorderedContainer';
 
 const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
@@ -9,17 +9,23 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
     borderColorPrimary,
     colorPrimary,
     backgroundColorBackground,
-  } = useGlobalStore(state => state.theme);
+  } = useThemeStore((state) => ({
+    borderColorPrimary: state.theme.borderColorPrimary,
+    colorPrimary: state.theme.borderColorPrimary,
+    backgroundColorBackground: state.theme.backgroundColorBackground,
+  }));
+
   return (
     <BorderedContainer className='floatingHeader' style={borderColorPrimary}>
       <h2 style={{ ...backgroundColorBackground, ...colorPrimary }}>
         {groupName}
       </h2>
+
       <div style={colorPrimary}>{children}</div>
       {skillLevels.map(({ name, percentage }, index) => {
         return (
           <SkillMeter
-            key={index.toString()}
+            key={name + index.toString()}
             name={name}
             percentage={percentage}
           />
@@ -32,6 +38,7 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
 SkillMeterGroup.propTypes = {
   groupName: PropTypes.string,
   skillLevels: PropTypes.arrayOf(PropTypes.object),
+  categoryFilters: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.arrayOf(PropTypes.element),
 };
 
