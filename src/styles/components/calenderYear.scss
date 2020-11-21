@@ -1,5 +1,9 @@
+@import '../devices.scss';
 .calenderYear {
   $calenderMonthRadius: 0.2rem;
+  @include for-phone-only {
+    padding-left: 1rem;
+  }
   .calenderMonth {
     position: relative;
     height: 1rem;
