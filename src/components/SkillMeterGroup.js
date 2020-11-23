@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { SkillMeter } from '.';
 import { useThemeStore } from '../state';
 import BorderedContainer from './BorderedContainer';
+import { motion } from 'framer-motion';
 
 const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
   const {
@@ -16,22 +17,28 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
   }));
 
   return (
-    <BorderedContainer className='floatingHeader' style={borderColorPrimary}>
-      <h2 style={{ ...backgroundColorBackground, ...colorPrimary }}>
-        {groupName}
-      </h2>
+    <motion.div
+      transition={{ type: 'ease-in-out', staggerChildren: 0.1 }}
+      initial={{ y: '10vh', opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ transition: { duration: 0 } }}>
+      <BorderedContainer className='floatingHeader' style={borderColorPrimary}>
+        <h2 style={{ ...backgroundColorBackground, ...colorPrimary }}>
+          {groupName}
+        </h2>
 
-      <div style={colorPrimary}>{children}</div>
-      {skillLevels.map(({ name, percentage }, index) => {
-        return (
-          <SkillMeter
-            key={name + index.toString()}
-            name={name}
-            percentage={percentage}
-          />
-        );
-      })}
-    </BorderedContainer>
+        <div style={colorPrimary}>{children}</div>
+        {skillLevels.map(({ name, percentage }, index) => {
+          return (
+            <SkillMeter
+              key={name + index.toString()}
+              name={name}
+              percentage={percentage}
+            />
+          );
+        })}
+      </BorderedContainer>
+    </motion.div>
   );
 };
 

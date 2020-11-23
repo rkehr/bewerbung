@@ -7,6 +7,7 @@ function BorderedContainer({ children, className, backgroundImage }) {
     (state) => state.theme.borderColorPrimary
   );
   const hasBackgroundImage = Boolean(backgroundImage);
+  const transition = { duration: 0.3 };
   return (
     <div
       className={`borderedContainer 

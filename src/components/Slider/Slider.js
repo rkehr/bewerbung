@@ -11,15 +11,15 @@ const Slider = ({ children, hasNavigation }) => {
   const childArray = React.Children.toArray(children);
 
   const animationPositions = {
-    outTop: { opacity: 0, transform: 'translate(5rem, -100vh) rotate(15deg)' },
+    outTop: { opacity: 0, transform: 'translate( -100vh)' },
     outBottom: {
       opacity: 0,
-      transform: 'translate(-5rem, 100vh) rotate(15deg)',
+      transform: 'translate( 100vh)',
     },
     out: (top) => {
       return {
         opacity: 0,
-        transform: `translate(5rem,${top ? '-' : ''}100vh) rotate(15deg)`,
+        transform: `translate(${top ? '-' : ''}100vh)`,
       };
     },
     in: { opacity: 1 },

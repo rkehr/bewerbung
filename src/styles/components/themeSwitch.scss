@@ -3,7 +3,8 @@
   top: 0;
   right: 1rem;
   width: 4rem;
-  height: 5rem;
+  height: 4.5rem;
+  cursor: pointer;
   &:focus {
     border: 1px dotted blue;
   }
@@ -17,7 +18,6 @@
   right: 1rem;
   width: 4rem;
   height: 2.5rem;
-  cursor: pointer;
   z-index: 1000;
   & p {
     font-size: 0.75rem;
