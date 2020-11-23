@@ -13,7 +13,7 @@ const App = () => {
   const backgroundColorBackground = useThemeStore(
     (state) => state.theme.backgroundColorBackground
   );
-  const pageElements = [Moin, Lebenslauf, Skills, Referenzen, Interessen];
+  const pageElements = [Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen];
   return (
     <div className='app'>
       <div className='bg' style={backgroundColorBackground} />

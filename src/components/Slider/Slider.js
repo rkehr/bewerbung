@@ -11,15 +11,15 @@ const Slider = ({ children, hasNavigation }) => {
   const childArray = React.Children.toArray(children);
 
   const animationPositions = {
-    outTop: { opacity: 0, transform: 'translate( -100vh)' },
+    outTop: { opacity: 0, transform: 'translateY(-100vh)' },
     outBottom: {
       opacity: 0,
-      transform: 'translate( 100vh)',
+      transform: 'translateY(100vh)',
     },
     out: (top) => {
       return {
-        opacity: 0,
-        transform: `translate(${top ? '-' : ''}100vh)`,
+        opacity: 1,
+        transform: `translateY(${top ? '-' : ''}100vh)`,
       };
     },
     in: { opacity: 1 },
@@ -53,7 +53,8 @@ const Slider = ({ children, hasNavigation }) => {
             custom={slide.up}
             initial='init'
             animate='in'
-            exit='out'>
+            exit='out'
+            transition={{ duration: 0.75 }}>
             {childArray[slide.nr]}
           </motion.div>
         </AnimatePresence>

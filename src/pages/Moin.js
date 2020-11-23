@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Page } from '../components';
+import { Page, Slider } from '../components';
 import { useThemeStore } from '../state';
 import { images } from '../data';
 import GradientBorderImage from '../components/GradientBorderImage';
@@ -33,7 +33,7 @@ const Moin = ({ page }) => {
       <h1 className='clampWidth' style={colorAccent}>
         {page.name}
       </h1>
-      <div className='gridContainer'>
+      <Slider>
         <p className='p1'>
           Ich habe Eure Anzeige auf Indeed gefunden und glaube, dass wir sehr
           glücklich miteinander werden könnten! Ich liebe Design und vorallem
@@ -52,7 +52,7 @@ const Moin = ({ page }) => {
           und was Ihr so macht, allerdings ist das wohl nicht der richtige Ort
           dafür, deshalb erstmal mehr über mich! :)
         </p>
-      </div>
+      </Slider>
     </Page>
   );
 };

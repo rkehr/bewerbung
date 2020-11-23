@@ -23,19 +23,19 @@ const pages = [
     to: '/technologien',
     class: 'technologien',
   },
-  {
+  /*{
     emoji: '🔖',
     name: 'Referenzen',
     accentColor: '#FF613D',
     position: 3,
     to: '/referenzen',
     class: 'referenzen',
-  },
+  },*/
   {
     emoji: '📷',
     name: 'Interessen',
     accentColor: '#FF4538',
-    position: 4,
+    position: 3,
     to: '/interessen',
     class: 'interessen',
   },
