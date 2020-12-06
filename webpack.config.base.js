@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['react-hot-loader/patch', './src/index.js'],
+  entry: ['./src/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bewerbung.js',
@@ -29,10 +29,7 @@ module.exports = {
             ],
             '@babel/preset-react',
           ],
-          plugins: [
-            'react-hot-loader/babel',
-            '@babel/plugin-proposal-class-properties',
-          ],
+          plugins: ['@babel/plugin-proposal-class-properties'],
         },
       },
       {
