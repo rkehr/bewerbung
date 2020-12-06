@@ -30,11 +30,15 @@ function SliderControls({
           className={`slideDot ${isActive && 'active'}`}
           key={n}
           onClick={() => {
-            setSlide({ nr: n, up: true });
+            const direction = n > activeSlide ? 1 : -1;
+            setSlide({
+              nr: n,
+              direction: direction,
+            });
           }}
           onKeyPress={(e) => {
             if (e.key == 'Enter') {
-              setSlide({ nr: n, up: true });
+              setSlide({ nr: n, direction: 1 });
             }
           }}
           role='button'

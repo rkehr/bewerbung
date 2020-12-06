@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SliderControls from './SliderControls';
 
 const Slider = ({ children, hasNavigation }) => {
-  const [slide, setSlide] = useState({ nr: 0, up: true });
+  const [slide, setSlide] = useState({ nr: 0, direction: true });
   const [showNavigation] = useState(
     hasNavigation == undefined ? true : hasNavigation
   );
@@ -16,22 +16,26 @@ const Slider = ({ children, hasNavigation }) => {
       opacity: 0,
       transform: 'translateY(100vh)',
     },
-    out: (top) => {
+    out: (direction) => {
       return {
-        opacity: 1,
-        transform: `translateY(${top ? '-' : ''}100vh)`,
+        opacity: 0,
+        y: direction > 0 ? '100vh' : '-100vh',
       };
     },
-    in: { opacity: 1 },
-    init: { opacity: 0 },
+    in: { opacity: 1, y: 0 },
+    init: (direction) => {
+      return { opacity: 0, y: direction < 0 ? '100vh' : '-100vh' };
+    },
   };
 
   const changeSlide = (v) => {
-    const isUp = v > 0 ? true : false;
     if (slide.nr + v < 0) {
-      setSlide({ nr: childArray.length - 1, up: isUp });
+      setSlide({ nr: childArray.length - 1, direction: v });
     } else {
-      setSlide({ nr: (slide.nr + v) % childArray.length, up: isUp });
+      setSlide({
+        nr: (slide.nr + v) % childArray.length,
+        direction: v,
+      });
     }
   };
 
@@ -45,12 +49,12 @@ const Slider = ({ children, hasNavigation }) => {
           changeSlide={changeSlide}></SliderControls>
       )}
       <div className='sliderContent'>
-        <AnimatePresence custom={Slider.up}>
+        <AnimatePresence initial={true} custom={slide.direction}>
           <motion.div
             className='slide'
-            key={slide.nr}
+            key={slide.nr.toString() + slide.direction.toString()}
             variants={animationPositions}
-            custom={slide.up}
+            custom={slide.direction}
             initial='init'
             animate='in'
             exit='out'
