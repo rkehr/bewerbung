@@ -1,42 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
-import { Moin, Lebenslauf, Skills, Referenzen, Interessen } from './pages';
+import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
 import { ThemeSwitch, NavElement } from './components';
-import { useThemeStore } from './state';
+import { useGlobalStore, useThemeStore } from './state';
 
 const App = () => {
-  const location = useLocation();
+  const { moin, lebenslauf, skills, interessen } = pages;
   const backgroundColorBackground = useThemeStore(
     (state) => state.theme.backgroundColorBackground
   );
+  const location = useLocation();
   const pageElements = [Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen];
+  const [pageIndex, setPageIndex] = useState(0);
+  const [previousPageIndex, setPreviousPageIndex] = useState(0);
+  const [pageDirection, setPageDirection] = useGlobalStore((state) => [
+    state.pageDirection,
+    state.setPageDirection,
+  ]);
+
+  const updatePageDirection = (newPageIndex) => {
+    setPreviousPageIndex(pageIndex);
+    setPageIndex(newPageIndex);
+    if (previousPageIndex == pageIndex) {
+      setPageDirection(0);
+    } else {
+      setPageDirection(previousPageIndex > pageIndex ? 1 : -1);
+    }
+  };
+
   return (
     <div className='app'>
       <div className='bg' style={backgroundColorBackground} />
 
-      <AnimatePresence>
+      <AnimatePresence custom={pageDirection}>
         <Switch location={location} key={location.key}>
-          {pages.map((currentPage, index) => {
-            return (
-              <Route path={currentPage.to} key={index}>
-                {React.createElement(pageElements[currentPage.position], {
-                  page: currentPage,
-                  testProp: 1,
-                })}
-              </Route>
-            );
-          })}
+          <Route path={moin.to}>
+            <Moin page={moin}></Moin>
+          </Route>
+          <Route path={lebenslauf.to}>
+            <Lebenslauf page={lebenslauf}></Lebenslauf>
+          </Route>
+          <Route path={skills.to}>
+            <Skills page={skills}></Skills>
+          </Route>
+          <Route path={interessen.to}>
+            <Interessen page={interessen}></Interessen>
+          </Route>
+
           <Redirect to='/moin' />
         </Switch>
       </AnimatePresence>
       <nav>
-        {pages.map((page, index) => {
-          return <NavElement page={page} key={index} />;
-        })}
+        <NavElement page={moin} updatePageDirection={updatePageDirection} />
+        <NavElement
+          page={lebenslauf}
+          updatePageDirection={updatePageDirection}
+        />
+        <NavElement page={skills} updatePageDirection={updatePageDirection} />
+        <NavElement
+          page={interessen}
+          updatePageDirection={updatePageDirection}
+        />
       </nav>
 
       <ThemeSwitch />
@@ -44,4 +71,4 @@ const App = () => {
   );
 };
 
-export default hot(module)(App);
+export default App;

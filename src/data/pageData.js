@@ -1,44 +1,41 @@
-const pages = [
-  {
+// import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from '../pages';
+
+const pages = {
+  moin: {
     emoji: '🙋',
     name: 'Moin!',
     accentColor: '#FFA947',
-    position: 0,
     to: '/moin',
     class: 'moin',
   },
-  {
+  lebenslauf: {
     emoji: '📰',
     name: 'Lebenslauf',
     accentColor: '#FF9245',
-    position: 1,
     to: '/lebenslauf',
     class: 'lebenslauf',
   },
-  {
+  skills: {
     emoji: '🎛',
-    name: 'Technologien',
+    name: 'Skills',
     accentColor: '#FF763D',
-    position: 2,
-    to: '/technologien',
-    class: 'technologien',
+    to: '/skills',
+    class: 'skills',
   },
-  /*{
+  referenzen: {
     emoji: '🔖',
     name: 'Referenzen',
     accentColor: '#FF613D',
-    position: 3,
     to: '/referenzen',
     class: 'referenzen',
-  },*/
-  {
+  },
+  interessen: {
     emoji: '📷',
     name: 'Interessen',
     accentColor: '#FF4538',
-    position: 3,
     to: '/interessen',
     class: 'interessen',
   },
-];
+};
 
-export { pages };
+export default pages;

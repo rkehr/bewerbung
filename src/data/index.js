@@ -1,7 +1,7 @@
-import { pages } from './pageData';
+import pages from './pageData';
 import { skillLevels } from './skillLevels';
 import { occupationTimeLine } from './occupationTimeLine';
-import { themes } from './themes';
+import themes from './themes';
 import images from './images';
 import { miscSkillLevels } from './miscSkillLevels';
 
