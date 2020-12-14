@@ -29,4 +29,4 @@ const themes = [
   },
 ];
 
-export { themes };
+export default themes;
