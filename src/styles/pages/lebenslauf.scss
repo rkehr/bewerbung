@@ -6,12 +6,12 @@
     grid-gap: 1.5rem;
     grid-template-columns: 1fr 1fr;
     @include for-tablet-portrait-up {
-      grid-template-columns: 1fr 2fr 4fr 1fr;
+      grid-template-columns: 1fr 4fr 2fr 1fr;
     }
 
     .calender {
       @include for-tablet-portrait-up {
-        grid-column: 2/3;
+        grid-column: 3;
       }
     }
 
@@ -20,6 +20,7 @@
       display: flex;
       flex-flow: row wrap;
       grid-gap: 1.5rem;
+      grid-column: 2;
       justify-content: space-around;
       align-content: flex-start;
       align-items: flex-start;
