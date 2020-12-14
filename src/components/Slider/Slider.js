@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import SliderControls from './SliderControls';
 
-const Slider = ({ children, hasNavigation }) => {
+const Slider = ({ children, hasNavigation, className }) => {
   const [slide, setSlide] = useState({ nr: 0, direction: true });
   const [showNavigation] = useState(
     hasNavigation == undefined ? true : hasNavigation
@@ -11,11 +11,6 @@ const Slider = ({ children, hasNavigation }) => {
   const childArray = React.Children.toArray(children);
 
   const animationPositions = {
-    outTop: { opacity: 0, transform: 'translateY(-100vh)' },
-    outBottom: {
-      opacity: 0,
-      transform: 'translateY(100vh)',
-    },
     out: (direction) => {
       return {
         opacity: 0,
@@ -40,7 +35,7 @@ const Slider = ({ children, hasNavigation }) => {
   };
 
   return (
-    <div className='slider'>
+    <div className={'slider ' + className}>
       {showNavigation && (
         <SliderControls
           numberOfSlides={childArray.length}
