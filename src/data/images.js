@@ -17,23 +17,29 @@ const images = {
     credit: 'Robin Kehr',
     alt: 'Ein Cappucino mit Schnecken-Latte Art',
   },
-  PhotographyCat: {
+  photographyCat: {
     url: '../../assets/img/photographyCat.jpg',
     srcSet: [],
     credit: 'Robin Kehr',
     alt: 'Eine Katze guckt aus einem Fenster',
   },
-  PhotographyFood: {
+  photographyFood: {
     url: '../../assets/img/photographyFood.jpg',
     srcSet: [],
     credit: 'Robin Kehr',
     alt: 'Verschiedene Schüsseln mit buntem Essen',
   },
-  PhotographyWorkshop: {
+  photographyWorkshop: {
     url: '../../assets/img/photographyWorkshop.jpg',
     srcSet: [],
     credit: 'Robin Kehr',
     alt: 'Verschiedene Getriebeteile',
+  },
+  photographyAnalog: {
+    url: '../../assets/img/photographyAnalog.jpg',
+    srcSet: [],
+    credit: 'Robin Kehr',
+    alt: 'Ein lilanes Fahrrad vor einem gelben VW Käfer',
   },
 };
 
