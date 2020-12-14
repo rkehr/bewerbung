@@ -13,7 +13,7 @@ const Skills = ({ page }) => {
     }
     return acc;
   }, []);
-  const [categoryFilters, setCategoryFilters] = useState('Alle');
+  const [categoryFilters, setCategoryFilters] = useState(['Alle']);
 
   const filteredSkillLevels = skillLevels.filter((group) => {
     if (categoryFilters && !categoryFilters.includes('Alle')) {
@@ -27,6 +27,7 @@ const Skills = ({ page }) => {
     <>
       <SkillGroupFilter
         categories={categories}
+        activeCategories={categoryFilters}
         setCategoryFilters={setCategoryFilters}></SkillGroupFilter>
       <Page page={page} header={true}>
         <div className='gridContainer'>
