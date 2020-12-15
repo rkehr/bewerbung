@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Page, ImageSection, Slider } from '../components';
+import { Page, ImageSection, Slider, ImageFrame } from '../components';
 import { images } from '../data';
 
 const Interessen = ({ page }) => {
   return (
     <Page page={page} header={false}>
       <Slider>
-        <ImageSection image={images.PhotographyCat} imagePosition='right'>
+        <ImageSection image={images.photographyCat} imagePosition='right'>
           <h2>Fotografie</h2>
         </ImageSection>
-        <ImageSection image={images.PhotographyFood}></ImageSection>
+        <ImageFrame image={images.photographyFood}></ImageFrame>
         <ImageSection
-          image={images.PhotographyWorkshop}
+          image={images.photographyWorkshop}
           imagePosition='right'></ImageSection>
+        <ImageSection image={images.photographyAnalog}>
+          <p>...und auch analoge Fotografie macht mir sehr viel Spaß</p>
+        </ImageSection>
         <ImageSection image={images.latteArtSnail}>
           <h2>Kaffee</h2>
           <p>
