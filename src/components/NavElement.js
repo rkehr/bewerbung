@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useThemeStore } from '../state';
 
-function NavElement({ page }) {
+function NavElement({ page, updatePageDirection }) {
   const { to, name, emoji, accentColor } = page;
 
   const {
@@ -34,6 +34,7 @@ function NavElement({ page }) {
   return (
     <NavLink
       onClick={() => {
+        updatePageDirection(page.position);
         setTheme((i) => i, accentColor);
       }}
       to={to}
@@ -49,6 +50,7 @@ function NavElement({ page }) {
 
 NavElement.propTypes = {
   page: PropTypes.object,
+  changePageDirection: PropTypes.func,
 };
 
 export default NavElement;

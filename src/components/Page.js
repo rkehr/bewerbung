@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { useGlobalStore, useThemeStore } from '../state';
@@ -22,28 +22,38 @@ const Page = ({ page, header, children }) => {
     }
   );
 
-  const [pageLeftToRight, setPageLeftToRight] = useState(false);
+  const [pageDirection, setPageDirection] = useGlobalStore((state) => [
+    state.pageDirection,
+    state.setPageDirection,
+  ]);
   const [isPresent, safeToRemove] = usePresence();
 
   useEffect(() => {
-    !isPresent && setTimeout(safeToRemove, 1000);
+    if (!isPresent) {
+      safeToRemove();
+    }
   }, [isPresent]);
 
   useEffect(() => {
     if (previousPageIndex != page.position) {
-      setPageLeftToRight(previousPageIndex > page.position);
+      setPageDirection(previousPageIndex > page.position ? 1 : -1);
       setPreviousPageIndex(page.position);
     }
     return () => {};
   }, [isPresent]);
-  useEffect(() => {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, []);
+
   const pageVariants = {
     in: {
       opacity: 1,
-      x: '0vw',
+      x: '0',
+    },
+    init: (direction) => {
+      const dX = direction == 0 ? '0' : direction < 0 ? '100vw' : '-100vw';
+      return { opacity: 0, x: dX };
+    },
+    out: (direction) => {
+      const dX = direction == 0 ? '0' : direction > 0 ? '100vw' : '-100vw';
+      return { opacity: 0, x: dX };
     },
     outLeft: {
       opacity: 0,
@@ -62,9 +72,10 @@ const Page = ({ page, header, children }) => {
   return (
     <motion.section
       className={'page ' + page.class}
-      initial={pageLeftToRight ? 'outRight' : 'outLeft'}
+      initial='init'
       animate='in'
-      exit={pageLeftToRight ? 'outLeft' : 'outRight'}
+      exit='out'
+      custom={pageDirection}
       variants={pageVariants}
       transition={pageTransition}
       style={colorPrimary}>
