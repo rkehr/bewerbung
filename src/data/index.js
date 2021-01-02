@@ -4,6 +4,7 @@ import { occupationTimeLine } from './occupationTimeLine';
 import themes from './themes';
 import images from './images';
 import { miscSkillLevels } from './miscSkillLevels';
+import socialMediaPlatforms from './socialMediaPlatforms.ts';
 
 export {
   pages,
@@ -12,4 +13,5 @@ export {
   themes,
   images,
   miscSkillLevels,
+  socialMediaPlatforms,
 };
