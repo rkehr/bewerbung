@@ -31,3 +31,8 @@
   position: absolute;
   transform: rotate(-90deg) translate(-0rem, -2.2rem);
 }
+.centerVertically {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
