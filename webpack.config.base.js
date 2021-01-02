@@ -37,6 +37,14 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/,
       },
+      {
+        test: /\.ts$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: ['@babel/preset-typescript'],
+        },
+      },
     ],
   },
   plugins: [
