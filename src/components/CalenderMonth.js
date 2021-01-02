@@ -7,7 +7,7 @@ import { intervalIntersection } from '../functions/';
 import { useDataStore, useThemeStore } from '../state';
 import { themes } from '../data';
 
-const CalenderMonth = ({ date, days }) => {
+const CalenderMonth = ({ date, days, timeLine }) => {
   const monthInterval = {
     start: startOfMonth(date),
     end: endOfMonth(date),
@@ -20,16 +20,11 @@ const CalenderMonth = ({ date, days }) => {
     s.applyTheme({ color: 'primary' })
   );
 
-  const occupations = useDataStore((state) => state.occupationTimeLine).map(
-    (occupation) => ({
-      ...occupation,
-      intervalOverlap: intervalIntersection([
-        occupation.interval,
-        monthInterval,
-      ]),
-      isLastMonthOfOccupation: isSameMonth(occupation.interval.end, date),
-    })
-  );
+  const occupations = timeLine.map((occupation) => ({
+    ...occupation,
+    intervalOverlap: intervalIntersection([occupation.interval, monthInterval]),
+    isLastMonthOfOccupation: isSameMonth(occupation.interval.end, date),
+  }));
 
   const occupationsThisMonth = occupations.filter(({ intervalOverlap }) => {
     return Boolean(intervalOverlap);

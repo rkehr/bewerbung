@@ -32,11 +32,7 @@ const Lebenslauf = ({ page }) => {
             );
           })}
         </div>
-        <Calender>
-          {relevantYears.map((year, index) => {
-            return <CalenderYear date={year} key={index} index={index} />;
-          })}
-        </Calender>
+        <Calender timeLine={occupationTimeLine} />
       </div>
     </>
   );
