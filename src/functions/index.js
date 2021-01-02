@@ -4,7 +4,7 @@ import {
   getMonthsInYear,
 } from './dateFunctions';
 import { reverse, reduceObjectArray } from './arrayFunctions';
-import { populateStyles } from './styleFunctions';
+import { populateStyles, getThemeFields } from './styleFunctions.ts';
 import { capitalize } from './stringFunctions';
 
 export {
@@ -15,4 +15,5 @@ export {
   reverse,
   reduceObjectArray,
   populateStyles,
+  getThemeFields,
 };
