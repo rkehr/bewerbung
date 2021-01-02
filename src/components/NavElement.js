@@ -50,6 +50,7 @@ function NavElement({ page, updatePageDirection }) {
 
 NavElement.propTypes = {
   page: PropTypes.object,
+  updatePageDirection: PropTypes.func,
   changePageDirection: PropTypes.func,
 };
 
