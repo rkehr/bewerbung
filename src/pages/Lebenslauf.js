@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { eachYearOfInterval } from 'date-fns';
-import { Page, Calender, CalenderYear, Occupation } from '../components';
-import { useDataStore } from '../state';
+import { Calender, CalenderYear, Occupation } from '../components';
+import { useDataStore, useThemeStore } from '../state';
 import { intervalUnion } from '../functions';
 
 const Lebenslauf = ({ page }) => {
+  let [colorAccent, borderColorAccent] = useThemeStore((state) => [
+    state.theme.colorAccent,
+    state.theme.borderColorAccent,
+  ]);
+
   const occupationTimeLine = useDataStore((state) => state.occupationTimeLine);
 
   const occupationInterval = intervalUnion(
@@ -14,7 +19,8 @@ const Lebenslauf = ({ page }) => {
 
   const relevantYears = eachYearOfInterval(occupationInterval).reverse();
   return (
-    <Page page={page} header={true}>
+    <>
+      <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
       <div className='gridContainer'>
         <div className='occupationDisplays' style={{}}>
           {occupationTimeLine.map((occupation, index) => {
@@ -32,7 +38,7 @@ const Lebenslauf = ({ page }) => {
           })}
         </Calender>
       </div>
-    </Page>
+    </>
   );
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Page, ImageSection, Slider, ImageFrame } from '../components';
+import { ImageSection, Slider, ImageFrame } from '../components';
 import { images } from '../data';
 
-const Interessen = ({ page }) => {
+const Interessen = () => {
   return (
-    <Page page={page} header={false}>
+    <>
       <Slider>
         <ImageSection image={images.photographyCat} imagePosition='right'>
           <h2>Fotografie</h2>
@@ -34,7 +34,7 @@ const Interessen = ({ page }) => {
           </p>
         </ImageSection>
       </Slider>
-    </Page>
+    </>
   );
 };
 

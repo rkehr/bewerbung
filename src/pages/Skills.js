@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Page, SkillMeterGroup, SkillGroupFilter } from '../components';
-import { useDataStore } from '../state';
+import { SkillMeterGroup, SkillGroupFilter } from '../components';
+import { useDataStore, useThemeStore } from '../state';
 import { AnimatePresence } from 'framer-motion';
 
 const Skills = ({ page }) => {
   const skillLevels = useDataStore((state) => state.skillLevels);
+  let [colorAccent, borderColorAccent] = useThemeStore((state) => [
+    state.theme.colorAccent,
+    state.theme.borderColorAccent,
+  ]);
 
   const categories = skillLevels.reduce((acc, group) => {
     if (!acc.includes(group.category)) {
@@ -29,7 +33,8 @@ const Skills = ({ page }) => {
         categories={categories}
         activeCategories={categoryFilters}
         setCategoryFilters={setCategoryFilters}></SkillGroupFilter>
-      <Page page={page} header={true}>
+      <>
+        <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
         <div className='gridContainer'>
           <AnimatePresence transition={{ staggerChildren: 0.4 }}>
             <SkillMeterGroup
@@ -59,7 +64,7 @@ const Skills = ({ page }) => {
             })}
           </AnimatePresence>
         </div>
-      </Page>
+      </>
     </>
   );
 };

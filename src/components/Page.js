@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useGlobalStore, useThemeStore } from '../state';
 import { usePresence } from 'framer-motion';
 
-const Page = ({ page, header, children }) => {
+const Page = ({ page, children }) => {
   const { setPreviousPageIndex, previousPageIndex } = useGlobalStore(
     (state) => ({
       setPreviousPageIndex: state.setPreviousPageIndex,
@@ -12,15 +12,11 @@ const Page = ({ page, header, children }) => {
     })
   );
 
-  const { colorPrimary, colorAccent, borderColorAccent } = useThemeStore(
-    (state) => {
-      return {
-        colorPrimary: state.theme.colorPrimary,
-        colorAccent: state.theme.colorAccent,
-        borderColorAccent: state.theme.borderColorAccent,
-      };
-    }
-  );
+  const { colorPrimary } = useThemeStore((state) => {
+    return {
+      colorPrimary: state.theme.colorPrimary,
+    };
+  });
 
   const [pageDirection, setPageDirection] = useGlobalStore((state) => [
     state.pageDirection,
@@ -32,7 +28,7 @@ const Page = ({ page, header, children }) => {
     if (!isPresent) {
       safeToRemove();
     }
-  }, [isPresent]);
+  }, [isPresent, safeToRemove]);
 
   useEffect(() => {
     if (previousPageIndex != page.position) {
@@ -79,9 +75,6 @@ const Page = ({ page, header, children }) => {
       variants={pageVariants}
       transition={pageTransition}
       style={colorPrimary}>
-      {header && (
-        <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
-      )}
       {children}
     </motion.section>
   );

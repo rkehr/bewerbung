@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
 import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
-import { ThemeSwitch, NavElement } from './components';
+import { ThemeSwitch, NavElement, Page } from './components';
 import { useGlobalStore, useThemeStore } from './state';
 
 const App = () => {
@@ -13,7 +13,6 @@ const App = () => {
     (state) => state.theme.backgroundColorBackground
   );
   const location = useLocation();
-  const pageElements = [Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen];
   const [pageIndex, setPageIndex] = useState(0);
   const [previousPageIndex, setPreviousPageIndex] = useState(0);
   const [pageDirection, setPageDirection] = useGlobalStore((state) => [
@@ -38,16 +37,24 @@ const App = () => {
       <AnimatePresence custom={pageDirection}>
         <Switch location={location} key={location.key}>
           <Route path={moin.to}>
-            <Moin page={moin}></Moin>
+            <Page page={moin}>
+              <Moin page={moin} />
+            </Page>
           </Route>
           <Route path={lebenslauf.to}>
-            <Lebenslauf page={lebenslauf}></Lebenslauf>
+            <Page page={lebenslauf}>
+              <Lebenslauf page={lebenslauf} />
+            </Page>
           </Route>
           <Route path={skills.to}>
-            <Skills page={skills}></Skills>
+            <Page page={skills}>
+              <Skills page={skills} />
+            </Page>
           </Route>
           <Route path={interessen.to}>
-            <Interessen page={interessen}></Interessen>
+            <Page page={interessen}>
+              <Interessen page={interessen} />
+            </Page>
           </Route>
 
           <Redirect to='/moin' />
