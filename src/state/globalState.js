@@ -23,4 +23,4 @@ const useGlobalStore = create((set) => ({
     });
   },
 }));
-export { useGlobalStore };
+export default useGlobalStore;
