@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useThemeStore } from '../state';
 
 function BorderedContainer({ children, className, backgroundImage }) {
-  const borderColorPrimary = useThemeStore(
-    (state) => state.theme.borderColorPrimary
+  const borderStyle = useThemeStore((s) =>
+    s.applyTheme({ borderColor: 'primary' })
   );
   const hasBackgroundImage = Boolean(backgroundImage);
   return (
@@ -12,7 +12,7 @@ function BorderedContainer({ children, className, backgroundImage }) {
       className={`borderedContainer 
         ${className} 
         ${hasBackgroundImage ? 'backgroundImage' : ''}`}
-      style={borderColorPrimary}>
+      style={borderStyle}>
       {children}
     </div>
   );

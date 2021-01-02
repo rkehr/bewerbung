@@ -1,6 +1,6 @@
 import { endOfMonth, isSameMonth, startOfMonth, format } from 'date-fns';
 import { de } from 'date-fns/locale';
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import { intervalIntersection } from '../functions/';
@@ -13,17 +13,12 @@ const CalenderMonth = ({ date, days }) => {
     end: endOfMonth(date),
   };
 
-  const {
-    colorPrimary,
-    borderColorAccent,
-    backgroundColorBackground,
-  } = useThemeStore((state) => {
-    return {
-      colorPrimary: state.theme.colorPrimary,
-      borderColorAccent: state.theme.borderColorAccent,
-      backgroundColorBackground: state.theme.borderColorAccent,
-    };
-  });
+  const CalenderMonthStyle = useThemeStore((s) =>
+    s.applyTheme({ borderColor: 'accent', backgroundColor: 'backgroundDark' })
+  );
+  const occupationLabelStyle = useThemeStore((s) =>
+    s.applyTheme({ color: 'primary' })
+  );
 
   const occupations = useDataStore((state) => state.occupationTimeLine).map(
     (occupation) => ({
@@ -32,7 +27,7 @@ const CalenderMonth = ({ date, days }) => {
         occupation.interval,
         monthInterval,
       ]),
-      isLastMonth: isSameMonth(occupation.interval.end, date),
+      isLastMonthOfOccupation: isSameMonth(occupation.interval.end, date),
     })
   );
 
@@ -58,7 +53,7 @@ const CalenderMonth = ({ date, days }) => {
     inFocus: {
       height: '100%',
     },
-    notInFocus: {
+    unfocused: {
       height: height,
     },
     hidden: {
@@ -71,8 +66,7 @@ const CalenderMonth = ({ date, days }) => {
       className='calenderMonth'
       style={{
         width: monthWidth,
-        ...borderColorAccent,
-        ...backgroundColorBackground,
+        ...CalenderMonthStyle,
       }}>
       <div className='calenderMonthLabel'>
         <span style={{ color: themes[0].primary }}>
@@ -80,19 +74,19 @@ const CalenderMonth = ({ date, days }) => {
         </span>
       </div>
       {occupationsThisMonth.map(
-        ({ name, textColor, color, isInFocus, isLastMonth }, index) => {
+        (
+          { name, textColor, color, isInFocus, isLastMonthOfOccupation },
+          index
+        ) => {
           // TODO: Move creation of controls up to Calender
           const controls = useAnimation();
-          useEffect(() => {
-            controls.start(
-              isOccupationFocused
-                ? isInFocus
-                  ? 'inFocus'
-                  : 'hidden'
-                : 'notInFocus'
-            );
-          }, [isInFocus, isOccupationFocused]);
-
+          controls.start(
+            isOccupationFocused
+              ? isInFocus
+                ? 'inFocus'
+                : 'hidden'
+              : 'unfocused'
+          );
           return (
             <motion.div
               className='calenderMonthOccupation'
@@ -105,8 +99,8 @@ const CalenderMonth = ({ date, days }) => {
               animate={controls}
               variants={animationStates}
               transition={transition}>
-              <span style={colorPrimary}>
-                {isLastMonth && isInFocus ? name : ''}
+              <span style={occupationLabelStyle}>
+                {isLastMonthOfOccupation && isInFocus ? name : ''}
               </span>
             </motion.div>
           );

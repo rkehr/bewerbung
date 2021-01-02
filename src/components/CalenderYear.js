@@ -10,7 +10,7 @@ const CalenderYear = ({ date, index }) => {
   const [isVisible, setIsVisble] = useState(false);
   const relevantMonths = getMonthsInYear(date).reverse();
 
-  const colorPrimary = useThemeStore((state) => state.theme.colorPrimary);
+  const yearStyle = useThemeStore((s) => s.applyTheme({ color: 'primary' }));
   const transition = { type: 'spring', stiffness: 200 };
 
   const variants = {
@@ -47,7 +47,7 @@ const CalenderYear = ({ date, index }) => {
           animate='visible'
           variants={variants}>
           <BorderedContainer className='calenderYear'>
-            <h2 className='sideHeader' style={colorPrimary}>
+            <h2 className='sideHeader' style={yearStyle}>
               {format(date, 'y')}
             </h2>
             <div>
