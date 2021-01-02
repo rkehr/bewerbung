@@ -1,16 +1,9 @@
 @import '../devices.scss';
 
-.moinTopSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  ul {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+.moin {
+  & ul {
     list-style: none;
-
+    align-self: center;
     li {
       list-style: none;
       padding: 0.3rem 0.3rem;
@@ -28,23 +21,50 @@
       }
     }
     &:nth-of-type(1) {
-      order: -1;
+      //order: -1;
+      grid-area: list1;
+    }
+    &:nth-of-type(2) {
+      grid-area: list2;
     }
   }
+  .gradientBorderImageWrapper {
+    grid-area: image;
+  }
+}
+
+.moinGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas:
+    '. list1 list1 image list2 list2 .'
+    '. socialLink socialLink socialLink socialLink socialLink .';
 }
 
 .page.moin {
   display: flex;
   & > * {
-    flex-grow: 1;
+    min-width: 50%;
+    height: 100%;
   }
-  .moinSlider {
+  .moinTextSection {
     padding: 4rem;
-    & .slide {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
   }
+}
+
+.socialMediaLink {
+  align-self: center;
+  justify-self: center;
+}
+
+.socialMediaLinks {
+  grid-area: socialLink;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
