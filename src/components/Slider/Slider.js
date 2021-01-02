@@ -19,7 +19,7 @@ const Slider = ({ children, hasNavigation, className }) => {
     },
     in: { opacity: 1, y: 0 },
     init: (direction) => {
-      return { opacity: 0, y: direction < 0 ? '100vh' : '-100vh' };
+      return { opacity: 1, y: direction < 0 ? '100vh' : '-100vh' };
     },
   };
 
@@ -64,6 +64,7 @@ const Slider = ({ children, hasNavigation, className }) => {
 
 Slider.propTypes = {
   children: PropTypes.any,
+  className: PropTypes.string,
   hasNavigation: PropTypes.bool,
 };
 
