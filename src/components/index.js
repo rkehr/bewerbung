@@ -11,6 +11,7 @@ import SkillGroupFilter from './SkillGroupFilter';
 import SkillMeter from './SkillMeter';
 import SkillMeterGroup from './SkillMeterGroup';
 import Slider from './Slider/';
+import SocialMediaLink from './SocialMediaLink';
 import ThemeSwitch from './ThemeSwitch';
 
 export {
@@ -27,5 +28,6 @@ export {
   SkillMeter,
   SkillMeterGroup,
   Slider,
+  SocialMediaLink,
   ThemeSwitch,
 };
