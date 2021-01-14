@@ -27,7 +27,7 @@ const SocialMediaLink = ({
       href={copyLinkOnClick ? '' : link}
       className={`socialMediaLink ${className}`}
       style={linkStyle}
-      target={!copyLinkOnClick && '_blank'}
+      target={!copyLinkOnClick ? '_blank' : undefined}
       onClick={
         copyLinkOnClick &&
         ((e) => {
