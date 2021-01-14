@@ -4,40 +4,48 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaPhone,
+  FaCopy,
+  FaLink,
 } from 'react-icons/fa';
 
 type socialMediaPlatforms = {
   [key: string]: socialMediaPlatform;
 };
 type socialMediaPlatform = {
-  icon: any;
+  Icon: any;
+  ActionIcon: any;
   handlePrefix: string;
   displayName: string;
 };
 
 const socialMediaPlatforms: socialMediaPlatforms = {
   github: {
-    icon: FaGithub,
+    Icon: FaGithub,
+    ActionIcon: FaLink,
     handlePrefix: '/',
     displayName: 'GitHub',
   },
   instagram: {
-    icon: FaInstagram,
+    Icon: FaInstagram,
+    ActionIcon: FaLink,
     handlePrefix: '@',
     displayName: 'Instagram',
   },
   linkedin: {
-    icon: FaLinkedin,
+    Icon: FaLinkedin,
+    ActionIcon: FaLink,
     handlePrefix: '/',
     displayName: 'LinkedIn',
   },
   email: {
-    icon: FaEnvelope,
+    Icon: FaEnvelope,
+    ActionIcon: FaCopy,
     handlePrefix: '',
     displayName: 'E-Mail',
   },
   phone: {
-    icon: FaPhone,
+    Icon: FaPhone,
+    ActionIcon: FaCopy,
     handlePrefix: '',
     displayName: 'Phone',
   },
