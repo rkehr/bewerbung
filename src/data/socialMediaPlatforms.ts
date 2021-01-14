@@ -1,12 +1,12 @@
 import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaEnvelope,
-  FaPhone,
-  FaCopy,
-  FaLink,
-} from 'react-icons/fa';
+  FiGithub,
+  FiInstagram,
+  FiLinkedin,
+  FiMail,
+  FiPhone,
+  FiCopy,
+  FiExternalLink,
+} from 'react-icons/fi';
 
 type socialMediaPlatforms = {
   [key: string]: socialMediaPlatform;
@@ -20,32 +20,32 @@ type socialMediaPlatform = {
 
 const socialMediaPlatforms: socialMediaPlatforms = {
   github: {
-    Icon: FaGithub,
-    ActionIcon: FaLink,
+    Icon: FiGithub,
+    ActionIcon: FiExternalLink,
     handlePrefix: '/',
     displayName: 'GitHub',
   },
   instagram: {
-    Icon: FaInstagram,
-    ActionIcon: FaLink,
+    Icon: FiInstagram,
+    ActionIcon: FiExternalLink,
     handlePrefix: '@',
     displayName: 'Instagram',
   },
   linkedin: {
-    Icon: FaLinkedin,
-    ActionIcon: FaLink,
+    Icon: FiLinkedin,
+    ActionIcon: FiExternalLink,
     handlePrefix: '/',
     displayName: 'LinkedIn',
   },
   email: {
-    Icon: FaEnvelope,
-    ActionIcon: FaCopy,
+    Icon: FiMail,
+    ActionIcon: FiCopy,
     handlePrefix: '',
     displayName: 'E-Mail',
   },
   phone: {
-    Icon: FaPhone,
-    ActionIcon: FaCopy,
+    Icon: FiPhone,
+    ActionIcon: FiCopy,
     handlePrefix: '',
     displayName: 'Phone',
   },
