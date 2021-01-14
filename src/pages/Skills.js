@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { SkillMeterGroup, SkillGroupFilter } from '../components';
-import { useDataStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore, useThemeStore } from '../state';
 import { AnimatePresence } from 'framer-motion';
 
 const Skills = ({ page }) => {
@@ -11,13 +11,7 @@ const Skills = ({ page }) => {
     state.theme.borderColorAccent,
   ]);
 
-  const categories = skillLevels.reduce((acc, group) => {
-    if (!acc.includes(group.category)) {
-      acc.push(group.category);
-    }
-    return acc;
-  }, []);
-  const [categoryFilters, setCategoryFilters] = useState(['Alle']);
+  const categoryFilters = useGlobalStore((state) => state.categoryFilters);
 
   const filteredSkillLevels = skillLevels.filter((group) => {
     if (categoryFilters && !categoryFilters.includes('Alle')) {
@@ -29,10 +23,6 @@ const Skills = ({ page }) => {
 
   return (
     <>
-      <SkillGroupFilter
-        categories={categories}
-        activeCategories={categoryFilters}
-        setCategoryFilters={setCategoryFilters}></SkillGroupFilter>
       <>
         <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
         <div className='gridContainer'>

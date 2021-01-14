@@ -4,8 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
 import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
-import { ThemeSwitch, NavElement, Page } from './components';
-import { useGlobalStore, useThemeStore } from './state';
+import { ThemeSwitch, NavElement, Page, SkillGroupFilter } from './components';
+import { useGlobalStore, useThemeStore, useDataStore } from './state';
 
 const App = () => {
   const { moin, lebenslauf, skills, interessen } = pages;
@@ -30,6 +30,19 @@ const App = () => {
     }
   };
 
+  const skillLevels = useDataStore((state) => state.skillLevels);
+
+  const categories = skillLevels.reduce((acc, group) => {
+    if (!acc.includes(group.category)) {
+      acc.push(group.category);
+    }
+    return acc;
+  }, []);
+  const [categoryFilters, setCategoryFilters] = useGlobalStore((state) => [
+    state.categoryFilters,
+    state.setCategoryFilters,
+  ]);
+
   return (
     <div className='app'>
       <div className='bg' style={backgroundColorBackground} />
@@ -47,6 +60,11 @@ const App = () => {
             </Page>
           </Route>
           <Route path={skills.to}>
+            <SkillGroupFilter
+              categories={categories}
+              activeCategories={categoryFilters}
+              setCategoryFilters={setCategoryFilters}
+            />
             <Page page={skills}>
               <Skills page={skills} />
             </Page>

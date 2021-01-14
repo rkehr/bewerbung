@@ -22,5 +22,10 @@ const useGlobalStore = create((set) => ({
       return { pageDirection: direction };
     });
   },
+  categoryFilters: ['Alle'],
+  setCategoryFilters: (newCategoryFilters) =>
+    set((state) => {
+      return { categoryFilters: newCategoryFilters };
+    }),
 }));
 export default useGlobalStore;
