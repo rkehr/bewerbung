@@ -27,16 +27,15 @@ const SocialMediaLink = ({
       href={copyLinkOnClick ? '' : link}
       className={`socialMediaLink ${className}`}
       style={linkStyle}
-      target={!copyLinkOnClick && '_blank'}>
-      <span
-        className='socialMediaIcon'
-        style={{ iconStyle }}
-        onClick={
-          copyLinkOnClick &&
-          (() => {
-            navigator.clipboard.writeText(link);
-          })
-        }>
+      target={!copyLinkOnClick && '_blank'}
+      onClick={
+        copyLinkOnClick &&
+        ((e) => {
+          e.preventDefault();
+          navigator.clipboard.writeText(link);
+        })
+      }>
+      <span className='socialMediaIcon' style={{ iconStyle }}>
         <Icon />
       </span>
       <span>
