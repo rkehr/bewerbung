@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
+    "build:stable":"git pull origin master; webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --open --config webpack.config.dev.js ",
     "dev:hot": "npm run dev -- --hot ",
     "test": "echo \"Error: no test specified\" && exit 1",
