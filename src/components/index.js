@@ -1,7 +1,5 @@
 import BorderedContainer from './BorderedContainer';
 import Calender from './Calender';
-import CalenderMonth from './CalenderMonth';
-import CalenderYear from './CalenderYear';
 import ImageFrame from './ImageFrame';
 import ImageSection from './ImageSection';
 import NavElement from './NavElement';
@@ -17,8 +15,6 @@ import ThemeSwitch from './ThemeSwitch';
 export {
   BorderedContainer,
   Calender,
-  CalenderMonth,
-  CalenderYear,
   ImageFrame,
   ImageSection,
   NavElement,

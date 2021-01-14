@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CalenderYear } from '/';
 import { eachYearOfInterval } from 'date-fns';
-import { intervalUnion } from '../functions';
+import { intervalUnion } from '../../functions';
 
-const Calender = ({ children, timeLine }) => {
+const Calender = ({ timeLine }) => {
   const occupationInterval = intervalUnion(
     timeLine.map((occupation) => occupation.interval)
   );
@@ -27,7 +27,6 @@ const Calender = ({ children, timeLine }) => {
 };
 
 Calender.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
   timeline: PropTypes.arrayOf(PropTypes.object),
 };
 

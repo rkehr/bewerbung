@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { eachYearOfInterval } from 'date-fns';
-import { Calender, CalenderYear, Occupation } from '../components';
+import { Calender, Occupation } from '../components';
 import { useDataStore, useThemeStore } from '../state';
 import { intervalUnion } from '../functions';
 

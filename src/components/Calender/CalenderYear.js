@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { format, getDaysInMonth } from 'date-fns';
 import { motion } from 'framer-motion';
-import { CalenderMonth, BorderedContainer } from './';
-import { getMonthsInYear } from '../functions';
-import { useThemeStore } from '../state';
+import { BorderedContainer } from '../';
+import { CalenderMonth } from './';
+import { getMonthsInYear } from '../../functions';
+import { useThemeStore } from '../../state';
 
 const CalenderYear = ({ date, index, timeLine }) => {
   const [isVisible, setIsVisble] = useState(false);

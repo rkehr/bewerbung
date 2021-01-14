@@ -3,9 +3,9 @@ import { de } from 'date-fns/locale';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
-import { intervalIntersection } from '../functions/';
-import { useDataStore, useThemeStore } from '../state';
-import { themes } from '../data';
+import { intervalIntersection } from '../../functions/';
+import { useThemeStore } from '../../state';
+import { themes } from '../../data';
 
 const CalenderMonth = ({ date, days, timeLine }) => {
   const monthInterval = {
