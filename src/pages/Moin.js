@@ -34,27 +34,29 @@ const Moin = ({ page }) => {
             <SocialMediaLink
               platformName='github'
               handle='rkehr'
-              link='https://github.com/'
+              link='https://github.com/rkehr/'
             />
             <SocialMediaLink
               platformName='instagram'
               handle='robinkehr'
-              link='https://instagram.com/'
+              link='https://instagram.com/robinkehr/'
             />
             <SocialMediaLink
               platformName='linkedin'
               handle='robinkehr'
-              link='http://linkedin.com/'
+              link='https://www.linkedin.com/in/robin-kehr-006367172/'
             />
             <SocialMediaLink
               platformName='email'
               handle='ich@robinkehr.de'
-              link=''
+              link='ich@robinkehr.de'
+              copyLinkOnClick
             />
             <SocialMediaLink
               platformName='phone'
               handle='+49 159 01038708'
-              link=''
+              link='+49 159 01038708'
+              copyLinkOnClick
             />
           </div>
         </div>
