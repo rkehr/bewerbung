@@ -6,10 +6,11 @@ const skillLevels = [
     skillLevels: [
       { name: 'JavaScript/ ES6', percentage: 78 },
       { name: 'TypeScript', percentage: 37 },
-      { name: 'Java', percentage: 65 },
-      { name: 'PHP 7.X', percentage: 43 },
-      { name: 'Python', percentage: 29 },
-      { name: 'C++', percentage: 15 },
+      { name: 'Java', percentage: 61 },
+      { name: 'PHP 7.X', percentage: 38 },
+      { name: 'Python', percentage: 24 },
+      { name: 'C++', percentage: 10 },
+      { name: 'Rust', percentage: 35 },
     ],
   },
   {
@@ -32,10 +33,11 @@ const skillLevels = [
     skillLevels: [
       { name: 'Wordpress', percentage: 73 },
       { name: 'NodeJs/yarn', percentage: 42 },
-      { name: 'Express', percentage: 65 },
+      { name: 'Express', percentage: 35 },
+      { name: 'Actix', percentage: 30 },
       { name: 'GraphQL/Apollo', percentage: 30 },
-      { name: 'MySQL', percentage: 40 },
-      { name: 'MongoDB', percentage: 45 },
+      { name: 'SQL', percentage: 40 },
+      { name: 'MongoDB', percentage: 35 },
     ],
   },
   {
@@ -43,7 +45,7 @@ const skillLevels = [
     category: 'Infrastruktur',
     description: '',
     skillLevels: [
-      { name: 'GNU/Linux (CentOS8)', percentage: 54 },
+      { name: 'GNU/Linux (Ubuntu)', percentage: 54 },
       { name: 'NGINX', percentage: 63 },
       { name: 'Docker + Docker Compose', percentage: 11 },
     ],
