@@ -81,7 +81,7 @@ const skillLevels = [
       { name: 'Deutsch', percentage: 100 },
       { name: 'Englisch', percentage: 90 },
       { name: 'Schwedisch', percentage: 20 },
-      { name: 'Spanisch', percentage: -15 },
+      { name: 'Spanisch', percentage: -8 },
     ],
   },
   {
