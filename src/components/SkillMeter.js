@@ -36,6 +36,8 @@ const SkillMeter = ({ name, percentage }) => {
     hidden: { width: '0%' },
   };
 
+  const isPositive = percentage >= 0;
+
   return (
     <div ref={ref}>
       <span style={colorPrimary}> {name}</span>
@@ -43,7 +45,9 @@ const SkillMeter = ({ name, percentage }) => {
         <motion.div
           style={{
             ...backgroundColorAccent,
-            transform: percentage < 0 ? `translateX(-100%)` : 'none',
+            transform: !isPositive
+              ? `translateX(calc(-100% + 0.6rem))`
+              : 'none',
           }}
           className='skillMeterFill'
           transition={soft}
