@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "build:stable":"git pull origin master; webpack --config webpack.config.prod.js",
+    "build:stable": "git pull origin master; webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --open --config webpack.config.dev.js ",
     "dev:hot": "npm run dev -- --hot ",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -49,6 +49,7 @@
     "date-fns": "^2.16.1",
     "framer-motion": "^2.9.1",
     "immer": "^7.0.12",
+    "normalize-scss": "^7.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-cool-inview": "^1.1.7",
