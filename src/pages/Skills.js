@@ -28,6 +28,7 @@ const Skills = ({ page }) => {
         <div className='gridContainer'>
           <AnimatePresence transition={{ staggerChildren: 0.4 }}>
             <SkillMeterGroup
+              key={'static group'}
               groupName='Jack of all trades, master of some...'
               skillLevels={[]}>
               <p>
