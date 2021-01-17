@@ -18,10 +18,12 @@ const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
 
   return (
     <motion.div
-      transition={{ type: 'ease-in-out', staggerChildren: 0.1 }}
-      initial={{ y: '10vh', opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ transition: { duration: 0 } }}>
+      transition={{ type: 'ease-in-out', staggerChildren: 0.5 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ transition: { duration: 0 } }}
+      layoutId={groupName}
+      layout>
       <BorderedContainer className='floatingHeader' style={borderColorPrimary}>
         <h2 style={{ ...backgroundColorBackground, ...colorPrimary }}>
           {groupName}
