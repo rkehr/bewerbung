@@ -29,7 +29,7 @@ function NavElement({ page, updatePageDirection }) {
         ? backgroundColorBackground
         : backgroundColorBackgroundDark
     );
-  }, [location, backgroundColorBackground]);
+  }, [backgroundColorBackground, backgroundColorBackgroundDark, to]);
 
   return (
     <NavLink
