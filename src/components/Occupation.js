@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { format, isToday } from 'date-fns';
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
+import {
+  AnimatePresence,
+  AnimateSharedLayout,
+  motion,
+  useAnimation,
+} from 'framer-motion';
 
-import { useDataStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore, useThemeStore } from '../state';
 import { de } from 'date-fns/locale';
 
 function Occupation({ occupation, index }) {
@@ -24,6 +29,23 @@ function Occupation({ occupation, index }) {
   const occupationEnd = isToday(interval.end)
     ? 'Heute'
     : format(interval.end, 'd. MMMM y', { locale: de });
+
+  const newOccupationControls = useAnimation();
+  const addOccupationControls = useGlobalStore(
+    (state) => state.addOccupationControls
+  );
+  useEffect(() => {
+    addOccupationControls(name + organisation, newOccupationControls);
+  }, [addOccupationControls, name, organisation, newOccupationControls]);
+
+  const occupations = useDataStore((state) => state.occupationTimeLine);
+  const anyOccupationFocused = occupations.reduce((acc, occupation) => {
+    return acc || occupation.isInFocus;
+  }, false);
+
+  newOccupationControls.start(
+    anyOccupationFocused ? (isInFocus ? 'inFocus' : 'hidden') : 'unfocused'
+  );
 
   const conditionalClass = (cssClass) => {
     return `${cssClass} ${isInFocus && 'isInFocus'}`;

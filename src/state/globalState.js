@@ -24,8 +24,16 @@ const useGlobalStore = create((set) => ({
   },
   categoryFilters: ['Alle'],
   setCategoryFilters: (newCategoryFilters) =>
-    set((state) => {
+    set(() => {
       return { categoryFilters: newCategoryFilters };
+    }),
+  occupationControls: {},
+  addOccupationControls: (name, controls) =>
+    set((state) => {
+      const newControls = { [name]: controls };
+      return {
+        occupationControls: { ...state.occupationControls, ...newControls },
+      };
     }),
 }));
 export default useGlobalStore;

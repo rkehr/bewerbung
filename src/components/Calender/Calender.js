@@ -4,7 +4,7 @@ import { CalenderYear } from '/';
 import { eachYearOfInterval } from 'date-fns';
 import { intervalUnion } from '../../functions';
 
-const Calender = ({ timeLine }) => {
+const Calender = ({ timeLine, occupationControls }) => {
   const occupationInterval = intervalUnion(
     timeLine.map((occupation) => occupation.interval)
   );
@@ -19,6 +19,7 @@ const Calender = ({ timeLine }) => {
             key={index}
             timeLine={timeLine}
             index={index}
+            occupationControls={occupationControls}
           />
         );
       })}
@@ -27,7 +28,8 @@ const Calender = ({ timeLine }) => {
 };
 
 Calender.propTypes = {
-  timeline: PropTypes.arrayOf(PropTypes.object),
+  timeLine: PropTypes.arrayOf(PropTypes.object),
+  occupationControls: PropTypes.object,
 };
 
 export default Calender;

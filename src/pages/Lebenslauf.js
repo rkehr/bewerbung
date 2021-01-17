@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Calender, Occupation } from '../components';
-import { useDataStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore, useThemeStore } from '../state';
 
 const Lebenslauf = ({ page }) => {
   let [colorAccent, borderColorAccent] = useThemeStore((state) => [
@@ -10,6 +10,10 @@ const Lebenslauf = ({ page }) => {
   ]);
 
   const occupationTimeLine = useDataStore((state) => state.occupationTimeLine);
+
+  const occupationControls = useGlobalStore(
+    (state) => state.occupationControls
+  );
 
   return (
     <>
@@ -22,7 +26,10 @@ const Lebenslauf = ({ page }) => {
             );
           })}
         </div>
-        <Calender timeLine={occupationTimeLine} />
+        <Calender
+          timeLine={occupationTimeLine}
+          occupationControls={occupationControls}
+        />
       </div>
     </>
   );

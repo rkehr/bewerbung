@@ -7,7 +7,7 @@ import { CalenderMonth } from './';
 import { getMonthsInYear } from '../../functions';
 import { useThemeStore } from '../../state';
 
-const CalenderYear = ({ date, index, timeLine }) => {
+const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
   const [isVisible, setIsVisble] = useState(false);
   const relevantMonths = getMonthsInYear(date).reverse();
 
@@ -60,6 +60,7 @@ const CalenderYear = ({ date, index, timeLine }) => {
                     days={numberOfDays}
                     timeLine={timeLine}
                     key={index}
+                    occupationControls={occupationControls}
                   />
                 );
               })}
@@ -75,5 +76,6 @@ CalenderYear.propTypes = {
   date: PropTypes.instanceOf(Date),
   index: PropTypes.number,
   timeLine: PropTypes.arrayOf(Object),
+  occupationControls: PropTypes.object,
 };
 export default CalenderYear;
