@@ -14,12 +14,12 @@ const Slider = ({ children, hasNavigation, className }) => {
     out: (direction) => {
       return {
         opacity: 0,
-        y: direction > 0 ? '100vh' : '-100vh',
+        y: direction > 0 ? 1000 : -1000,
       };
     },
     in: { opacity: 1, y: 0 },
     init: (direction) => {
-      return { opacity: 1, y: direction < 0 ? '100vh' : '-100vh' };
+      return { opacity: 1, y: direction < 0 ? 1000 : -1000 };
     },
   };
 
@@ -32,6 +32,11 @@ const Slider = ({ children, hasNavigation, className }) => {
         direction: v,
       });
     }
+  };
+  const swipeConfidenceThreshold = 10000;
+
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
   };
 
   return (
@@ -53,7 +58,18 @@ const Slider = ({ children, hasNavigation, className }) => {
             initial='init'
             animate='in'
             exit='out'
-            transition={{ duration: 0.75 }}>
+            transition={{ duration: 0.3 }}
+            drag='y'
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={1}
+            onDragEnd={(_e, { offset, velocity }) => {
+              const swipe = swipePower(offset.y, velocity.y);
+              if (swipe < -swipeConfidenceThreshold) {
+                changeSlide(-1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                changeSlide(1);
+              }
+            }}>
             {childArray[slide.nr]}
           </motion.div>
         </AnimatePresence>
