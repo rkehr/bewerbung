@@ -33,36 +33,29 @@
   }
 }
 
-.moinGrid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-areas:
-    '. list1 list1 image list2 list2 .'
-    '. socialLink socialLink socialLink socialLink socialLink .';
+.moinHeader {
+  .imgAndLists {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .page.moin {
-  display: flex;
-  & > * {
-    width: 50%;
-    height: 100%;
-  }
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   .moinTextSection {
     padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    p {
+      width: 50%;
+    }
   }
 }
 
 .socialMediaLink {
-  align-self: center;
-  justify-self: center;
 }
 
 .socialMediaLinks {
-  grid-area: socialLink;
   display: flex;
   flex: 1 1 0;
   justify-content: space-between;
