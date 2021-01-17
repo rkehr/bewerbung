@@ -20,10 +20,11 @@ const SocialMediaLink = ({
       color: 'accent',
     })
   );
+  const element = copyLinkOnClick ? 'button' : 'a';
 
   const { Icon, ActionIcon, handlePrefix } = socialMediaPlatforms[platformName];
   return (
-    <a
+    <element
       href={copyLinkOnClick ? '' : link}
       className={`socialMediaLink ${className}`}
       style={linkStyle}
@@ -42,7 +43,7 @@ const SocialMediaLink = ({
         {handlePrefix + handle}
         <ActionIcon className='actionIcon' />
       </span>
-    </a>
+    </element>
   );
 };
 
