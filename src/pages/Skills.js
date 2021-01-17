@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { SkillMeterGroup, SkillGroupFilter } from '../components';
+import { SkillMeterGroup } from '../components';
 import { useDataStore, useGlobalStore, useThemeStore } from '../state';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 
 const Skills = ({ page }) => {
   const skillLevels = useDataStore((state) => state.skillLevels);
@@ -43,15 +43,17 @@ const Skills = ({ page }) => {
                 Programmiersprachen und Programmen auftauchen anwenden zu können
               </p>
             </SkillMeterGroup>
-
-            {filteredSkillLevels.map(({ groupName, skillLevels }, index) => {
-              return (
-                <SkillMeterGroup
-                  key={groupName + index.toString()}
-                  groupName={groupName}
-                  skillLevels={skillLevels}></SkillMeterGroup>
-              );
-            })}
+            <AnimateSharedLayout>
+              {filteredSkillLevels.map(({ groupName, skillLevels }, index) => {
+                return (
+                  <SkillMeterGroup
+                    key={groupName + index.toString()}
+                    groupName={groupName}
+                    skillLevels={skillLevels}
+                  />
+                );
+              })}
+            </AnimateSharedLayout>
           </AnimatePresence>
         </div>
       </>
