@@ -15,84 +15,78 @@ const Moin = ({ page }) => {
 
   return (
     <>
-      <div className='centerVertically'>
-        <div className='moinGrid'>
-          <GradientBorderImage image={images.moinImage} />
-          <ul style={borderColorAccent}>
+      <div className='moinHeader'>
+        <div className='imgAndLists'>
+          <ul style={borderColorAccent} className='moinList'>
             <li>Student</li>
             <li>Front End Entwickler</li>
             <li>UX Designfreund</li>
-            <li>Wordpressrehabilitand</li>
+            <li>Backend- Neuling</li>
           </ul>
-          <ul>
-            <li>Back End neuling</li>
+          <GradientBorderImage image={images.moinImage} />
+          <ul className='moinList'>
+            <li>Neugierig</li>
             <li>Kaffeeenthusiast</li>
             <li>Hobbyfotograf</li>
             <li>Pflanzenmensch</li>
           </ul>
-          <div className='socialMediaLinks'>
-            <SocialMediaLink
-              platformName='github'
-              handle='rkehr'
-              link='https://github.com/rkehr/'
-            />
-            <SocialMediaLink
-              platformName='instagram'
-              handle='robinkehr'
-              link='https://instagram.com/robinkehr/'
-            />
-            <SocialMediaLink
-              platformName='linkedin'
-              handle='robinkehr'
-              link='https://www.linkedin.com/in/robin-kehr-006367172/'
-            />
-            <SocialMediaLink
-              platformName='email'
-              handle='ich@robinkehr.de'
-              link='ich@robinkehr.de'
-              copyLinkOnClick
-            />
-            <SocialMediaLink
-              platformName='phone'
-              handle='+49 159 01038708'
-              link='+49 159 01038708'
-              copyLinkOnClick
-            />
-          </div>
+        </div>
+        <div className='socialMediaLinks'>
+          <SocialMediaLink
+            platformName='github'
+            handle='rkehr'
+            link='https://github.com/rkehr/'
+          />
+          <SocialMediaLink
+            platformName='instagram'
+            handle='robinkehr'
+            link='https://instagram.com/robinkehr/'
+          />
+          <SocialMediaLink
+            platformName='linkedin'
+            handle='robinkehr'
+            link='https://www.linkedin.com/in/robin-kehr-006367172/'
+          />
+          <SocialMediaLink
+            platformName='email'
+            handle='ich@robinkehr.de'
+            link='ich@robinkehr.de'
+            copyLinkOnClick
+          />
+          <SocialMediaLink
+            platformName='phone'
+            handle='+49 159 01038708'
+            link='+49 159 01038708'
+            copyLinkOnClick
+          />
         </div>
       </div>
       <div className='moinTextSection'>
         <h1 className='clampWidth' style={colorAccent}>
           {page.name}
         </h1>
-        <div>
-          <p className='p1'>
-            Ich habe Eure Anzeige auf Indeed gefunden und glaube, dass wir sehr
-            glücklich miteinander werden könnten! Ich liebe Design und vorallem
-            wohldesignte Benutzeroberflächen. Popups und Blinkende Werbungen
-            finde ich dagegen furchtbar.
-          </p>
-        </div>
-        <div>
-          <p className='p2'>
-            ich habe dank meines verlängerten Studiums inzwischen auch schon ein
-            paar erfahrungen in der Programmierung sowohl innerhalb der Uni als
-            auch in der &apos;echten&apos; Welt sammeln dürfen, sowohl was
-            Design und Fotografie, als auch beim Bau von Webseiten für
-            persönliche Projekte und eine Autowerkstatt.
-          </p>
-        </div>
-        <div>
-          <p className='p3'>
-            An dieser Stelle würde ich Euch natürlich fragen wie es Euch so geht
-            und was Ihr so macht, allerdings ist das wohl nicht der richtige Ort
-            dafür, deshalb erstmal mehr über mich! :)
-          </p>
-        </div>
-        <div>
-          Falls sich das für euch gut anhört, oder ihr sonst noch Fragen habt,
-          zögert nicht euch zu melden
-        </div>
+        <p>
+          Ich bin Robin. Wenn ich endlos viel Zeit hätte würde ich am liebsten
+          <span className='bold'> alles</span> lernen.
+        </p>
+        <p>
+          Nach 24 Jahren musste ich allerdings feststellen, dass das etwas knapp
+          wird und habe mich endlich entschieden meinen Schwerpunkt auf die
+          Programmierung zu legen.
+        </p>
+        <p>
+          Warum Programmierung? <br />
+          Kein anderes Feld bietet in meinen Augen eine ähnliche Vielfalt.
+          Kreativität, analytisches Denken, kreative Problemlösung, und
+          Mustererkennung, machen mir Spaß. Und all das lässt sich dann anwenden
+          auf sinnstiftende Projekte, absolut sinnbefreite Projekte, esthetische
+          Projekte, reine Kommandozeilenprojekte (dank ASCII art natürlich auch
+          esthetische Kommandozeilenprojekte)... Alles ist möglich und genau das
+          fasziniert mich.
+        </p>
+        <p>
+          Und sonst so? <br />
+        </p>
       </div>
     </>
   );
