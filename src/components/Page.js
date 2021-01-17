@@ -36,7 +36,13 @@ const Page = ({ page, children }) => {
       setPreviousPageIndex(page.position);
     }
     return () => {};
-  }, [isPresent]);
+  }, [
+    isPresent,
+    page.position,
+    previousPageIndex,
+    setPageDirection,
+    setPreviousPageIndex,
+  ]);
 
   const pageVariants = {
     in: {
