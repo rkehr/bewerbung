@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useThemeStore } from '../../state';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 
 function SliderControls({
   numberOfSlides,
@@ -8,6 +9,11 @@ function SliderControls({
   setSlide,
   changeSlide,
 }) {
+  const activeSlideIndicator = useThemeStore(({ applyTheme }) =>
+    applyTheme({
+      backgroundColor: 'accent',
+    })
+  );
   const {
     backgroundColorPrimary,
     borderColorAccent,
@@ -24,10 +30,9 @@ function SliderControls({
     const slideDots = [...Array(numberOfSlides).keys()].reverse();
     return slideDots.map((n) => {
       const isActive = n == activeSlide;
-      const borderColor = isActive ? borderColorAccent : borderColorBackground;
       return (
         <div
-          className={`slideDot ${isActive && 'active'}`}
+          className={'slideDot'}
           key={n}
           onClick={() => {
             const direction = n > activeSlide ? 1 : -1;
@@ -43,10 +48,26 @@ function SliderControls({
           }}
           role='button'
           tabIndex='0'
-          style={{ ...backgroundColorPrimary, ...borderColor }}></div>
+          style={{ ...backgroundColorPrimary }}>
+          {isActive && (
+            <motion.div
+              style={{
+                borderRadius: '50%',
+                height: '100%',
+                width: '100%',
+                ...activeSlideIndicator,
+              }}
+              transition={{ duration: 0.2 }}
+              layout
+              layoutId='activeSlideIndicator'
+              animate={{ y: 0 }}
+            />
+          )}
+        </div>
       );
     });
   };
+
   return (
     <div className='sliderControls'>
       <div
@@ -64,7 +85,7 @@ function SliderControls({
         style={{ ...backgroundColorPrimary, ...borderColorBackground }}>
         <div style={borderColorAccent}></div>
       </div>
-      {getSlideDots(numberOfSlides)}
+      <AnimateSharedLayout>{getSlideDots(numberOfSlides)}</AnimateSharedLayout>
       <div
         className='backArrow'
         onClick={() => {
