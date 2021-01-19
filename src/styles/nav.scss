@@ -23,7 +23,7 @@ nav {
     }
     .navText {
       display: none;
-      @include for-tablet-landscape-up {
+      @include for-tablet-portrait-up {
         display: block;
       }
     }
