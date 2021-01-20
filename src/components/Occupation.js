@@ -25,10 +25,10 @@ function Occupation({ occupation, index }) {
   });
 
   const { name, organisation, interval, color, description } = occupation;
-  const occupationStart = format(interval.start, 'd. MMMM y', { locale: de });
+  const occupationStart = format(interval.start, 'd.M.y', { locale: de });
   const occupationEnd = isToday(interval.end)
     ? 'Heute'
-    : format(interval.end, 'd. MMMM y', { locale: de });
+    : format(interval.end, 'd.M.y', { locale: de });
 
   const newOccupationControls = useAnimation();
   const addOccupationControls = useGlobalStore(
@@ -71,7 +71,7 @@ function Occupation({ occupation, index }) {
         />
         <div className={conditionalClass('occupationDisplayContent')}>
           <h2>{name}</h2>
-          <p>@{organisation}</p>
+          <p className='organisation'>@{organisation}</p>
           <p>
             {occupationStart} bis
             <br />
