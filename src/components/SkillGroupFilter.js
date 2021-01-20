@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion, AnimatePresence, usePresence } from 'framer-motion';
+import {
+  motion,
+  AnimatePresence,
+  usePresence,
+  AnimateSharedLayout,
+} from 'framer-motion';
 import { useThemeStore } from '../state';
+import { FiFilter, FiX } from 'react-icons/fi';
 
 function SkillGroupFilter({
   categories,
@@ -9,6 +15,8 @@ function SkillGroupFilter({
   setCategoryFilters,
 }) {
   const [isPresent] = usePresence();
+  const [isOpen, setIsOpen] = useState(false);
+  const Icon = isOpen ? FiX : FiFilter;
 
   const { colorAccent, backgroundColorBackgroundDark } = useThemeStore(
     (state) => {
@@ -25,36 +33,53 @@ function SkillGroupFilter({
   };
 
   return (
-    <AnimatePresence>
-      {isPresent && (
-        <motion.div
-          className='skillGroupFilter open'
-          style={{ ...colorAccent, ...backgroundColorBackgroundDark }}
-          exit={{ opacity: 0 }}>
-          {['Alle', ...categories].map((category, index) => {
-            const isActiveCategory = activeCategories.includes(category);
-
-            return (
-              <div
-                key={index}
+    <AnimateSharedLayout>
+      <AnimatePresence>
+        {isPresent && (
+          <>
+            <motion.div
+              className='skillGroupFilter'
+              style={{ ...colorAccent, ...backgroundColorBackgroundDark }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}>
+              <Icon
                 onClick={() => {
-                  setCategoryFilters([category]);
+                  setIsOpen(!isOpen);
                 }}
-                style={isActiveCategory ? activeCategoryStyle : {}}
-                onKeyPress={(e) => {
-                  if (e.key == 'Enter') {
-                    setCategoryFilters([category]);
-                  }
-                }}
-                role='button'
-                tabIndex='0'>
-                {category}
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
-    </AnimatePresence>
+                style={{ fontSize: '125%', display: 'block', width: '100%' }}
+              />
+              {isOpen &&
+                ['Alle', ...categories].map((category, index) => {
+                  const isActiveCategory = activeCategories.includes(category);
+
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setCategoryFilters([category]);
+                      }}
+                      style={isActiveCategory ? activeCategoryStyle : {}}
+                      onKeyPress={(e) => {
+                        if (e.key == 'Enter') {
+                          setCategoryFilters([category]);
+                        }
+                      }}
+                      role='button'
+                      tabIndex='0'
+                      initial={{ opacity: 0, x: 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 100 }}
+                      layout>
+                      {category}
+                    </div>
+                  );
+                })}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </AnimateSharedLayout>
   );
 }
 
