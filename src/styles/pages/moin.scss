@@ -1,53 +1,55 @@
 @import '../devices.scss';
 
 .moin {
-  & ul {
-    list-style: none;
-    align-self: center;
-    li {
-      list-style: none;
-      padding: 0.3rem 0.3rem;
-      position: relative;
-      &:before {
-        content: '';
-        display: inline-block;
-        width: 0.5rem;
-        height: 0.5rem;
-        position: absolute;
-        top: calc(50% - 0.25rem);
-        left: -0.5rem;
-        background: linear-gradient(45deg, #c42c00, #eb9f00);
-        border-radius: 50%;
+  .moinHeader {
+    .imgAndLists {
+      display: flex;
+      justify-content: center;
+      ul {
+        list-style: none;
+        align-self: center;
+        li {
+          list-style: none;
+          padding: 0.3rem 0.3rem;
+          position: relative;
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.5rem;
+            position: absolute;
+            top: calc(50% - 0.25rem);
+            left: -0.5rem;
+            background: linear-gradient(45deg, #c42c00, #eb9f00);
+            border-radius: 50%;
+          }
+        }
+        &:nth-of-type(1) {
+          //order: -1;
+          grid-area: list1;
+        }
+        &:nth-of-type(2) {
+          grid-area: list2;
+        }
       }
     }
-    &:nth-of-type(1) {
-      //order: -1;
-      grid-area: list1;
-    }
-    &:nth-of-type(2) {
-      grid-area: list2;
-    }
-  }
-  .gradientBorderImageWrapper {
-    grid-area: image;
-  }
-}
-
-.moinHeader {
-  .imgAndLists {
-    display: flex;
-    justify-content: center;
   }
 }
 
 .page.moin {
-  width: 50%;
+  @include for-tablet-landscape-up {
+    width: 50%;
+  }
   margin-left: auto;
   margin-right: auto;
   .moinTextSection {
     padding: 4rem;
     p {
-      width: 50%;
+      @include for-desktop-up {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 }
