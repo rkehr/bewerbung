@@ -1,7 +1,7 @@
 const occupationTimeLine = [
   {
-    name: 'Internationaler Studiengang Medieninformatik',
-    organisation: 'HTW Berlin',
+    name: 'Bachelor Studium',
+    organisation: 'Medieninformatik HTW Berlin',
     description:
       'Seid Einigen Jahren (I know, I know) Studier ich inzwischen Medieninformatik. Für längere Zeit war ich mir nicht sicher ob ich überhaupt fertigstudieren möchte weil mir die kreative Komponente fehlte, jetzt aber habe ich die Kreativität in der Programmierung entdeckt.',
     interval: {
@@ -13,7 +13,7 @@ const occupationTimeLine = [
   },
   {
     name: 'Content Creator',
-    organisation: 'Urban Motors und Bredlow Automobile via Soniques GmbH',
+    organisation: 'Urban Motors und Bredlow Automobile via Soniques',
     description:
       'Hier habe ich für die Socialmediaauftritte zweier Werkstätten bzw. Autohändler Fotos gemacht und getextet. Weil ich sonst weder viel mit Autos noch mit Motorrädern am Hut hab, war es hier besonders spannend gute Motive zu suchen und dabei gleich zwei Werkstätten entdecken zu können.',
     interval: {
