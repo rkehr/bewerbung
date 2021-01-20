@@ -9,6 +9,7 @@ function ThemeSwitch() {
     backgroundColorAccent,
     accent,
     name,
+    Icon,
   } = useThemeStore((state) => ({
     setTheme: state.setTheme,
     localAccent: state.localAccent,
@@ -16,6 +17,7 @@ function ThemeSwitch() {
     backgroundColorAccent: state.theme.backgroundColorAccent,
     accent: state.theme.accent,
     name: state.theme.name,
+    Icon: state.theme.Icon,
   }));
 
   return (
@@ -33,7 +35,9 @@ function ThemeSwitch() {
       aria-selected={name}
       tabIndex='0'>
       <div style={backgroundColorAccent} className='themeSwitch'>
-        <p style={{ margin: 0, ...colorBackgroundDark }}>{name}</p>
+        <p style={{ margin: 0, ...colorBackgroundDark }}>
+          <Icon />
+        </p>
       </div>
       <div
         className='ribbon'

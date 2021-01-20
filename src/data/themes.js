@@ -1,6 +1,8 @@
+import { FiMoon, FiCoffee, FiSun, FiBook } from 'react-icons/fi';
 const themes = [
   {
     name: 'Dark',
+    Icon: FiMoon,
     background: '#081622',
     backgroundDark: '#020612',
     primary: '#EEB',
@@ -8,6 +10,7 @@ const themes = [
   },
   {
     name: 'Coffee',
+    Icon: FiCoffee,
     background: '#262622',
     backgroundDark: '#191919',
     primary: '#EEB',
@@ -15,6 +18,7 @@ const themes = [
   },
   {
     name: 'Light',
+    Icon: FiSun,
     background: '#EED',
     backgroundDark: '#F9D999',
     primary: '#764622',
@@ -22,6 +26,7 @@ const themes = [
   },
   {
     name: 'Contrast',
+    Icon: FiBook,
     background: '#FFF',
     backgroundDark: '#CCC',
     primary: '#000',
