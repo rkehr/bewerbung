@@ -21,6 +21,7 @@ html {
   @include for-phone-only {
     font-size: 75%;
   }
+  font-display: swap;
 }
 
 body {
