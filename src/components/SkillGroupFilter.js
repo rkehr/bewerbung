@@ -33,7 +33,7 @@ function SkillGroupFilter({
   };
 
   return (
-    <AnimateSharedLayout>
+    <AnimateSharedLayout type='crossfade'>
       <AnimatePresence>
         {isPresent && (
           <>
@@ -42,12 +42,14 @@ function SkillGroupFilter({
               style={{ ...colorAccent, ...backgroundColorBackgroundDark }}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}>
+              exit={{ opacity: 0, x: 100 }}
+              layout>
               <Icon
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
                 style={{ fontSize: '125%', display: 'block', width: '100%' }}
+                layout
               />
               {isOpen &&
                 ['Alle', ...categories].map((category, index) => {
