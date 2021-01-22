@@ -51,49 +51,49 @@ function Occupation({ occupation, index }) {
     return `${cssClass} ${isInFocus && 'isInFocus'}`;
   };
   return (
-    <AnimateSharedLayout>
-      <motion.div
-        layout
-        className={conditionalClass('occupationDisplay')}
-        onClick={() => {
-          toggleFocus(index);
-        }}
-        style={{
-          ...colorPrimary,
-        }}>
+    <AnimateSharedLayout type='switch'>
+      <AnimatePresence>
         <motion.div
-          className={conditionalClass('occupationDisplayBackground')}
-          style={{
-            background: color,
-            opacity: isInFocus ? 1 : 0.3,
-            ...borderColorAccent,
+          layout
+          className={conditionalClass('occupationDisplay')}
+          onClick={() => {
+            toggleFocus(index);
           }}
-        />
-        <div className={conditionalClass('occupationDisplayContent')}>
-          <h2>{name}</h2>
-          <p className='organisation'>@{organisation}</p>
-          <p>
-            {occupationStart} bis
-            <br />
-            {occupationEnd}
-          </p>
+          style={{
+            ...colorPrimary,
+          }}>
           <motion.div
             layout
-            className={conditionalClass('occupationDescription')}>
-            <AnimatePresence>
+            className={conditionalClass('occupationDisplayBackground')}
+            style={{
+              background: color,
+              opacity: isInFocus ? 1 : 0.3,
+              ...borderColorAccent,
+            }}
+          />
+          <div className={conditionalClass('occupationDisplayContent')}>
+            <h2>{name}</h2>
+            <p className='organisation'>@{organisation}</p>
+            <p>
+              {occupationStart} bis
+              <br />
+              {occupationEnd}
+            </p>
+            <div className={conditionalClass('occupationDescription')}>
               {isInFocus && (
                 <motion.p
                   layout
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}>
+                  transition={{ duration: 1 }}
+                  initial={{ opacity: 0, maxHeight: 0 }}
+                  animate={{ opacity: 1, maxHeight: 3000 }}
+                  exit={{ opacity: 0, maxHeight: 0 }}>
                   {description}
                 </motion.p>
               )}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </AnimateSharedLayout>
   );
 }
