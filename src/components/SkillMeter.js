@@ -31,7 +31,7 @@ const SkillMeter = ({ name, percentage }) => {
   };
   const variants = {
     visible: (w) => ({
-      width: w >= 0 ? `${w}%` : `${w * -1}%`,
+      width: `${Math.abs(w)}%`,
     }),
     hidden: { width: '0%' },
   };
@@ -44,7 +44,9 @@ const SkillMeter = ({ name, percentage }) => {
       <div className='skillMeterBorder' style={borderColorPrimary}>
         <motion.div
           style={{
-            ...backgroundColorAccent,
+            ...(!isPositive
+              ? { backgroundColor: 'red' }
+              : backgroundColorAccent),
             transform: !isPositive
               ? `translateX(calc(-100% + 0.6rem))`
               : 'none',
