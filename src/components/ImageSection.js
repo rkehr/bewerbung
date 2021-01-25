@@ -1,18 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ImageFrame } from './';
+import { useThemeStore } from '../state';
 
-function ImageSection({ image, imagePosition, children }) {
+const ImageSection = ({ image, imagePosition, children }) => {
+  const imageSectionContentStyle = useThemeStore(({ applyTheme }) => {
+    return applyTheme({
+      backgroundColor: 'backgroundDark',
+      color: 'color',
+    });
+  });
   return (
     <div
       className={`imageSection ${
         imagePosition == 'right' ? 'imageRight' : 'imageLeft'
       }`}>
       <ImageFrame image={image} />
-      <div className='imageSectionContent'>{children}</div>
+      <div className='imageSectionContent' style={imageSectionContentStyle}>
+        {children}
+      </div>
     </div>
   );
-}
+};
 
 ImageSection.propTypes = {
   image: PropTypes.object,
