@@ -40,7 +40,7 @@ const Slider = ({ children, hasNavigation, className }) => {
   };
 
   return (
-    <div className={'slider ' + className}>
+    <div className={'slider ' + (className || '')}>
       {showNavigation && (
         <SliderControls
           numberOfSlides={childArray.length}
