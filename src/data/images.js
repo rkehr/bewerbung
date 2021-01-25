@@ -35,11 +35,23 @@ const images = {
     credit: 'Robin Kehr',
     alt: 'Verschiedene Getriebeteile',
   },
-  photographyAnalog: {
-    url: '../../assets/img/photographyAnalog.jpg',
+  photographyAnalogKaefer: {
+    url: '../../assets/img/photographyAnalogKaefer.jpg',
     srcSet: [],
     credit: 'Robin Kehr',
     alt: 'Ein lilanes Fahrrad vor einem gelben VW Käfer',
+  },
+  photographyAnalogSummer: {
+    url: '../../assets/img/photographyAnalogSummer.jpg',
+    srcSet: [],
+    credit: 'Robin Kehr',
+    alt: 'Schwarz- Weiß Foto von zwei Menschen in der Sonne. Einer trinkt Bier',
+  },
+  photographyAnalogLake: {
+    url: '../../assets/img/photographyAnalogLake.jpg',
+    srcSet: [],
+    credit: 'Robin Kehr',
+    alt: 'Schwarz- Weiß Foto von zwei Menschen in der Sonne. Einer trinkt Bier',
   },
 };
 
