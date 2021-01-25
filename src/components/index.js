@@ -1,5 +1,6 @@
 import BorderedContainer from './BorderedContainer';
 import Calender from './Calender';
+import CollapsibleText from './CollapsibleText';
 import ImageFrame from './ImageFrame';
 import ImageSection from './ImageSection';
 import NavElement from './NavElement';
@@ -15,6 +16,7 @@ import ThemeSwitch from './ThemeSwitch';
 export {
   BorderedContainer,
   Calender,
+  CollapsibleText,
   ImageFrame,
   ImageSection,
   NavElement,
