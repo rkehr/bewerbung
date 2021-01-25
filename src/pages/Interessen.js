@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ImageSection, Slider, ImageFrame } from '../components';
+import {
+  ImageSection,
+  Slider,
+  ImageFrame,
+  CollapsibleText,
+} from '../components';
 import { images } from '../data';
 
 const Interessen = () => {
@@ -14,9 +19,11 @@ const Interessen = () => {
         <ImageSection
           image={images.photographyWorkshop}
           imagePosition='right'></ImageSection>
-        <ImageSection image={images.photographyAnalog}>
+        <ImageSection image={images.photographyAnalogKaefer}>
           <p>...und auch analoge Fotografie macht mir sehr viel Spaß</p>
         </ImageSection>
+        <ImageFrame image={images.photographyAnalogSummer}></ImageFrame>
+        <ImageFrame image={images.photographyAnalogLake}></ImageFrame>
         <ImageSection image={images.latteArtSnail}>
           <h2>Kaffee</h2>
           <p>
