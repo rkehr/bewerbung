@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
-const CollapsibleText = ({
-  excerptLength,
-  excerptPostfix,
-  open,
-  OpeningElement,
-  children,
-}) => {
+const CollapsibleText = ({ excerptLength, excerptPostfix, open, children }) => {
   const [isOpen, setIsOpen] = useState(open);
 
   return (
@@ -52,8 +46,8 @@ const CollapsibleText = ({
 CollapsibleText.propTypes = {
   excerptLength: PropTypes.number,
   excerptPostfix: PropTypes.string,
-  isOpen: PropTypes.bool,
-  OpeningElement: PropTypes.func,
+  open: PropTypes.bool,
+  children: PropTypes.any,
 };
 
 export default CollapsibleText;

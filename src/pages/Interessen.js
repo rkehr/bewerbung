@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ImageSection,
-  Slider,
-  ImageFrame,
-  CollapsibleText,
-} from '../components';
+import { ImageSection, Slider, ImageFrame } from '../components';
 import { images } from '../data';
 
 const Interessen = () => {
