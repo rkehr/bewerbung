@@ -47,7 +47,6 @@
     "core-js": "3",
     "date-fns": "^2.16.1",
     "framer-motion": "^3.2.1",
-    "immer": "^8.0.1",
     "normalize-scss": "^7.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -56,7 +55,7 @@
     "react-icons": "^4.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-transition-group": "^4.4.1",
+    "react-use-gesture": "^9.0.0",
     "regenerator-runtime": "^0.13.7",
     "zustand": "^3.3.1"
   }
