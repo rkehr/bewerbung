@@ -35,10 +35,6 @@ const Slider = ({ children, hasNavigation, className }) => {
   };
   const swipeConfidenceThreshold = 10000;
 
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
-  };
-
   return (
     <div className={'slider ' + (className || '')}>
       {showNavigation && (
@@ -85,3 +81,7 @@ Slider.propTypes = {
 };
 
 export default Slider;
+
+const swipePower = (offset, velocity) => {
+  return Math.abs(offset) * velocity;
+};
