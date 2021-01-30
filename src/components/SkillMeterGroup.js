@@ -6,9 +6,7 @@ import BorderedContainer from './BorderedContainer';
 import { motion } from 'framer-motion';
 
 const SkillMeterGroup = ({ groupName, skillLevels, children }) => {
-  const themedHeaderBackground = useTheme({
-    backgroundColor: 'background',
-  });
+  const themedHeaderBackground = useTheme({ backgroundColor: 'background' });
 
   return (
     <motion.div
