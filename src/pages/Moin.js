@@ -1,23 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SocialMediaLink } from '../components';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 import { images } from '../data';
 import GradientBorderImage from '../components/GradientBorderImage';
 
 const Moin = ({ page }) => {
-  const { colorAccent, borderColorAccent } = useThemeStore((state) => {
-    return {
-      colorAccent: state.theme.colorAccent,
-      borderColorAccent: state.theme.borderColorAccent,
-    };
-  });
-
+  const themedHeader = useTheme({ color: 'accent' });
+  const themedList = useTheme({ borderColor: 'accent' });
   return (
     <>
       <div className='moinHeader'>
         <div className='imgAndLists'>
-          <ul style={borderColorAccent} className='moinList'>
+          <ul style={themedList} className='moinList'>
             <li>Student</li>
             <li>Front End Entwickler</li>
             <li>UX Designfreund</li>
@@ -62,7 +57,7 @@ const Moin = ({ page }) => {
         </div>
       </div>
       <div className='moinTextSection'>
-        <h1 className='clampWidth' style={colorAccent}>
+        <h1 className='clampWidth' style={themedHeader}>
           {page.name}
         </h1>
         <p>

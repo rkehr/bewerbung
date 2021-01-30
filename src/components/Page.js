@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { useGlobalStore, useThemeStore } from '../state';
+import { useGlobalStore, useTheme } from '../state';
 import { usePresence } from 'framer-motion';
 
 const Page = ({ page, children }) => {
@@ -11,12 +11,7 @@ const Page = ({ page, children }) => {
       previousPageIndex: state.previousPageIndex,
     })
   );
-
-  const { colorPrimary } = useThemeStore((state) => {
-    return {
-      colorPrimary: state.theme.colorPrimary,
-    };
-  });
+  const themedPage = useTheme({ color: 'primary' });
 
   const [pageDirection, setPageDirection] = useGlobalStore((state) => [
     state.pageDirection,
@@ -80,7 +75,7 @@ const Page = ({ page, children }) => {
       custom={pageDirection}
       variants={pageVariants}
       transition={pageTransition}
-      style={colorPrimary}>
+      style={themedPage}>
       {children}
     </motion.section>
   );

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { intervalIntersection } from '../../functions/';
-import { useThemeStore } from '../../state';
+import { useTheme } from '../../state';
 import { themes } from '../../data';
 
 const CalenderMonth = ({ date, days, timeLine, occupationControls }) => {
@@ -12,14 +12,6 @@ const CalenderMonth = ({ date, days, timeLine, occupationControls }) => {
     start: startOfMonth(date),
     end: endOfMonth(date),
   };
-
-  const CalenderMonthStyle = useThemeStore((s) =>
-    s.applyTheme({ borderColor: 'accent', backgroundColor: 'backgroundDark' })
-  );
-  const occupationLabelStyle = useThemeStore((s) =>
-    s.applyTheme({ color: 'primary' })
-  );
-
   const occupations = timeLine.map((occupation) => ({
     ...occupation,
     intervalOverlap: intervalIntersection([occupation.interval, monthInterval]),
@@ -29,12 +21,16 @@ const CalenderMonth = ({ date, days, timeLine, occupationControls }) => {
   const occupationsThisMonth = occupations.filter(({ intervalOverlap }) => {
     return Boolean(intervalOverlap);
   });
-
   const dayWidth = 100 / 31;
   const monthWidth = `${dayWidth * days}%`;
   const height = `${100 / occupationsThisMonth.length}%`;
 
-  // TODO: Move initialization of transition and animationStates up to Calender
+  const themedCalenderMonth = useTheme({
+    width: monthWidth,
+    borderColor: 'accent',
+    backgroundColor: 'backgroundDark',
+  });
+  const themedOccupationLabel = useTheme({ color: 'primary' });
 
   const transition = {
     ease: 'easeOut',
@@ -53,12 +49,7 @@ const CalenderMonth = ({ date, days, timeLine, occupationControls }) => {
   };
 
   return (
-    <div
-      className='calenderMonth'
-      style={{
-        width: monthWidth,
-        ...CalenderMonthStyle,
-      }}>
+    <div className='calenderMonth' style={themedCalenderMonth}>
       <div className='calenderMonthLabel'>
         <span style={{ color: themes[0].primary }}>
           {format(date, 'MMMM', { locale: de })}
@@ -90,7 +81,7 @@ const CalenderMonth = ({ date, days, timeLine, occupationControls }) => {
               animate={controls}
               variants={animationStates}
               transition={transition}>
-              <span style={occupationLabelStyle}>
+              <span style={themedOccupationLabel}>
                 {isLastMonthOfOccupation && isInFocus ? name : ''}
               </span>
             </motion.div>

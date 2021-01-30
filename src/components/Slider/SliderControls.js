@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useThemeStore } from '../../state';
+import { useTheme } from '../../state';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 
 function SliderControls({
@@ -9,22 +9,17 @@ function SliderControls({
   setSlide,
   changeSlide,
 }) {
-  const activeSlideIndicator = useThemeStore(({ applyTheme }) =>
-    applyTheme({
-      backgroundColor: 'accent',
-    })
-  );
-  const {
-    backgroundColorPrimary,
-    borderColorAccent,
-    borderColorBackground,
-  } = useThemeStore((state) => {
-    return {
-      backgroundColorPrimary: state.theme.backgroundColorPrimary,
-      borderColorAccent: state.theme.borderColorAccent,
-      borderColorBackground: state.theme.borderColorBackground,
-    };
+  const themedSlideIndicator = useTheme({
+    backgroundColor: 'accent',
+    borderRadius: '50%',
+    height: '100%',
+    width: '100%',
   });
+  const themedSlideControls = useTheme({
+    backgroundColor: 'primary',
+    borderColor: 'background',
+  });
+  const themedArrow = useTheme({ borderColor: 'accent' });
 
   const getSlideDots = (numberOfSlides) => {
     const slideDots = [...Array(numberOfSlides).keys()].reverse();
@@ -48,15 +43,10 @@ function SliderControls({
           }}
           role='button'
           tabIndex='0'
-          style={{ ...backgroundColorPrimary }}>
+          style={themedSlideControls}>
           {isActive && (
             <motion.div
-              style={{
-                borderRadius: '50%',
-                height: '100%',
-                width: '100%',
-                ...activeSlideIndicator,
-              }}
+              style={themedSlideIndicator}
               transition={{ duration: 0.2 }}
               layout
               layoutId='activeSlideIndicator'
@@ -82,8 +72,8 @@ function SliderControls({
         }}
         role='button'
         tabIndex='0'
-        style={{ ...backgroundColorPrimary, ...borderColorBackground }}>
-        <div style={borderColorAccent}></div>
+        style={themedSlideControls}>
+        <div style={themedArrow}></div>
       </div>
       <AnimateSharedLayout>{getSlideDots(numberOfSlides)}</AnimateSharedLayout>
       <div
@@ -98,8 +88,8 @@ function SliderControls({
         }}
         role='button'
         tabIndex='0'
-        style={{ ...backgroundColorPrimary, ...borderColorBackground }}>
-        <div style={borderColorAccent}></div>
+        style={{ themedSlideControls }}>
+        <div style={themedArrow}></div>
       </div>
     </div>
   );

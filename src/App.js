@@ -5,13 +5,14 @@ import { AnimatePresence } from 'framer-motion';
 import { pages } from './data';
 import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
 import { ThemeSwitch, NavElement, Page, SkillGroupFilter } from './components';
-import { useGlobalStore, useThemeStore, useDataStore } from './state';
+import { useGlobalStore, useTheme, useDataStore } from './state';
 
 const App = () => {
   const { moin, lebenslauf, skills, interessen } = pages;
-  const backgroundColorBackground = useThemeStore(
-    (state) => state.theme.backgroundColorBackground
-  );
+
+  const themedBackground = useTheme({
+    backgroundColor: 'background',
+  });
   const location = useLocation();
   const [pageIndex, setPageIndex] = useState(0);
   const [previousPageIndex, setPreviousPageIndex] = useState(0);
@@ -45,7 +46,7 @@ const App = () => {
 
   return (
     <div className='app'>
-      <div className='bg' style={backgroundColorBackground} />
+      <div className='bg' style={themedBackground} />
 
       <AnimatePresence custom={pageDirection}>
         <Switch location={location} key={location.key}>

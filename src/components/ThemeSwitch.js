@@ -1,24 +1,17 @@
 import React from 'react';
-import { useThemeStore } from '../state';
+import { useTheme, useThemeStore } from '../state';
 
 function ThemeSwitch() {
-  const {
-    setTheme,
-    localAccent,
-    colorBackgroundDark,
-    backgroundColorAccent,
-    accent,
-    name,
-    Icon,
-  } = useThemeStore((state) => ({
-    setTheme: state.setTheme,
-    localAccent: state.localAccent,
-    colorBackgroundDark: state.theme.colorBackgroundDark,
-    backgroundColorAccent: state.theme.backgroundColorAccent,
-    accent: state.theme.accent,
-    name: state.theme.name,
-    Icon: state.theme.Icon,
-  }));
+  const [setTheme, localAccent, accent, name, Icon] = useThemeStore(
+    ({ setTheme, localAccent, theme }) => {
+      return [setTheme, localAccent, theme.accent, theme.name, theme.Icon];
+    }
+  );
+
+  const themedThemeSwitch = useTheme({
+    color: 'backgroundDark',
+    backgroundColor: 'accent',
+  });
 
   return (
     <div
@@ -34,8 +27,8 @@ function ThemeSwitch() {
       role='option'
       aria-selected={name}
       tabIndex='0'>
-      <div style={backgroundColorAccent} className='themeSwitch'>
-        <p style={{ margin: 0, ...colorBackgroundDark }}>
+      <div style={themedThemeSwitch} className='themeSwitch'>
+        <p style={{ margin: 0 }}>
           <Icon />
         </p>
       </div>

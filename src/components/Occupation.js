@@ -7,28 +7,19 @@ import {
   motion,
   useAnimation,
 } from 'framer-motion';
-
-import { useDataStore, useGlobalStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore, useTheme } from '../state';
 import { de } from 'date-fns/locale';
 
 function Occupation({ occupation, index }) {
-  const { toggleFocus, isInFocus } = useDataStore((state) => ({
-    toggleFocus: state.toggleFocus,
-    isInFocus: state.occupationTimeLine[index].isInFocus,
-  }));
-
-  const { colorPrimary, borderColorAccent } = useThemeStore((state) => {
-    return {
-      colorPrimary: state.theme.colorPrimary,
-      borderColorAccent: state.theme.borderColorAccent,
-    };
-  });
+  const [toggleFocus, isInFocus] = useDataStore((state) => [
+    state.toggleFocus,
+    state.occupationTimeLine[index].isInFocus,
+  ]);
+  const themedOccupation = useTheme({ color: 'primary' });
 
   const { name, organisation, interval, color, description } = occupation;
-  const occupationStart = format(interval.start, 'd.M.y', { locale: de });
-  const occupationEnd = isToday(interval.end)
-    ? 'Heute'
-    : format(interval.end, 'd.M.y', { locale: de });
+  const occupationStart = formatDate(interval.start);
+  const occupationEnd = formatDate(interval.end);
 
   const newOccupationControls = useAnimation();
   const addOccupationControls = useGlobalStore(
@@ -59,24 +50,20 @@ function Occupation({ occupation, index }) {
           onClick={() => {
             toggleFocus(index);
           }}
-          style={{
-            ...colorPrimary,
-          }}>
+          style={themedOccupation}>
           <motion.div
             layout
             className={conditionalClass('occupationDisplayBackground')}
             style={{
               background: color,
               opacity: isInFocus ? 1 : 0.3,
-              ...borderColorAccent,
             }}
           />
           <div className={conditionalClass('occupationDisplayContent')}>
             <h2>{name}</h2>
             <p className='organisation'>@{organisation}</p>
             <p>
-              {occupationStart} bis
-              <br />
+              {occupationStart} bis <br />
               {occupationEnd}
             </p>
             <div className={conditionalClass('occupationDescription')}>
@@ -104,3 +91,7 @@ Occupation.propTypes = {
 };
 
 export default Occupation;
+
+const formatDate = (date) => {
+  return isToday(date) ? 'Heute' : format(date, 'd.M.y', { locale: de });
+};

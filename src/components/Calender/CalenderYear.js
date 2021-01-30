@@ -5,13 +5,11 @@ import { motion } from 'framer-motion';
 import { BorderedContainer } from '../';
 import { CalenderMonth } from './';
 import { getMonthsInYear } from '../../functions';
-import { useThemeStore } from '../../state';
 
 const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
   const [isVisible, setIsVisble] = useState(false);
   const relevantMonths = getMonthsInYear(date).reverse();
 
-  const yearStyle = useThemeStore((s) => s.applyTheme({ color: 'primary' }));
   const transition = { type: 'spring', stiffness: 200 };
 
   const variants = {
@@ -48,9 +46,7 @@ const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
           animate='visible'
           variants={variants}>
           <BorderedContainer className='calenderYear'>
-            <h2 className='sideHeader' style={yearStyle}>
-              {format(date, 'y')}
-            </h2>
+            <h2 className='sideHeader'>{format(date, 'y')}</h2>
             <div>
               {relevantMonths.map((date, index) => {
                 const numberOfDays = getDaysInMonth(date);

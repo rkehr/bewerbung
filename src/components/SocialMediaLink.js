@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 import { socialMediaPlatforms } from '../data';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -12,16 +12,14 @@ const SocialMediaLink = ({
   copyLinkOnClick,
 }) => {
   const [wasCopied, setWasCopied] = useState(false);
-  const linkStyle = useThemeStore(({ applyTheme }) =>
-    applyTheme({
-      color: 'primary',
-    })
-  );
-  const iconStyle = useThemeStore(({ applyTheme }) =>
-    applyTheme({
-      color: 'accent',
-    })
-  );
+
+  const themedLink = useTheme({
+    color: 'primary',
+  });
+  const themedIcon = useTheme({
+    color: 'accent',
+  });
+
   const Element = copyLinkOnClick ? 'button' : 'a';
 
   const { Icon, ActionIcon, handlePrefix } = socialMediaPlatforms[platformName];
@@ -29,7 +27,7 @@ const SocialMediaLink = ({
     <Element
       href={copyLinkOnClick ? '' : link}
       className={`socialMediaLink ${className}`}
-      style={linkStyle}
+      style={themedLink}
       target={!copyLinkOnClick ? '_blank' : undefined}
       onClick={
         copyLinkOnClick &&
@@ -42,7 +40,7 @@ const SocialMediaLink = ({
           }, 1300);
         })
       }>
-      <span className='socialMediaIcon' style={{ iconStyle }}>
+      <span className='socialMediaIcon' style={{ themedIcon: themedIcon }}>
         <Icon />
       </span>
       <span className='socialMediaHandle'>{handlePrefix + handle}</span>

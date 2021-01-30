@@ -1,35 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { useThemeStore } from '../state';
+import { useThemeStore, useTheme } from '../state';
 
 function NavElement({ page, updatePageDirection }) {
   const { to, name, emoji, accentColor } = page;
 
-  const {
-    backgroundColorBackgroundDark,
-    backgroundColorBackground,
-    colorPrimary,
-    setTheme,
-  } = useThemeStore((state) => {
-    const { theme } = state;
-    return {
-      backgroundColorBackgroundDark: theme.backgroundColorBackgroundDark,
-      backgroundColorBackground: theme.backgroundColorBackground,
-      colorPrimary: theme.colorPrimary,
-      setTheme: state.setTheme,
-    };
+  const setTheme = useThemeStore((state) => state.setTheme);
+
+  const [isDark, setIsDark] = useState(true);
+
+  const themedNavBackground = useTheme({
+    color: 'primary',
+    backgroundColor: isDark ? 'background' : 'backgroundDark',
   });
 
-  const [background, setBackground] = useState(backgroundColorBackgroundDark);
-
   useEffect(() => {
-    setBackground(
-      location.pathname == to
-        ? backgroundColorBackground
-        : backgroundColorBackgroundDark
-    );
-  }, [backgroundColorBackground, backgroundColorBackgroundDark, to]);
+    setIsDark(location.pathname == to);
+  }, [setIsDark, to, location.pathname]);
 
   return (
     <NavLink
@@ -39,7 +27,7 @@ function NavElement({ page, updatePageDirection }) {
       }}
       to={to}
       activeClassName='activeLink'
-      style={{ ...background, ...colorPrimary }}>
+      style={themedNavBackground}>
       <div className='before' style={{ backgroundColor: accentColor }}></div>
       {emoji}
       <br />

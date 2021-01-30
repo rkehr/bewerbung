@@ -18,12 +18,12 @@ const skillLevels = [
     category: 'Development',
     description: '',
     skillLevels: [
-      { name: 'HTML5', percentage: 90 },
+      { name: 'HTML5', percentage: 83 },
       { name: 'CSS3', percentage: 75 },
-      { name: 'Sass/ Scss', percentage: 41 },
-      { name: 'ReactJs', percentage: 55 },
-      { name: 'jQuery', percentage: 65 },
-      { name: 'Bootstrap', percentage: 45 },
+      { name: 'ReactJs', percentage: 64 },
+      { name: 'Sass/ SCSS', percentage: 41 },
+      { name: 'jQuery', percentage: 38 },
+      { name: 'Bootstrap', percentage: 40 },
     ],
   },
   {
@@ -32,7 +32,7 @@ const skillLevels = [
     description: '',
     skillLevels: [
       { name: 'Wordpress', percentage: 73 },
-      { name: 'NodeJs/yarn', percentage: 42 },
+      { name: 'NodeJs', percentage: 42 },
       { name: 'Express', percentage: 35 },
       { name: 'Actix', percentage: 30 },
       { name: 'GraphQL/Apollo', percentage: 30 },
@@ -46,8 +46,8 @@ const skillLevels = [
     description: '',
     skillLevels: [
       { name: 'GNU/Linux (Ubuntu)', percentage: 54 },
-      { name: 'NGINX', percentage: 63 },
-      { name: 'Docker + Docker Compose', percentage: 11 },
+      { name: 'NGINX', percentage: 55 },
+      { name: 'Docker + Docker Compose', percentage: 28 },
     ],
   },
   {
@@ -81,7 +81,7 @@ const skillLevels = [
       { name: 'Deutsch', percentage: 100 },
       { name: 'Englisch', percentage: 90 },
       { name: 'Schwedisch', percentage: 20 },
-      { name: 'Spanisch', percentage: -8 },
+      { name: 'Spanisch', percentage: -5 },
     ],
   },
   {
@@ -89,7 +89,7 @@ const skillLevels = [
     category: 'Andere',
     description: '',
     skillLevels: [
-      { name: 'Ableton Live', percentage: 95 },
+      { name: 'Ableton Live', percentage: 85 },
       { name: 'LibreOffice', percentage: 62 },
     ],
   },

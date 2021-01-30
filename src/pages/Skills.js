@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SkillMeterGroup } from '../components';
-import { useDataStore, useGlobalStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore, useTheme } from '../state';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 
 const Skills = ({ page }) => {
-  const skillLevels = useDataStore((state) => state.skillLevels);
-  let [colorAccent, borderColorAccent] = useThemeStore((state) => [
-    state.theme.colorAccent,
-    state.theme.borderColorAccent,
-  ]);
+  const themedHeader = useTheme({ color: 'accent', borderColor: 'accent' });
 
+  const skillLevels = useDataStore((state) => state.skillLevels);
   const categoryFilters = useGlobalStore((state) => state.categoryFilters);
 
   const filteredSkillLevels = skillLevels.filter((group) => {
@@ -24,7 +21,7 @@ const Skills = ({ page }) => {
   return (
     <>
       <>
-        <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
+        <h1 style={themedHeader}>{page.name}</h1>
         <div className='gridContainer'>
           <AnimatePresence transition={{ staggerChildren: 0.4 }}>
             <SkillMeterGroup

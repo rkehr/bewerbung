@@ -6,7 +6,7 @@ import {
   usePresence,
   AnimateSharedLayout,
 } from 'framer-motion';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 import { FiFilter, FiX } from 'react-icons/fi';
 
 function SkillGroupFilter({
@@ -18,17 +18,12 @@ function SkillGroupFilter({
   const [isOpen, setIsOpen] = useState(false);
   const Icon = isOpen ? FiX : FiFilter;
 
-  const { colorAccent, backgroundColorBackgroundDark } = useThemeStore(
-    (state) => {
-      return {
-        colorAccent: state.theme.colorPrimary,
-        backgroundColorBackgroundDark:
-          state.theme.backgroundColorBackgroundDark,
-      };
-    }
-  );
+  const themedSkillGroupFilter = useTheme({
+    color: 'accent',
+    backgroundColor: 'backgroundDark',
+  });
 
-  const activeCategoryStyle = {
+  const themedActiveCategory = {
     textDecoration: 'underline',
   };
 
@@ -39,7 +34,7 @@ function SkillGroupFilter({
           <>
             <motion.div
               className='skillGroupFilter'
-              style={{ ...colorAccent, ...backgroundColorBackgroundDark }}
+              style={themedSkillGroupFilter}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
@@ -61,7 +56,7 @@ function SkillGroupFilter({
                       onClick={() => {
                         setCategoryFilters([category]);
                       }}
-                      style={isActiveCategory ? activeCategoryStyle : {}}
+                      style={isActiveCategory ? themedActiveCategory : {}}
                       onKeyPress={(e) => {
                         if (e.key == 'Enter') {
                           setCategoryFilters([category]);

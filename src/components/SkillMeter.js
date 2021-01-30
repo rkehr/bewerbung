@@ -2,18 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import useInView from 'react-cool-inview';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 
 const SkillMeter = ({ name, percentage }) => {
-  const {
-    borderColorPrimary,
-    backgroundColorAccent,
-    colorPrimary,
-  } = useThemeStore((state) => ({
-    borderColorPrimary: state.theme.borderColorPrimary,
-    backgroundColorAccent: state.theme.backgroundColorAccent,
-    colorPrimary: state.theme.colorPrimary,
-  }));
+  const isPositive = percentage >= 0;
+  const themedSKillMeterFill = useTheme({
+    backgroundColor: isPositive ? 'accent' : 'red',
+    transform: !isPositive ? 'translateX(calc(-100% + 0.6rem))' : 'none',
+  });
+  const themedSkillMeterBorder = useTheme({
+    borderColor: 'primary',
+  });
 
   const { ref } = useInView({
     unobserveOnEnter: true,
@@ -36,21 +35,12 @@ const SkillMeter = ({ name, percentage }) => {
     hidden: { width: '0%' },
   };
 
-  const isPositive = percentage >= 0;
-
   return (
     <div ref={ref}>
-      <span style={colorPrimary}> {name}</span>
-      <div className='skillMeterBorder' style={borderColorPrimary}>
+      <span> {name}</span>
+      <div className='skillMeterBorder' style={themedSkillMeterBorder}>
         <motion.div
-          style={{
-            ...(!isPositive
-              ? { backgroundColor: 'red' }
-              : backgroundColorAccent),
-            transform: !isPositive
-              ? `translateX(calc(-100% + 0.6rem))`
-              : 'none',
-          }}
+          style={themedSKillMeterFill}
           className='skillMeterFill'
           transition={soft}
           custom={percentage}

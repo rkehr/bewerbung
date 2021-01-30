@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Calender, Occupation } from '../components';
-import { useDataStore, useGlobalStore, useThemeStore } from '../state';
+import { useDataStore, useGlobalStore } from '../state';
+import { useTheme } from '../state/themeState.ts';
 
 const Lebenslauf = ({ page }) => {
-  let [colorAccent, borderColorAccent] = useThemeStore((state) => [
-    state.theme.colorAccent,
-    state.theme.borderColorAccent,
-  ]);
+  const themedHeader = useTheme({ color: 'accent', borderColor: 'accent' });
 
   const occupationTimeLine = useDataStore((state) => state.occupationTimeLine);
 
@@ -17,7 +15,7 @@ const Lebenslauf = ({ page }) => {
 
   return (
     <>
-      <h1 style={{ ...colorAccent, ...borderColorAccent }}>{page.name}</h1>
+      <h1 style={themedHeader}>{page.name}</h1>
       <div className='gridContainer'>
         <div className='occupationDisplays' style={{}}>
           {occupationTimeLine.map((occupation, index) => {

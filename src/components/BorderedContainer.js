@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 
 function BorderedContainer({ children, className, backgroundImage }) {
-  const borderStyle = useThemeStore((s) =>
-    s.applyTheme({ borderColor: 'primary' })
-  );
+  const themedBorder = useTheme({ borderColor: 'primary' });
   const hasBackgroundImage = Boolean(backgroundImage);
   return (
     <div
       className={`borderedContainer 
         ${className} 
         ${hasBackgroundImage ? 'backgroundImage' : ''}`}
-      style={borderStyle}>
+      style={themedBorder}>
       {children}
     </div>
   );

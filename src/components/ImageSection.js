@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ImageFrame } from './';
-import { useThemeStore } from '../state';
+import { useTheme } from '../state';
 
 const ImageSection = ({ image, imagePosition, children }) => {
-  const imageSectionContentStyle = useThemeStore(({ applyTheme }) => {
-    return applyTheme({
-      backgroundColor: 'backgroundDark',
-      color: 'color',
-    });
+  const themedImageSectionContent = useTheme({
+    backgroundColor: 'backgroundDark',
+    color: 'color',
   });
   return (
     <div
@@ -16,7 +14,7 @@ const ImageSection = ({ image, imagePosition, children }) => {
         imagePosition == 'right' ? 'imageRight' : 'imageLeft'
       }`}>
       <ImageFrame image={image} />
-      <div className='imageSectionContent' style={imageSectionContentStyle}>
+      <div className='imageSectionContent' style={themedImageSectionContent}>
         {children}
       </div>
     </div>
