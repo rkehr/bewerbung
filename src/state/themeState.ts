@@ -35,18 +35,24 @@ const useThemeStore = create((set, get) => ({
     }),
 
   applyTheme: (themeRequest: Object) => {
-    const themedStyles: Object = Object.keys(themeRequest).reduce(
-      (acc: { [key: string]: string }, val: string) => {
-        const themeField = themeRequest[val];
-        let result: { [key: string]: string } = acc;
-        result[val] = get().theme[themeField];
-        return result;
-      },
-      {}
-    );
+    const themeRequestKeys = Object.keys(themeRequest);
+    const themedStyles = themeRequestKeys.reduce((acc, requestKey) => {
+      const themeField = themeRequest[requestKey];
+      const themeProperty = get().theme[themeField];
+      if (themeProperty) {
+        acc[requestKey] = get().theme[themeField];
+      } else {
+        acc[requestKey] = themeRequest[requestKey];
+      }
+      return acc;
+    }, {});
     return themedStyles;
   },
 }));
+
+const useTheme = (themeRequest) => {
+  return useThemeStore((state) => state.applyTheme(themeRequest));
+};
 
 enum themeableCssProperties {
   color,
@@ -67,11 +73,5 @@ type themeRequest = {
   [key: string]: themeColors;
 };
 
-const applyTheme = (
-  themeRequest: { themeRequest },
-  theme
-): { [key: string]: string } => {
-  return { '': '' };
-};
-
 export default useThemeStore;
+export { useTheme };

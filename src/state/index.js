@@ -1,5 +1,5 @@
 import useGlobalStore from './globalState';
-import useThemeStore from './themeState.ts';
+import useThemeStore, { useTheme } from './themeState.ts';
 import useDataStore from './dataState';
 
-export { useGlobalStore, useThemeStore, useDataStore };
+export { useGlobalStore, useThemeStore, useTheme, useDataStore };
