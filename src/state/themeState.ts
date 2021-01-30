@@ -1,15 +1,11 @@
 import create from 'zustand';
 import { themes } from '../data';
-import { populateStyles, getThemeFields } from '../functions';
 
 const initialThemeIndex = localStorage.getItem('themeIndex') || 0;
 
 const useThemeStore = create((set, get) => ({
-  themeFields: getThemeFields(themes),
-
   theme: {
     ...themes[initialThemeIndex],
-    ...populateStyles(themes[initialThemeIndex]),
   },
   localAccent: '',
 
@@ -25,10 +21,7 @@ const useThemeStore = create((set, get) => ({
         : themes[newThemeIndex].accent;
       const theme = { ...themes[newThemeIndex], accent: accent };
       return {
-        theme: {
-          ...theme,
-          ...populateStyles(theme),
-        },
+        theme: theme,
         themeIndex: newThemeIndex,
         localAccent: accent,
       };

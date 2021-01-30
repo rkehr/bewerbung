@@ -3,17 +3,6 @@ import {
   intervalUnion,
   getMonthsInYear,
 } from './dateFunctions';
-import { reverse, reduceObjectArray } from './arrayFunctions';
-import { populateStyles, getThemeFields } from './styleFunctions.ts';
-import { capitalize } from './stringFunctions';
+import { reverse } from './arrayFunctions';
 
-export {
-  capitalize,
-  intervalIntersection,
-  intervalUnion,
-  getMonthsInYear,
-  reverse,
-  reduceObjectArray,
-  populateStyles,
-  getThemeFields,
-};
+export { intervalIntersection, intervalUnion, getMonthsInYear, reverse };
