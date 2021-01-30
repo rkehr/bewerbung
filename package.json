@@ -46,7 +46,7 @@
   "dependencies": {
     "core-js": "3",
     "date-fns": "^2.16.1",
-    "framer-motion": "^3.2.1",
+    "framer-motion": "^3.2.2-rc.1",
     "normalize-scss": "^7.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
