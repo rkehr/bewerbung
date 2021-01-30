@@ -10,8 +10,7 @@ const useDataStore = create((set) => ({
   toggleFocus: (indexToSet) =>
     set((state) => ({
       occupationTimeLine: state.occupationTimeLine.map((occupation, index) => {
-        occupation.isInFocus =
-          index == indexToSet && !occupation.isInFocus ? true : false;
+        occupation.isInFocus = index == indexToSet && !occupation.isInFocus;
         return { ...occupation };
       }),
     })),
