@@ -19,8 +19,15 @@ function SkillGroupFilter({
   const Icon = isOpen ? FiX : FiFilter;
 
   const themedSkillGroupFilter = useTheme({
-    color: 'accent',
+    color: 'primary',
     backgroundColor: 'backgroundDark',
+  });
+  const themedIcon = useTheme({
+    color: 'accent',
+    fontSize: '125%',
+    display: 'block',
+    width: '100%',
+    cursor: 'pointer',
   });
 
   const themedActiveCategory = {
@@ -43,15 +50,14 @@ function SkillGroupFilter({
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
-                style={{ fontSize: '125%', display: 'block', width: '100%' }}
-                layout
+                style={themedIcon}
               />
               {isOpen &&
                 ['Alle', ...categories].map((category, index) => {
                   const isActiveCategory = activeCategories.includes(category);
 
                   return (
-                    <div
+                    <motion.div
                       key={index}
                       onClick={() => {
                         setCategoryFilters([category]);
@@ -69,7 +75,7 @@ function SkillGroupFilter({
                       exit={{ opacity: 0, x: 100 }}
                       layout>
                       {category}
-                    </div>
+                    </motion.div>
                   );
                 })}
             </motion.div>
