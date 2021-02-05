@@ -10,7 +10,7 @@ const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
   const [isVisible, setIsVisble] = useState(false);
   const relevantMonths = getMonthsInYear(date).reverse();
 
-  const transition = { type: 'spring', stiffness: 200 };
+  const transition = { type: 'spring', stiffness: 100 };
 
   const variants = {
     visible: (delay) => ({
@@ -18,7 +18,7 @@ const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
       opacity: 1,
       transition: {
         ...transition,
-        delay: delay * 0.5,
+        delay: delay * 0.2,
       },
     }),
     hidden: (delay) => ({
@@ -26,7 +26,7 @@ const CalenderYear = ({ date, index, timeLine, occupationControls }) => {
       opacity: 0,
       transition: {
         ...transition,
-        delay: delay * 0.5,
+        delay: delay * 0.2,
       },
     }),
   };
