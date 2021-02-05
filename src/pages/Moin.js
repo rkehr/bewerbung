@@ -61,12 +61,13 @@ const Moin = ({ page }) => {
           {page.name}
         </h1>
         <p>
-          Ich bin Robin. Wenn ich endlos viel Zeit hätte würde ich am liebsten
+          Ich bin Robin. Ich bin ein neugieriger Mensch und wenn ich endlos viel
+          Zeit hätte würde ich am liebsten
           <span className='bold'> alles</span> lernen.
         </p>
         <p>
           Nach 24 Jahren musste ich allerdings feststellen, dass das etwas knapp
-          wird und habe mich endlich entschieden meinen Schwerpunkt auf die
+          wird und habe mich endgültig entschieden meinen Schwerpunkt auf die
           Programmierung zu legen.
         </p>
         <p>
@@ -75,12 +76,8 @@ const Moin = ({ page }) => {
           Kreativität, analytisches Denken, kreative Problemlösung, und
           Mustererkennung, machen mir Spaß. Und all das lässt sich dann anwenden
           auf sinnstiftende Projekte, absolut sinnbefreite Projekte, esthetische
-          Projekte, reine Kommandozeilenprojekte (dank ASCII art natürlich auch
-          esthetische Kommandozeilenprojekte)... Alles ist möglich und genau das
-          fasziniert mich.
-        </p>
-        <p>
-          Und sonst so? <br />
+          Projekte, reine Kommandozeilenprojekte... Alles ist möglich und genau
+          das fasziniert mich.
         </p>
       </div>
     </>
