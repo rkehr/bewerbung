@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
-import { Moin, Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
+//import { Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
 import { ThemeSwitch, NavElement, Page, SkillGroupFilter } from './components';
 import { useGlobalStore, useTheme, useDataStore } from './state';
+
+const Moin = lazy(() => import('./pages/Moin'));
+const Lebenslauf = lazy(() => import('./pages/Lebenslauf'));
+const Skills = lazy(() => import('./pages/Skills'));
+//const Referenzen = lazy(() => import('./pages/Referenzen'));
+const Interessen = lazy(() => import('./pages/Interessen'));
 
 const App = () => {
   const { moin, lebenslauf, skills, interessen } = pages;
@@ -52,12 +58,16 @@ const App = () => {
         <Switch location={location} key={location.key}>
           <Route path={moin.to}>
             <Page page={moin}>
-              <Moin page={moin} />
+              <Suspense fallback={<div>...</div>}>
+                <Moin page={moin} />
+              </Suspense>
             </Page>
           </Route>
           <Route path={lebenslauf.to}>
             <Page page={lebenslauf}>
-              <Lebenslauf page={lebenslauf} />
+              <Suspense fallback={<div>...</div>}>
+                <Lebenslauf page={lebenslauf} />
+              </Suspense>
             </Page>
           </Route>
           <Route path={skills.to}>
@@ -67,12 +77,16 @@ const App = () => {
               setCategoryFilters={setCategoryFilters}
             />
             <Page page={skills}>
-              <Skills page={skills} />
+              <Suspense fallback={<div>...</div>}>
+                <Skills page={skills} />
+              </Suspense>
             </Page>
           </Route>
           <Route path={interessen.to}>
             <Page page={interessen}>
-              <Interessen page={interessen} />
+              <Suspense fallback={<div>...</div>}>
+                <Interessen page={interessen} />
+              </Suspense>
             </Page>
           </Route>
 
