@@ -18,3 +18,10 @@ As the page grew in visual and functional complexity so did it's dependencies. H
 - Babel (Precompiler)
 - SCSS (CSS Precompiler Language)
 - ES Lint (Linter)
+
+## Todos:
+
+- i18n
+- Fix calender not opening on first load
+- Implement unit testing
+- Optimize Framer Motion bundle size
