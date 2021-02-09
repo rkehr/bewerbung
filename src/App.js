@@ -3,7 +3,6 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import { pages } from './data';
-//import { Lebenslauf, Skills, /*Referenzen,*/ Interessen } from './pages';
 import { ThemeSwitch, NavElement, Page, SkillGroupFilter } from './components';
 import { useGlobalStore, useTheme, useDataStore } from './state';
 
