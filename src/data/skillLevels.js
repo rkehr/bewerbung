@@ -47,7 +47,7 @@ const skillLevels = [
     skillLevels: [
       { name: 'GNU/Linux (Ubuntu)', percentage: 54 },
       { name: 'NGINX', percentage: 55 },
-      { name: 'Docker + Docker Compose', percentage: 28 },
+      { name: 'Docker', percentage: 48 },
     ],
   },
   {
@@ -64,13 +64,13 @@ const skillLevels = [
     category: 'Design',
     description: '',
     skillLevels: [
-      { name: 'Photoshop', percentage: 78 },
-      { name: 'GIMP', percentage: 56 },
-      { name: 'Illustrator', percentage: 63 },
+      { name: 'Photoshop', percentage: 62 },
+      { name: 'GIMP', percentage: 46 },
+      { name: 'Illustrator', percentage: 45 },
       { name: 'XD', percentage: 34 },
       { name: 'Lightroom', percentage: 72 },
-      { name: 'Indesign', percentage: 46 },
-      { name: 'Processing3/p5.js', percentage: 54 },
+      { name: 'Indesign', percentage: 56 },
+      { name: 'Processing3/ p5.js', percentage: 54 },
     ],
   },
   {
